@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Sam Agri | Pioneers in Fresh Produce Excellence</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#0d631b",
+                        secondary: "#7e1a12",
+                        surface: "#fefefe",
+                        "on-surface": "#1a1c18",
+                        "primary-container": "#9ef295",
+                        "secondary-container": "#ffdad5",
+                        "primary-fixed": "#83d57c",
+                        "surface-container-low": "#f4f4f0",
+                        "surface-container-lowest": "#ffffff"
+                    },
+                    fontFamily: {
+                        serif: ["Outfit", "sans-serif"],
+                        sans: ["Outfit", "sans-serif"]
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.98);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .animate-in {
+            animation: fadeInScale 0.8s cubic-bezier(0.2, 0, 0.2, 1) forwards;
+        }
+
+        html, body {
+            font-family: 'Outfit', sans-serif;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+            max-width: 100%;
+        }
+
+        .font-serif {
+            font-family: 'Outfit', sans-serif;
+        }
+
+        /* ── Global Presence map styles ── */
+        #gp-world-map {
+            display: block;
+        }
+
+        .gp-country {
+            transition: fill 0.5s ease, stroke 0.4s ease;
+            cursor: default;
+        }
+
+        .gp-country.highlighted {
+            filter: drop-shadow(0 0 8px #9ef295);
+        }
+
+        #gp-dest-name,
+        #gp-dest-desc {
+            transition: opacity 0.3s ease;
+        }
+
+        @keyframes gpPulse {
+            0% {
+                r: 8;
+                opacity: 0.6;
+            }
+
+            100% {
+                r: 22;
+                opacity: 0;
+            }
+        }
+
+        .gp-hq-pulse {
+            animation: gpPulse 1.8s ease-out infinite;
+        }
+
+        @keyframes gpFlagBounce {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.15);
+            }
+        }
+
+        .gp-flag-bounce {
+            animation: gpFlagBounce 0.4s ease;
+        }
+
+        @keyframes gpPulse2 {
+
+            0%,
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0.5;
+                transform: scale(1.4);
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <!-- D3 + TopoJSON CDN — Interactive Map -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/3.0.2/topojson.min.js"></script>
+</head>
+
+<body class="bg-surface text-on-surface">
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+</body>
+
+</html>
