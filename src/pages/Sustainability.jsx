@@ -305,35 +305,6 @@ const Sustainability = () => {
                 </div>
 
               </div>
-
-              {/* Bottom: Certifications & Accreditations */}
-              <div className="pt-8 border-t border-zinc-200">
-                <div className="text-center mb-8">
-                  <h3 className="text-lg md:text-xl font-bold text-zinc-800 tracking-wide">Certifications & Accreditations</h3>
-                  <p className="text-zinc-500 text-xs mt-1">Globally recognized standards validating our food safety & sustainable farming practices</p>
-                </div>
-                
-                <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-4 md:gap-6">
-                  {certifications.map((cert, idx) => (
-                    <div 
-                      key={idx}
-                      className="bg-zinc-50/50 border border-zinc-200 rounded-2xl p-4 flex flex-col items-center justify-center text-center transition-all duration-300 hover:border-[#2D5A27]/50 hover:bg-zinc-100/50 hover:-translate-y-1 group"
-                    >
-                      <div className="w-16 h-16 flex items-center justify-center mb-3 grayscale group-hover:grayscale-0 transition-all duration-500">
-                        <img 
-                          src={cert.logo} 
-                          alt={cert.name} 
-                          className="max-h-full max-w-full object-contain"
-                          onError={(e) => { e.target.src = 'https://via.placeholder.com/60?text=' + cert.name }}
-                        />
-                      </div>
-                      <span className="text-[10px] font-bold text-zinc-500 group-hover:text-[#2D5A27] uppercase tracking-wider transition-colors">
-                        {cert.name}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              </div>
             </motion.div>
           )}
 
