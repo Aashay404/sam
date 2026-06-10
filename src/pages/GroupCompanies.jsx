@@ -70,7 +70,7 @@ const GroupCompanies = () => {
               </div>
             </div>
             <div className="dp-card border border-zinc-200/60 shadow-md rounded-2xl group hover:border-primary transition-all duration-300">
-              <img src="/apeda.webp" alt="APEDA" />
+              <img src="/apeda.png" alt="APEDA" />
               <div className="dp-info text-left">
                 <h3>APEDA</h3>
                 <p>Agricultural and Processed Food Products Export Development Authority of India.</p>

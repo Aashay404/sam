@@ -48,7 +48,7 @@ const Sustainability = () => {
     { name: "ISO 22000", logo: "/iso.png" },
     { name: "SMETA", logo: "/smeta.png" },
     { name: "FSSAI", logo: "/fssai.png" },
-    { name: "APEDA", logo: "/apeda.webp" },
+    { name: "APEDA", logo: "/apeda.png" },
     { name: "US FDA", logo: "/fda.png" },
     { name: "Fairtrade", logo: "/fairtrade.png" }
   ]
