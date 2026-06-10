@@ -156,21 +156,29 @@ const Sustainability = () => {
   ]
 
   return (
-    <div className="sustainability-page text-[#f5f5f5] bg-[#0a0f0a] min-h-screen font-sans">
+    <div className="sustainability-page text-on-surface bg-white min-h-screen font-sans">
       
       {/* Hero Header Section */}
-      <section className="pt-36 pb-20 px-6 relative overflow-hidden bg-gradient-to-b from-[#0e170e] to-[#0a0f0a] border-b border-emerald-900/10">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(45,90,39,0.15)_0%,transparent_60%)] pointer-events-none z-0"></div>
+      <section className="relative min-h-[50vh] flex items-center justify-center pt-36 pb-20 px-6 overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <img 
+            src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?q=80&w=2000" 
+            className="w-full h-full object-cover opacity-45" 
+            alt="Sustainability Background" 
+          />
+          {/* Subtle gradient overlay to ensure text readability */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/75 to-black/90"></div>
+        </div>
         
         <div className="max-w-5xl mx-auto text-center relative z-10 animate-in">
           <span className="text-[#9ef295] font-bold uppercase tracking-[0.3em] text-[10px] md:text-xs mb-4 block">
             Our Responsibility
           </span>
-          <h1 className="text-4xl md:text-6xl font-serif font-black leading-tight mb-6">
+          <h1 className="text-4xl md:text-6xl font-sans font-black text-white leading-tight mb-6 uppercase tracking-tighter">
             Responsible Growth from <br/>
-            <span className="italic text-[#9ef295] font-serif">Root to Market</span>
+            <span className="italic text-[#9ef295]">Root to Market</span>
           </h1>
-          <p className="text-zinc-400 text-sm md:text-base max-w-3xl mx-auto leading-relaxed">
+          <p className="text-white/70 text-sm md:text-base max-w-3xl mx-auto leading-relaxed">
             At Sam Agri, sustainability is not a checkbox; it is the core of our operations. 
             We integrate environmental stewardship, female empowerment, ethical supply chains, 
             and community development into a single, cohesive model.
@@ -179,9 +187,9 @@ const Sustainability = () => {
       </section>
 
       {/* Main Navigation Tabs */}
-      <section className="py-6 px-6 sticky top-[80px] z-50 bg-[#0a0f0a]/95 backdrop-blur-md border-b border-zinc-800/60">
+      <section className="py-6 px-6 sticky top-[80px] z-50 bg-white/95 backdrop-blur-md border-b border-zinc-200">
         <div className="max-w-4xl mx-auto">
-          <div className="bg-[#141a14]/90 border border-emerald-955/80 rounded-2xl md:rounded-full p-1.5 flex flex-wrap md:flex-nowrap justify-between gap-1 shadow-2xl">
+          <div className="bg-zinc-100/90 border border-zinc-200/80 rounded-2xl md:rounded-full p-1.5 flex flex-wrap md:flex-nowrap justify-between gap-1 shadow-md">
             {[
               { id: 'environment', label: 'Environment', icon: <Leaf className="w-4 h-4" /> },
               { id: 'women-empowerment', label: 'Women Empowerment', icon: <Award className="w-4 h-4" /> },
@@ -195,8 +203,8 @@ const Sustainability = () => {
                   onClick={() => setActiveTab(tab.id)}
                   className={`flex items-center justify-center gap-2.5 px-4 md:px-6 py-2.5 rounded-xl md:rounded-full text-xs md:text-sm font-bold tracking-wider uppercase transition-all duration-300 w-full md:w-auto ${
                     active 
-                      ? 'bg-[#2D5A27] text-white shadow-lg shadow-emerald-950/60 border border-emerald-700/50' 
-                      : 'text-zinc-400 hover:text-white hover:bg-white/5'
+                      ? 'bg-[#2D5A27] text-white shadow-lg border border-emerald-700/50' 
+                      : 'text-zinc-500 hover:text-[#2D5A27] hover:bg-zinc-200/50'
                   }`}
                 >
                   {tab.icon}
@@ -224,8 +232,8 @@ const Sustainability = () => {
             >
               {/* Heading */}
               <div className="text-center md:text-left border-l-4 border-[#2D5A27] pl-4">
-                <span className="text-[#9ef295] text-xs font-black tracking-widest uppercase block mb-1">Our Planet</span>
-                <h2 className="text-3xl md:text-5xl font-serif font-black text-white">Environment & Responsible Farming</h2>
+                <span className="text-[#2D5A27] text-xs font-black tracking-widest uppercase block mb-1">Our Planet</span>
+                <h2 className="text-3xl md:text-5xl font-sans font-black text-zinc-800">Environment & Responsible Farming</h2>
               </div>
 
               {/* Grid: Subtopics (Left) & Photograph (Right) */}
@@ -233,7 +241,7 @@ const Sustainability = () => {
                 
                 {/* Left Half: Vertical Subtopics Tabs */}
                 <div className="lg:col-span-7 space-y-6">
-                  <p className="text-zinc-400 text-sm md:text-base leading-relaxed mb-6">
+                  <p className="text-zinc-600 text-sm md:text-base leading-relaxed mb-6">
                     Our agricultural methods focus on replenishing natural resources. From smart water tracking to organic biodiversity enrichment, we ensure our ecosystem remains robust for generations to come.
                   </p>
                   
@@ -246,19 +254,19 @@ const Sustainability = () => {
                           onClick={() => setActiveEnvSubtopic(idx)}
                           className={`cursor-pointer p-5 rounded-2xl border transition-all duration-300 ${
                             active 
-                              ? 'bg-[#141f14]/85 border-[#2D5A27]/60 shadow-[0_4px_20px_rgba(45,90,39,0.15)]' 
-                              : 'bg-[#101410]/40 border-zinc-800/40 hover:border-zinc-700/60'
+                              ? 'bg-[#2D5A27]/5 border-[#2D5A27]/30 shadow-md' 
+                              : 'bg-zinc-50/50 border-zinc-200/80 hover:border-zinc-300'
                           }`}
                         >
                           <div className="flex items-center gap-4">
-                            <div className={`p-2.5 rounded-xl transition-all duration-350 ${
-                              active ? 'bg-[#2D5A27] text-white' : 'bg-zinc-800/60 text-zinc-400'
+                            <div className={`p-2.5 rounded-xl transition-all duration-355 ${
+                              active ? 'bg-[#2D5A27] text-white' : 'bg-zinc-100 text-zinc-500'
                             }`}>
                               {sub.icon}
                             </div>
                             <div>
                               <h4 className={`text-sm md:text-base font-bold transition-colors ${
-                                active ? 'text-[#9ef295]' : 'text-white'
+                                active ? 'text-[#2D5A27]' : 'text-zinc-800'
                               }`}>
                                 {sub.title}
                               </h4>
@@ -266,7 +274,7 @@ const Sustainability = () => {
                                 <motion.p 
                                   initial={{ opacity: 0, height: 0 }}
                                   animate={{ opacity: 1, height: 'auto' }}
-                                  className="text-zinc-300 text-xs md:text-sm mt-3 leading-relaxed"
+                                  className="text-zinc-600 text-xs md:text-sm mt-3 leading-relaxed"
                                 >
                                   {sub.desc}
                                 </motion.p>
@@ -281,8 +289,7 @@ const Sustainability = () => {
 
                 {/* Right Half: Photograph */}
                 <div className="lg:col-span-5 relative group">
-                  <div className="absolute inset-0 bg-[#2D5A27]/10 blur-[80px] rounded-full pointer-events-none group-hover:bg-[#2D5A27]/20 transition-all duration-500"></div>
-                  <div className="relative overflow-hidden rounded-[2.5rem] border border-zinc-800 shadow-2xl">
+                  <div className="relative overflow-hidden rounded-[2.5rem] border border-zinc-200 shadow-2xl">
                     <img 
                       src="/farm_3d.png" 
                       alt="Organic farm environment" 
@@ -300,9 +307,9 @@ const Sustainability = () => {
               </div>
 
               {/* Bottom: Certifications & Accreditations */}
-              <div className="pt-8 border-t border-zinc-800/60">
+              <div className="pt-8 border-t border-zinc-200">
                 <div className="text-center mb-8">
-                  <h3 className="text-lg md:text-xl font-bold text-white tracking-wide">Certifications & Accreditations</h3>
+                  <h3 className="text-lg md:text-xl font-bold text-zinc-800 tracking-wide">Certifications & Accreditations</h3>
                   <p className="text-zinc-500 text-xs mt-1">Globally recognized standards validating our food safety & sustainable farming practices</p>
                 </div>
                 
@@ -310,7 +317,7 @@ const Sustainability = () => {
                   {certifications.map((cert, idx) => (
                     <div 
                       key={idx}
-                      className="bg-[#121612]/60 border border-zinc-900 rounded-2xl p-4 flex flex-col items-center justify-center text-center transition-all duration-300 hover:border-[#2D5A27]/50 hover:bg-[#161f16]/40 hover:-translate-y-1 group"
+                      className="bg-zinc-50/50 border border-zinc-200 rounded-2xl p-4 flex flex-col items-center justify-center text-center transition-all duration-300 hover:border-[#2D5A27]/50 hover:bg-zinc-100/50 hover:-translate-y-1 group"
                     >
                       <div className="w-16 h-16 flex items-center justify-center mb-3 grayscale group-hover:grayscale-0 transition-all duration-500">
                         <img 
@@ -320,7 +327,7 @@ const Sustainability = () => {
                           onError={(e) => { e.target.src = 'https://via.placeholder.com/60?text=' + cert.name }}
                         />
                       </div>
-                      <span className="text-[10px] font-bold text-zinc-400 group-hover:text-white uppercase tracking-wider transition-colors">
+                      <span className="text-[10px] font-bold text-zinc-500 group-hover:text-[#2D5A27] uppercase tracking-wider transition-colors">
                         {cert.name}
                       </span>
                     </div>
@@ -342,9 +349,9 @@ const Sustainability = () => {
             >
               {/* Heading & Intro */}
               <div className="border-l-4 border-[#2D5A27] pl-4 max-w-3xl">
-                <span className="text-[#9ef295] text-xs font-black tracking-widest uppercase block mb-1">Social Impact</span>
-                <h2 className="text-3xl md:text-5xl font-serif font-black text-white mb-4">Empowering Women in Agriculture</h2>
-                <p className="text-zinc-400 text-sm md:text-base leading-relaxed">
+                <span className="text-[#2D5A27] text-xs font-black tracking-widest uppercase block mb-1">Social Impact</span>
+                <h2 className="text-3xl md:text-5xl font-sans font-black text-zinc-800 mb-4">Empowering Women in Agriculture</h2>
+                <p className="text-zinc-600 text-sm md:text-base leading-relaxed">
                   We believe that empowering women leads to stronger communities. At our processing and packaging centers, 
                   women form the backbone of our operations, achieving economic independence, leadership roles, and technical expertise.
                 </p>
@@ -356,7 +363,7 @@ const Sustainability = () => {
                 {/* Left Half: Photograph & Interactive Numbers Grid */}
                 <div className="lg:col-span-6 space-y-8">
                   {/* Photo */}
-                  <div className="relative group overflow-hidden rounded-[2.5rem] border border-zinc-800 shadow-2xl">
+                  <div className="relative group overflow-hidden rounded-[2.5rem] border border-zinc-200 shadow-2xl">
                     <img 
                       src="/women_empowerment.png" 
                       alt="Women operators in high care facility" 
@@ -371,11 +378,11 @@ const Sustainability = () => {
                     {womenStats.map((stat, idx) => (
                       <div 
                         key={idx}
-                        className="bg-[#121612]/50 border border-zinc-800/40 rounded-2xl p-5 hover:border-[#2D5A27]/50 transition-all duration-300"
+                        className="bg-zinc-50/50 border border-zinc-200 rounded-2xl p-5 hover:border-[#2D5A27]/50 transition-all duration-300"
                       >
-                        <div className="text-3xl font-black text-[#9ef295] font-sans mb-1">{stat.number}</div>
-                        <div className="text-xs font-bold text-white uppercase tracking-wider mb-2">{stat.label}</div>
-                        <p className="text-zinc-400 text-xs leading-relaxed">{stat.desc}</p>
+                        <div className="text-3xl font-black text-secondary font-sans mb-1">{stat.number}</div>
+                        <div className="text-xs font-bold text-zinc-800 uppercase tracking-wider mb-2">{stat.label}</div>
+                        <p className="text-zinc-600 text-xs leading-relaxed">{stat.desc}</p>
                       </div>
                     ))}
                   </div>
@@ -393,18 +400,18 @@ const Sustainability = () => {
                           onClick={() => setActiveWomenSubtopic(idx)}
                           className={`cursor-pointer p-6 rounded-2xl border transition-all duration-300 flex items-start gap-5 ${
                             active 
-                              ? 'bg-[#141f14]/85 border-[#2D5A27]/60 shadow-lg' 
-                              : 'bg-[#101410]/40 border-zinc-800/40 hover:border-zinc-700/60'
+                              ? 'bg-[#2D5A27]/5 border-[#2D5A27]/30 shadow-lg' 
+                              : 'bg-zinc-50/50 border-zinc-200/80 hover:border-zinc-300'
                           }`}
                         >
                           <div className={`p-3 rounded-xl transition-all ${
-                            active ? 'bg-[#2D5A27] text-white' : 'bg-zinc-800/60 text-zinc-400'
+                            active ? 'bg-[#2D5A27] text-white' : 'bg-zinc-100 text-zinc-500'
                           }`}>
                             {sub.icon}
                           </div>
                           <div className="space-y-1">
                             <h4 className={`text-sm md:text-base font-bold transition-colors ${
-                              active ? 'text-[#9ef295]' : 'text-white'
+                              active ? 'text-[#2D5A27]' : 'text-zinc-800'
                             }`}>
                               {sub.title}
                             </h4>
@@ -412,7 +419,7 @@ const Sustainability = () => {
                               <motion.p 
                                 initial={{ opacity: 0, y: 5 }}
                                 animate={{ opacity: 1, y: 0 }}
-                                className="text-zinc-300 text-xs md:text-sm pt-2 leading-relaxed"
+                                className="text-zinc-600 text-xs md:text-sm pt-2 leading-relaxed"
                               >
                                 {sub.desc}
                               </motion.p>
@@ -440,22 +447,22 @@ const Sustainability = () => {
             >
               {/* Heading & Intro */}
               <div className="border-l-4 border-[#2D5A27] pl-4 max-w-3xl">
-                <span className="text-[#9ef295] text-xs font-black tracking-widest uppercase block mb-1">Supply Chain Integrity</span>
-                <h2 className="text-3xl md:text-5xl font-serif font-black text-white mb-4">Ethical Sourcing & Fairtrade</h2>
-                <p className="text-zinc-400 text-sm md:text-base leading-relaxed">
+                <span className="text-[#2D5A27] text-xs font-black tracking-widest uppercase block mb-1">Supply Chain Integrity</span>
+                <h2 className="text-3xl md:text-5xl font-sans font-black text-zinc-800 mb-4">Ethical Sourcing & Fairtrade</h2>
+                <p className="text-zinc-600 text-sm md:text-base leading-relaxed">
                   Ethical sourcing is the bedrock of our global supply chain. We build direct, transparent relationships with 
                   smallholder farmers, ensuring guaranteed fair minimum prices, agronomy guidance, and absolute traceability from field to shelf.
                 </p>
               </div>
 
               {/* Journey Stepper Component */}
-              <div className="bg-[#121612]/30 border border-zinc-800/50 rounded-3xl p-6 md:p-10">
-                <h3 className="text-base md:text-lg font-bold text-white mb-6 text-center">Demonstrating the Supply Chain Journey</h3>
+              <div className="bg-zinc-50/50 border border-zinc-200 rounded-3xl p-6 md:p-10">
+                <h3 className="text-base md:text-lg font-bold text-zinc-800 mb-6 text-center">Demonstrating the Supply Chain Journey</h3>
                 
                 {/* Horizontal steps bar */}
                 <div className="relative flex flex-col md:flex-row items-center justify-between gap-6 md:gap-4">
                   {/* Step Connector Line */}
-                  <div className="absolute top-[34px] left-[8%] right-[8%] bg-zinc-800/80 z-0 hidden md:block" style={{ height: '2px' }}></div>
+                  <div className="absolute top-[34px] left-[8%] right-[8%] bg-zinc-200 z-0 hidden md:block" style={{ height: '2px' }}></div>
                   
                   {sourcingSteps.map((step, idx) => {
                     const active = activeSourcingStep === idx
@@ -465,16 +472,16 @@ const Sustainability = () => {
                         onClick={() => setActiveSourcingStep(idx)}
                         className="relative z-10 flex flex-row md:flex-col items-center gap-4 md:gap-3 w-full md:w-[18%] text-left md:text-center group"
                       >
-                        <div className={`w-16 h-16 rounded-full flex items-center justify-center font-bold font-sans text-base transition-all duration-350 ${
+                        <div className={`w-16 h-16 rounded-full flex items-center justify-center font-bold font-sans text-base transition-all duration-355 ${
                           active 
-                            ? 'bg-[#2D5A27] text-white scale-110 shadow-lg shadow-emerald-950/80 border border-emerald-600' 
-                            : 'bg-[#151c15] text-zinc-500 border border-zinc-800/80 group-hover:border-[#2d5a27]/50'
+                            ? 'bg-[#2D5A27] text-white scale-110 shadow-lg border border-emerald-600' 
+                            : 'bg-zinc-100 text-zinc-500 border border-zinc-200 group-hover:border-[#2d5a27]/50'
                         }`}>
                           {step.step}
                         </div>
                         <div>
                           <div className={`text-xs md:text-sm font-bold transition-colors ${
-                            active ? 'text-[#9ef295]' : 'text-zinc-400 group-hover:text-white'
+                            active ? 'text-primary' : 'text-zinc-500 group-hover:text-zinc-800'
                           }`}>
                             {step.title}
                           </div>
@@ -485,17 +492,17 @@ const Sustainability = () => {
                 </div>
 
                 {/* Step Detail Card */}
-                <div className="mt-8 pt-8 border-t border-zinc-800/40 flex flex-col md:flex-row items-center justify-between gap-6">
+                <div className="mt-8 pt-8 border-t border-zinc-200 flex flex-col md:flex-row items-center justify-between gap-6">
                   <div className="max-w-2xl space-y-3">
-                    <span className="text-[#9ef295] text-[10px] font-bold uppercase tracking-widest">
+                    <span className="text-[#2D5A27] text-[10px] font-bold uppercase tracking-widest">
                       Stage {sourcingSteps[activeSourcingStep].step} Details
                     </span>
-                    <h4 className="text-lg font-bold text-white">{sourcingSteps[activeSourcingStep].title}</h4>
-                    <p className="text-zinc-300 text-sm leading-relaxed">{sourcingSteps[activeSourcingStep].desc}</p>
+                    <h4 className="text-lg font-bold text-zinc-800">{sourcingSteps[activeSourcingStep].title}</h4>
+                    <p className="text-zinc-600 text-sm leading-relaxed">{sourcingSteps[activeSourcingStep].desc}</p>
                   </div>
                   <div className="flex-shrink-0 bg-[#2D5A27]/10 border border-[#2D5A27]/25 rounded-2xl px-6 py-4 flex items-center gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-[#9ef295]" />
-                    <span className="text-xs font-semibold text-white tracking-wide">Fully Traceable Step</span>
+                    <CheckCircle2 className="w-5 h-5 text-primary" />
+                    <span className="text-xs font-semibold text-zinc-800 tracking-wide">Fully Traceable Step</span>
                   </div>
                 </div>
               </div>
@@ -515,19 +522,19 @@ const Sustainability = () => {
                           onClick={() => setActiveSourcingSubtopic(idx)}
                           className={`cursor-pointer p-5 rounded-2xl border transition-all duration-300 ${
                             active 
-                              ? 'bg-[#141f14]/85 border-[#2D5A27]/60 shadow-lg' 
-                              : 'bg-[#101410]/40 border-zinc-800/40 hover:border-zinc-700/60'
+                              ? 'bg-[#2D5A27]/5 border-[#2D5A27]/30 shadow-lg' 
+                              : 'bg-zinc-50/50 border-zinc-200/80 hover:border-zinc-300'
                           }`}
                         >
                           <div className="flex items-center gap-4">
                             <div className={`p-2.5 rounded-xl transition-all ${
-                              active ? 'bg-[#2D5A27] text-white' : 'bg-zinc-800/60 text-zinc-400'
+                              active ? 'bg-[#2D5A27] text-white' : 'bg-zinc-100 text-zinc-500'
                             }`}>
                               {sub.icon}
                             </div>
                             <div className="flex-1">
                               <h4 className={`text-sm md:text-base font-bold transition-colors ${
-                                active ? 'text-[#9ef295]' : 'text-white'
+                                active ? 'text-[#2D5A27]' : 'text-zinc-800'
                               }`}>
                                 {sub.title}
                               </h4>
@@ -535,7 +542,7 @@ const Sustainability = () => {
                                 <motion.p 
                                   initial={{ opacity: 0, height: 0 }}
                                   animate={{ opacity: 1, height: 'auto' }}
-                                  className="text-zinc-300 text-xs md:text-sm mt-3 leading-relaxed"
+                                  className="text-zinc-600 text-xs md:text-sm mt-3 leading-relaxed"
                                 >
                                   {sub.desc}
                                 </motion.p>
@@ -551,7 +558,7 @@ const Sustainability = () => {
                 {/* Right Half: Photo + Testimonial */}
                 <div className="lg:col-span-6 space-y-8">
                   {/* Photo */}
-                  <div className="relative group overflow-hidden rounded-[2.5rem] border border-zinc-800 shadow-2xl">
+                  <div className="relative group overflow-hidden rounded-[2.5rem] border border-zinc-200 shadow-2xl">
                     <img 
                       src="/ethical_sourcing.png" 
                       alt="Agronomist assisting farmer on field" 
@@ -562,9 +569,9 @@ const Sustainability = () => {
                   </div>
 
                   {/* Farmer Testimonial Card */}
-                  <div className="bg-[#121a12]/70 border border-emerald-950/80 backdrop-blur-md rounded-3xl p-6 md:p-8 relative shadow-xl">
-                    <div className="text-4xl text-[#9ef295] font-serif absolute top-4 left-6 opacity-30">“</div>
-                    <blockquote className="text-zinc-300 text-sm md:text-base italic leading-relaxed pl-4 relative z-10">
+                  <div className="bg-[#2D5A27]/5 border border-[#2D5A27]/20 backdrop-blur-md rounded-3xl p-6 md:p-8 relative shadow-xl">
+                    <div className="text-4xl text-[#2D5A27] font-serif absolute top-4 left-6 opacity-20">“</div>
+                    <blockquote className="text-zinc-600 text-sm md:text-base italic leading-relaxed pl-4 relative z-10">
                       Partnering with Sam Agri gave us price security and the agronomy skills to double our yield. We now farm with confidence, knowing we have a trusted partner.
                     </blockquote>
                     <div className="mt-5 pl-4 flex items-center gap-3">
@@ -572,7 +579,7 @@ const Sustainability = () => {
                         RK
                       </div>
                       <div>
-                        <cite className="not-italic text-sm font-bold text-white block">Ramappa K.</cite>
+                        <cite className="not-italic text-sm font-bold text-zinc-800 block">Ramappa K.</cite>
                         <span className="text-zinc-500 text-[10px] uppercase font-semibold">Pomegranate Grower, Anantapur District</span>
                       </div>
                     </div>
@@ -595,9 +602,9 @@ const Sustainability = () => {
             >
               {/* Heading & Intro */}
               <div className="border-l-4 border-[#2D5A27] pl-4 max-w-3xl">
-                <span className="text-[#9ef295] text-xs font-black tracking-widest uppercase block mb-1">Corporate Social Responsibility</span>
-                <h2 className="text-3xl md:text-5xl font-serif font-black text-white mb-4">The Sam Foundation</h2>
-                <p className="text-zinc-400 text-sm md:text-base leading-relaxed">
+                <span className="text-[#2D5A27] text-xs font-black tracking-widest uppercase block mb-1">Corporate Social Responsibility</span>
+                <h2 className="text-3xl md:text-5xl font-sans font-black text-zinc-800 mb-4">The Sam Foundation</h2>
+                <p className="text-zinc-600 text-sm md:text-base leading-relaxed">
                   The Sam Foundation is our social impact initiative dedicated to uplifting the rural communities that support us. 
                   Through targeted investments in education, health, and clean drinking water, we aim to build resilient farming villages.
                 </p>
@@ -607,7 +614,7 @@ const Sustainability = () => {
               <div className="space-y-8">
                 
                 {/* Horizontal CSR subtopic selectors */}
-                <div className="flex flex-wrap md:flex-nowrap gap-3 bg-[#111611]/80 border border-zinc-900 rounded-2xl p-2">
+                <div className="flex flex-wrap md:flex-nowrap gap-3 bg-zinc-100 border border-zinc-200 rounded-2xl p-2">
                   {samSubtopics.map((sub, idx) => {
                     const active = activeSamSubtopic === idx
                     return (
@@ -617,7 +624,7 @@ const Sustainability = () => {
                         className={`flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-xl text-xs md:text-sm font-bold transition-all duration-355 ${
                           active 
                             ? 'bg-[#2D5A27] text-white shadow-md' 
-                            : 'text-zinc-400 hover:text-white hover:bg-white/5'
+                            : 'text-zinc-500 hover:text-zinc-800 hover:bg-zinc-200/50'
                         }`}
                       >
                         {sub.icon}
@@ -628,28 +635,28 @@ const Sustainability = () => {
                 </div>
 
                 {/* Subtopic description & Image Panel */}
-                <div className="bg-[#121612]/50 border border-zinc-800/40 rounded-3xl p-6 md:p-10 grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12 items-center">
+                <div className="bg-zinc-50/50 border border-zinc-200 rounded-3xl p-6 md:p-10 grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12 items-center">
                   <div className="lg:col-span-7 space-y-4">
-                    <span className="text-[#9ef295] text-[10px] font-black uppercase tracking-widest block">CSR Initiative Focus</span>
-                    <h3 className="text-xl md:text-2xl font-serif font-black text-white">
+                    <span className="text-[#2D5A27] text-[10px] font-black uppercase tracking-widest block">CSR Initiative Focus</span>
+                    <h3 className="text-xl md:text-2xl font-sans font-black text-zinc-800">
                       {samSubtopics[activeSamSubtopic].title}
                     </h3>
-                    <p className="text-zinc-300 text-sm md:text-base leading-relaxed">
+                    <p className="text-zinc-600 text-sm md:text-base leading-relaxed">
                       {samSubtopics[activeSamSubtopic].desc}
                     </p>
-                    <div className="pt-4 flex flex-wrap gap-4 text-xs font-semibold text-zinc-400">
+                    <div className="pt-4 flex flex-wrap gap-4 text-xs font-semibold text-zinc-500">
                       <div className="flex items-center gap-2">
-                        <CheckCircle2 className="w-4 h-4 text-[#9ef295]" />
+                        <CheckCircle2 className="w-4 h-4 text-primary" />
                         <span>Direct Community Funding</span>
                       </div>
                       <div className="flex items-center gap-2">
-                        <CheckCircle2 className="w-4 h-4 text-[#9ef295]" />
+                        <CheckCircle2 className="w-4 h-4 text-primary" />
                         <span>Verified Social Metrics</span>
                       </div>
                     </div>
                   </div>
                   
-                  <div className="lg:col-span-5 relative group overflow-hidden rounded-2xl border border-zinc-800 shadow-xl">
+                  <div className="lg:col-span-5 relative group overflow-hidden rounded-2xl border border-zinc-200 shadow-xl">
                     <img 
                       src="/sam_foundation.png" 
                       alt="Sam Foundation village support" 
