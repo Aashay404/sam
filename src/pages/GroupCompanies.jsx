@@ -47,74 +47,85 @@ const GroupCompanies = () => {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <span className="text-primary font-bold text-xs uppercase tracking-widest bg-primary/5 px-4 py-1.5 rounded-full">Partners & Affiliates</span>
-            <h2 className="text-3xl md:text-5xl font-sans font-bold text-zinc-800 mt-4 uppercase tracking-tighter">Affiliated Organizations</h2>
+            <h2 className="text-3xl md:text-5xl font-serif font-bold text-zinc-800 mt-4 uppercase tracking-tighter">Affiliated Organizations</h2>
             <div className="w-20 h-1 bg-secondary mx-auto mt-4"></div>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-            {/* Westfalia Fruit */}
+            {/* West-In-Avo */}
             <div className="group relative aspect-square rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-lg border border-zinc-200 transition-all duration-700 hover:-translate-y-2 hover:shadow-2xl">
-              <img src="https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?q=80&w=1000" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" alt="Westfalia Fruit" />
+              <img src="/assets/avocado.jpg" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" alt="West-In-Avo" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-transparent"></div>
               <div className="absolute inset-0 p-8 md:p-10 flex flex-col justify-end text-left">
-                <span className="text-[#9ef295] font-bold text-[10px] uppercase tracking-widest mb-2">Multinational Partner</span>
-                <h3 className="text-2xl md:text-3xl font-sans font-bold text-white mb-4 leading-tight">Westfalia <br />Fruit</h3>
-                <p className="text-white/70 text-sm leading-relaxed group-hover:text-white transition-colors">Leading multinational supplier of fresh fruit, specializing in avocados.</p>
+                <span className="text-[#9ef295] font-bold text-[10px] uppercase tracking-widest mb-2">Domestic Brand</span>
+                <h3 className="text-2xl md:text-3xl font-serif font-bold text-white mb-4 leading-tight">West-In-Avo</h3>
+                <p className="text-white/70 text-sm leading-relaxed group-hover:text-white transition-colors">Premium Hass avocados grown in our domestic farms, tree-ripened quality for every table.</p>
               </div>
             </div>
 
-            {/* Dvori Or */}
+            {/* Sam Berry */}
             <div className="group relative aspect-square rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-lg border border-zinc-200 transition-all duration-700 hover:-translate-y-2 hover:shadow-2xl">
-              <img src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?q=80&w=1000" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" alt="Dvori Or" />
+              <img src="/assets/sam_berry_basket.png" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" alt="Sam Berry" onError={(e) => { e.target.src = '/assets/berries.jpg' }} />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-transparent"></div>
               <div className="absolute inset-0 p-8 md:p-10 flex flex-col justify-end text-left">
-                <span className="text-[#9ef295] font-bold text-[10px] uppercase tracking-widest mb-2">Israel</span>
-                <h3 className="text-2xl md:text-3xl font-sans font-bold text-white mb-4 leading-tight">Dvori <br />Or</h3>
-                <p className="text-white/70 text-sm leading-relaxed group-hover:text-white transition-colors">Strategic agricultural production partner based in Israel.</p>
+                <span className="text-[#9ef295] font-bold text-[10px] uppercase tracking-widest mb-2">Domestic Brand</span>
+                <h3 className="text-2xl md:text-3xl font-serif font-bold text-white mb-4 leading-tight">Sam Berry</h3>
+                <p className="text-white/70 text-sm leading-relaxed group-hover:text-white transition-colors">A lush assortment of locally sourced berries and seasonal gift baskets.</p>
               </div>
             </div>
 
-            {/* APEDA */}
+            {/* Sam's Delight */}
             <div className="group relative aspect-square rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-lg border border-zinc-200 transition-all duration-700 hover:-translate-y-2 hover:shadow-2xl">
-              <img src="/apeda.png" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" alt="APEDA" />
+              <img src="/assets/almond.jpg" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" alt="Sam's Delight" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-transparent"></div>
               <div className="absolute inset-0 p-8 md:p-10 flex flex-col justify-end text-left">
-                <span className="text-[#9ef295] font-bold text-[10px] uppercase tracking-widest mb-2">India</span>
-                <h3 className="text-2xl md:text-3xl font-sans font-bold text-white mb-4 leading-tight">APEDA</h3>
-                <p className="text-white/70 text-sm leading-relaxed group-hover:text-white transition-colors">Agricultural and Processed Food Products Export Development Authority of India.</p>
+                <span className="text-[#9ef295] font-bold text-[10px] uppercase tracking-widest mb-2">Domestic Brand</span>
+                <h3 className="text-2xl md:text-3xl font-serif font-bold text-white mb-4 leading-tight">Sam's Delight</h3>
+                <p className="text-white/70 text-sm leading-relaxed group-hover:text-white transition-colors">Our flagship range of premium papaya and tropical delicacies.</p>
               </div>
             </div>
 
-            {/* NABARD */}
+            {/* Sam Alpine */}
             <div className="group relative aspect-square rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-lg border border-zinc-200 transition-all duration-700 hover:-translate-y-2 hover:shadow-2xl">
-              <img src="https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?q=80&w=1000" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" alt="NABARD" />
+              <img src="https://images.unsplash.com/photo-1498557850523-fd3d118b962e?q=80&w=800" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" alt="Sam Alpine" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-transparent"></div>
               <div className="absolute inset-0 p-8 md:p-10 flex flex-col justify-end text-left">
-                <span className="text-[#9ef295] font-bold text-[10px] uppercase tracking-widest mb-2">India</span>
-                <h3 className="text-2xl md:text-3xl font-sans font-bold text-white mb-4 leading-tight">NABARD</h3>
-                <p className="text-white/70 text-sm leading-relaxed group-hover:text-white transition-colors">National Bank for Agriculture and Rural Development supporting rural growth.</p>
+                <span className="text-[#9ef295] font-bold text-[10px] uppercase tracking-widest mb-2">Domestic Brand</span>
+                <h3 className="text-2xl md:text-3xl font-serif font-bold text-white mb-4 leading-tight">Sam Alpine</h3>
+                <p className="text-white/70 text-sm leading-relaxed group-hover:text-white transition-colors">High-altitude blueberries grown for intense flavor and nutrition.</p>
               </div>
             </div>
 
-            {/* Suix Trade GMBH */}
+            {/* Ozar Tulip */}
             <div className="group relative aspect-square rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-lg border border-zinc-200 transition-all duration-700 hover:-translate-y-2 hover:shadow-2xl">
-              <img src="https://images.unsplash.com/photo-1516550893923-42d28e5677af?q=80&w=1000" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" alt="Suix Trade GMBH" />
+              <img src="/assets/tulip.jpg" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" alt="Ozar Tulip" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-transparent"></div>
               <div className="absolute inset-0 p-8 md:p-10 flex flex-col justify-end text-left">
-                <span className="text-[#9ef295] font-bold text-[10px] uppercase tracking-widest mb-2">Switzerland</span>
-                <h3 className="text-2xl md:text-3xl font-sans font-bold text-white mb-4 leading-tight">Suix Trade <br />GMBH</h3>
-                <p className="text-white/70 text-sm leading-relaxed group-hover:text-white transition-colors">Global marketing and distribution partner located in Switzerland.</p>
+                <span className="text-[#9ef295] font-bold text-[10px] uppercase tracking-widest mb-2">Domestic Brand</span>
+                <h3 className="text-2xl md:text-3xl font-serif font-bold text-white mb-4 leading-tight">Ozar Tulip</h3>
+                <p className="text-white/70 text-sm leading-relaxed group-hover:text-white transition-colors">Premium floriculture vertical specializing in exotic Dutch tulips.</p>
               </div>
             </div>
 
-            {/* Zohara Farms */}
+            {/* Sam's Wine */}
             <div className="group relative aspect-square rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-lg border border-zinc-200 transition-all duration-700 hover:-translate-y-2 hover:shadow-2xl">
-              <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=1000" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" alt="Zohara Farms" />
+              <img src="/assets/pomogranatewine.png" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" alt="Sam's Wine" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-transparent"></div>
               <div className="absolute inset-0 p-8 md:p-10 flex flex-col justify-end text-left">
-                <span className="text-[#9ef295] font-bold text-[10px] uppercase tracking-widest mb-2">Israel</span>
-                <h3 className="text-2xl md:text-3xl font-sans font-bold text-white mb-4 leading-tight">Zohara <br />Farms</h3>
-                <p className="text-white/70 text-sm leading-relaxed group-hover:text-white transition-colors">State-of-the-art agricultural farming partner specializing in fresh produce.</p>
+                <span className="text-[#9ef295] font-bold text-[10px] uppercase tracking-widest mb-2">Domestic Brand</span>
+                <h3 className="text-2xl md:text-3xl font-serif font-bold text-white mb-4 leading-tight">Sam's Wine</h3>
+                <p className="text-white/70 text-sm leading-relaxed group-hover:text-white transition-colors">Artisanal fruit wines crafted from our finest pomegranate harvests.</p>
+              </div>
+            </div>
+
+            {/* Sidvin */}
+            <div className="group relative aspect-square rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-lg border border-zinc-200 transition-all duration-700 hover:-translate-y-2 hover:shadow-2xl">
+              <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=800" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" alt="Sidvin" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-transparent"></div>
+              <div className="absolute inset-0 p-8 md:p-10 flex flex-col justify-end text-left">
+                <span className="text-[#9ef295] font-bold text-[10px] uppercase tracking-widest mb-2">Domestic Brand</span>
+                <h3 className="text-2xl md:text-3xl font-serif font-bold text-white mb-4 leading-tight">Sidvin</h3>
+                <p className="text-white/70 text-sm leading-relaxed group-hover:text-white transition-colors">Real estate and infrastructure services supporting agricultural growth.</p>
               </div>
             </div>
           </div>
@@ -124,7 +135,7 @@ const GroupCompanies = () => {
       {/* Processing Entities */}
       <section className="pt-16 md:pt-24 pb-12 md:pb-16 px-6 md:px-12 relative z-10">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-xl md:text-2xl font-sans font-black text-zinc-800 uppercase tracking-[0.3em] mb-12 border-b border-zinc-200 pb-4">Processing Entities</h2>
+          <h2 className="text-xl md:text-2xl font-serif font-black text-zinc-800 uppercase tracking-[0.3em] mb-12 border-b border-zinc-200 pb-4">Processing Entities</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
             {/* Sam Agritech Limited */}
             <div className="group relative aspect-square rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-lg border border-zinc-200 transition-all duration-700 hover:-translate-y-2 hover:shadow-2xl">
@@ -132,7 +143,7 @@ const GroupCompanies = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-transparent"></div>
               <div className="absolute inset-0 p-8 md:p-10 flex flex-col justify-end">
                 <span className="text-[#9ef295] font-bold text-[10px] uppercase tracking-widest mb-2">Medchal, Telangana</span>
-                <h3 className="text-2xl md:text-3xl font-sans font-bold text-white mb-4 leading-tight">Sam Agritech <br />Limited</h3>
+                <h3 className="text-2xl md:text-3xl font-serif font-bold text-white mb-4 leading-tight">Sam Agritech <br />Limited</h3>
                 <p className="text-white/70 text-sm leading-relaxed group-hover:text-white transition-colors">Flagship processing hub for Pomegranate Arils & Coconut Chunks.</p>
               </div>
             </div>
@@ -143,7 +154,7 @@ const GroupCompanies = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-transparent"></div>
               <div className="absolute inset-0 p-8 md:p-10 flex flex-col justify-end">
                 <span className="text-[#9ef295] font-bold text-[10px] uppercase tracking-widest mb-2">Chittoor, Andhra Pradesh</span>
-                <h3 className="text-2xl md:text-3xl font-sans font-bold text-white mb-4 leading-tight">Sam Agri <br />Ventures Ltd</h3>
+                <h3 className="text-2xl md:text-3xl font-serif font-bold text-white mb-4 leading-tight">Sam Agri <br />Ventures Ltd</h3>
                 <p className="text-white/70 text-sm leading-relaxed group-hover:text-white transition-colors">Strategic processing facility located in the Srini Food Park.</p>
               </div>
             </div>
@@ -154,7 +165,7 @@ const GroupCompanies = () => {
       {/* Infrastructure & Logistics */}
       <section className="pb-12 md:pb-20 px-6 md:px-12 relative z-10">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-xl md:text-2xl font-sans font-black text-zinc-800 uppercase tracking-[0.3em] mb-12 border-b border-zinc-200 pb-4">Infrastructure & Logistics</h2>
+          <h2 className="text-xl md:text-2xl font-serif font-black text-zinc-800 uppercase tracking-[0.3em] mb-12 border-b border-zinc-200 pb-4">Infrastructure & Logistics</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
             {/* Sam Agri Fresh Pvt Ltd */}
             <div className="group relative aspect-square rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-lg border border-zinc-200 transition-all duration-700 hover:-translate-y-2 hover:shadow-2xl">
@@ -162,7 +173,7 @@ const GroupCompanies = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-transparent"></div>
               <div className="absolute inset-0 p-8 md:p-10 flex flex-col justify-end">
                 <span className="text-[#9ef295] font-bold text-[10px] uppercase tracking-widest mb-2">Nashik, Maharashtra</span>
-                <h3 className="text-2xl md:text-3xl font-sans font-bold text-white mb-4 leading-tight">Sam Agri <br />Fresh Pvt Ltd</h3>
+                <h3 className="text-2xl md:text-3xl font-serif font-bold text-white mb-4 leading-tight">Sam Agri <br />Fresh Pvt Ltd</h3>
                 <p className="text-white/70 text-sm leading-relaxed group-hover:text-white transition-colors">Direct-from-farm whole fruit trade and logistics center.</p>
               </div>
             </div>
@@ -173,7 +184,7 @@ const GroupCompanies = () => {
       {/* Global Marketing Hubs */}
       <section className="pb-20 md:pb-32 px-6 md:px-12 relative z-10">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-xl md:text-2xl font-sans font-black text-zinc-800 uppercase tracking-[0.3em] mb-12 border-b border-zinc-200 pb-4">Global Marketing & Trade</h2>
+          <h2 className="text-xl md:text-2xl font-serif font-black text-zinc-800 uppercase tracking-[0.3em] mb-12 border-b border-zinc-200 pb-4">Global Marketing & Trade</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
             {/* Switzerland */}
             <div className="group relative aspect-square rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-lg border border-zinc-200 transition-all duration-700 hover:-translate-y-2 hover:shadow-2xl">
@@ -181,7 +192,7 @@ const GroupCompanies = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-transparent"></div>
               <div className="absolute inset-0 p-8 flex flex-col justify-end text-left">
                 <span className="text-[#9ef295] font-bold text-[10px] uppercase tracking-widest mb-2">Switzerland</span>
-                <h3 className="text-2xl font-sans font-bold text-white mb-4 leading-tight">Suix Trade <br />GMBH</h3>
+                <h3 className="text-2xl font-serif font-bold text-white mb-4 leading-tight">Suix Trade <br />GMBH</h3>
                 <p className="text-white/70 text-sm leading-relaxed group-hover:text-white transition-colors">Global marketing and distribution partner located in Switzerland.</p>
               </div>
             </div>
@@ -192,7 +203,7 @@ const GroupCompanies = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-transparent"></div>
               <div className="absolute inset-0 p-8 flex flex-col justify-end text-left">
                 <span className="text-[#9ef295] font-bold text-[10px] uppercase tracking-widest mb-2">Dubai, UAE</span>
-                <h3 className="text-2xl font-sans font-bold text-white mb-4 leading-tight">Sam Tulip <br />Trading</h3>
+                <h3 className="text-2xl font-serif font-bold text-white mb-4 leading-tight">Sam Tulip <br />Trading</h3>
                 <p className="text-white/70 text-sm leading-relaxed group-hover:text-white transition-colors">Pioneering marketing and distribution center serving the Middle East market.</p>
               </div>
             </div>
@@ -203,7 +214,7 @@ const GroupCompanies = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-transparent"></div>
               <div className="absolute inset-0 p-8 flex flex-col justify-end text-left">
                 <span className="text-[#9ef295] font-bold text-[10px] uppercase tracking-widest mb-2">Israel</span>
-                <h3 className="text-2xl font-sans font-bold text-white mb-4 leading-tight">Zohara <br />Farms LLC</h3>
+                <h3 className="text-2xl font-serif font-bold text-white mb-4 leading-tight">Zohara <br />Farms LLC</h3>
                 <p className="text-white/70 text-sm leading-relaxed group-hover:text-white transition-colors">Specialized marketing and fresh produce supply hub based in Israel.</p>
               </div>
             </div>
@@ -214,7 +225,7 @@ const GroupCompanies = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-transparent"></div>
               <div className="absolute inset-0 p-8 flex flex-col justify-end text-left">
                 <span className="text-[#9ef295] font-bold text-[10px] uppercase tracking-widest mb-2">Hong Kong</span>
-                <h3 className="text-2xl font-sans font-bold text-white mb-4 leading-tight">Sam Tulip <br />HK LLC</h3>
+                <h3 className="text-2xl font-serif font-bold text-white mb-4 leading-tight">Sam Tulip <br />HK LLC</h3>
                 <p className="text-white/70 text-sm leading-relaxed group-hover:text-white transition-colors">Central trading and marketing gateway for the Asia-Pacific region.</p>
               </div>
             </div>

@@ -176,7 +176,7 @@ const Sustainability = () => {
           </span>
           <h1 className="text-4xl md:text-6xl font-sans font-black text-white leading-tight mb-6 uppercase tracking-tighter">
             Responsible Growth from <br/>
-            <span className="italic text-[#9ef295]">Root to Market</span>
+            <span className="font-bold text-[#9ef295]">Root to Market</span>
           </h1>
           <p className="text-white/70 text-sm md:text-base max-w-3xl mx-auto leading-relaxed">
             At Sam Agri, sustainability is not a checkbox; it is the core of our operations. 
@@ -542,7 +542,7 @@ const Sustainability = () => {
                   {/* Farmer Testimonial Card */}
                   <div className="bg-[#2D5A27]/5 border border-[#2D5A27]/20 backdrop-blur-md rounded-3xl p-6 md:p-8 relative shadow-xl">
                     <div className="text-4xl text-[#2D5A27] font-serif absolute top-4 left-6 opacity-20">“</div>
-                    <blockquote className="text-zinc-600 text-sm md:text-base italic leading-relaxed pl-4 relative z-10">
+                    <blockquote className="text-zinc-600 text-sm md:text-base font-bold leading-relaxed pl-4 relative z-10">
                       Partnering with Sam Agri gave us price security and the agronomy skills to double our yield. We now farm with confidence, knowing we have a trusted partner.
                     </blockquote>
                     <div className="mt-5 pl-4 flex items-center gap-3">

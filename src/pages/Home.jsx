@@ -573,7 +573,7 @@ const Home = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-0 border border-white/10 lg:h-[480px]">
             <Link to="/pomegranate-arils" className="relative group lg:row-span-2 overflow-hidden h-[380px] lg:h-auto border-b lg:border-b-0 lg:border-r border-white/10">
-              <img src="/arils_3d.png" className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" alt="Pomegranate Arils" />
+              <img src="/assets/pomogranatearils.jpg" className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" alt="Pomegranate Arils" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-8 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                 <h4 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-white uppercase tracking-tighter leading-none mb-2 drop-shadow-2xl">
@@ -613,7 +613,7 @@ const Home = () => {
             </Link>
  
             <Link to="/dried-arils" className="relative group overflow-hidden h-[240px] border-b md:border-b-0 md:border-r border-white/10">
-              <img src="/assets/pomogranatearils.jpg" className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" alt="Dried Arils" />
+              <img src="/assets/dried-arils.jpg" className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" alt="Dried Arils" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                 <h4 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-white uppercase tracking-tighter leading-none mb-2 drop-shadow-2xl">

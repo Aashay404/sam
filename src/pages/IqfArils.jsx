@@ -31,7 +31,7 @@ const IqfArils = () => {
 
         {/* Image Side */}
         <div className="w-full md:w-[50%] relative h-[500px] md:h-auto">
-          <img alt="Frozen IQF Arils" className="absolute inset-0 w-full h-full object-cover scale-105" src="/arils_3d.png" onError={(e) => { e.target.src = 'https://via.placeholder.com/600x800?text=IQF+Arils' }} />
+          <img alt="Frozen IQF Arils" className="absolute inset-0 w-full h-full object-cover scale-105" src="/assets/ivfarils.jpg" onError={(e) => { e.target.src = 'https://via.placeholder.com/600x800?text=IQF+Arils' }} />
           <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-[#1a0505] via-transparent to-transparent"></div>
           <div className="absolute bottom-12 right-12 text-right hidden md:block">
             <span className="text-white/20 text-8xl font-serif font-bold italic select-none">Preserved Peak</span>
