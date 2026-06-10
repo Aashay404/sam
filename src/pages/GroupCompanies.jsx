@@ -78,6 +78,41 @@ const GroupCompanies = () => {
         </div>
       </section>
 
+      {/* Our Partners / Affiliated Organizations */}
+      <section className="py-16 md:py-24 px-6 md:px-12 bg-white border-t border-zinc-100">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <span className="text-primary font-bold text-xs uppercase tracking-widest bg-primary/5 px-4 py-1.5 rounded-full">Partners & Affiliates</span>
+            <h2 className="text-3xl md:text-5xl font-sans font-bold text-zinc-800 mt-4 uppercase tracking-tighter">Affiliated Organizations</h2>
+            <div className="w-20 h-1 bg-secondary mx-auto mt-4"></div>
+          </div>
+          
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
+            {[
+              { name: "Westfalia Fruit", img: "https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?q=80&w=400" },
+              { name: "Dvori Or", img: "https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?q=80&w=400" },
+              { name: "APEDA", img: "/apeda.png" },
+              { name: "NABARD", img: "https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?q=80&w=400" },
+              { name: "Suix Trade GMBH", img: "https://images.unsplash.com/photo-1516550893923-42d28e5677af?q=80&w=400" },
+              { name: "Zohara Farms", img: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=400" }
+            ].map((partner, idx) => (
+              <div key={idx} className="group flex flex-col items-center text-center">
+                <div className="w-full aspect-square rounded-2xl overflow-hidden shadow-md border border-zinc-100 group-hover:shadow-lg transition-shadow duration-300">
+                  <img 
+                    src={partner.img} 
+                    alt={partner.name} 
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+                  />
+                </div>
+                <h4 className="mt-3 font-sans font-bold text-sm text-zinc-700 group-hover:text-primary transition-colors uppercase tracking-wider">
+                  {partner.name}
+                </h4>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Processing Entities */}
       <section className="pb-12 md:pb-16 px-6 md:px-12 relative z-10">
         <div className="max-w-7xl mx-auto">
