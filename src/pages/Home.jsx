@@ -613,7 +613,7 @@ const Home = () => {
             </Link>
  
             <Link to="/dried-arils" className="relative group overflow-hidden h-[240px] border-b md:border-b-0 md:border-r border-white/10">
-              <img src="/assets/dried-arils.jpg" className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" alt="Dried Arils" />
+              <img src="/assets/pomogranatearils.jpg" className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" alt="Dried Arils" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                 <h4 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-white uppercase tracking-tighter leading-none mb-2 drop-shadow-2xl">
@@ -708,205 +708,56 @@ const Home = () => {
                 <a href="#">Know More</a>
               </div>
             </div>
-            <Link to="/coconut-chunks" className="relative group flex-shrink-0 w-[75vw] sm:w-[45vw] h-full lg:w-auto lg:h-auto overflow-hidden border border-white/10 lg:border-0 lg:border-b lg:border-r border-white/10">
-              <img src="/coconut_3d.png" className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" alt="Coconut Chunks" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                <h4 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-white uppercase tracking-tighter leading-none mb-2 drop-shadow-2xl">
-                  COCONUT <br /> CHUNKS
-                </h4>
+            <div className="dp-card">
+              <img src="/assets/sam_berry_basket.png" alt="Sam Berry" />
+              <div className="dp-info">
+                <h3>Sam Berry</h3>
+                <p>A lush assortment of locally sourced berries and seasonal gift baskets.</p>
+                <a href="#">Know More</a>
               </div>
-            </Link>
-
-            <Link to="/whole-fruit" className="relative group flex-shrink-0 w-[75vw] sm:w-[45vw] h-full lg:w-auto lg:h-auto overflow-hidden border border-white/10 lg:border-0 lg:border-b lg:border-r border-white/10">
-              <img src="/pomegranate_3d.png" className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" alt="Whole Fruit" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                <h4 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-white uppercase tracking-tighter leading-none mb-2 drop-shadow-2xl">
-                  WHOLE <br /> FRUIT
-                </h4>
+            </div>
+            <div className="dp-card">
+              <img src="/assets/almond.jpg" alt="Sam's Delight" />
+              <div className="dp-info">
+                <h3>Sam's Delight</h3>
+                <p>Our flagship range of premium papaya and tropical delicacies.</p>
+                <a href="#">Know More</a>
               </div>
-            </Link>
-
-            <Link to="#" className="relative group flex-shrink-0 w-[75vw] sm:w-[45vw] h-full lg:w-auto lg:h-auto overflow-hidden border border-white/10 lg:border-0 lg:border-b border-white/10">
-              <img src="https://images.unsplash.com/photo-1621506289937-a8e4df240d0b?q=80&w=800" className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" alt="Frozen Juice" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                <h4 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-white uppercase tracking-tighter leading-none mb-2 drop-shadow-2xl">
-                  FROZEN <br /> JUICE
-                </h4>
+            </div>
+            <div className="dp-card">
+              <img src="https://images.unsplash.com/photo-1498557850523-fd3d118b962e?q=80&w=800" alt="Sam Alpine" />
+              <div className="dp-info">
+                <h3>Sam Alpine</h3>
+                <p>High-altitude blueberries grown for intense flavor and nutrition.</p>
+                <a href="#">Know More</a>
               </div>
-            </Link>
-
-            <Link to="/dried-arils" className="relative group flex-shrink-0 w-[75vw] sm:w-[45vw] h-full lg:w-auto lg:h-auto overflow-hidden border border-white/10 lg:border-0 lg:border-b lg:border-r border-white/10">
-              <img src="/assets/pomogranatearils.jpg" className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" alt="Dried Arils" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                <h4 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-white uppercase tracking-tighter leading-none mb-2 drop-shadow-2xl">
-                  DRIED <br /> ARILS
-                </h4>
-              </div>
-            </Link>
-
-            <Link to="/iqf-arils" className="relative group flex-shrink-0 w-[75vw] sm:w-[45vw] h-full lg:w-auto lg:h-auto overflow-hidden border border-white/10 lg:border-0 lg:border-b lg:border-r border-white/10">
-              <img src="/assets/ivfarils.jpg" className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" alt="IQF Aril" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                <h4 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-white uppercase tracking-tighter leading-none mb-2 drop-shadow-2xl">
-                  IQF <br /> ARIL
-                </h4>
-              </div>
-            </Link>
-
-            <Link to="#" className="relative group flex-shrink-0 w-[75vw] sm:w-[45vw] h-full lg:w-auto lg:h-auto overflow-hidden border border-white/10 lg:border-0 lg:border-b border-white/10">
-              <img src="/assets/pomogranatewine.png" className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" alt="Wines" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                <h4 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-white uppercase tracking-tighter leading-none mb-2 drop-shadow-2xl">
-                  WINES
-                </h4>
-              </div>
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* 5. Domestic Presence */}
-      <section id="domestic" className="snap-section bg-[#0a0a0a] py-4 md:py-8 lg:py-12 px-6 md:px-12 flex flex-col justify-center overflow-hidden">
-        <div className="max-w-screen-2xl mx-auto relative w-full">
-          <div className="mb-4 md:mb-6 flex flex-col md:flex-row items-start md:items-end justify-between gap-6">
-            <div>
-              <h2 className="text-4xl md:text-6xl font-serif font-black text-white uppercase leading-none">
-                Domestic{" "}<span className="text-[#9ef295]">Presence</span>
-              </h2>
             </div>
           </div>
-
-          {/* Mobile view: Simple wrapping flex layout with compact sizing */}
-          <div className="flex flex-wrap justify-center gap-x-4 gap-y-4 sm:gap-x-6 sm:gap-y-6 mt-4 w-full lg:hidden">
-            {[
-              { name: "West-In-Avo", img: "/assets/avocado.jpg", link: "/west-in-avo" },
-              { name: "Sam Berry", img: "/assets/sam_berry_basket.png", link: "#" },
-              { name: "Sam's Delight", img: "/assets/almond.jpg", link: "#" },
-              { name: "Sam Alpine", img: "https://images.unsplash.com/photo-1498557850523-fd3d118b962e?q=80&w=800", link: "#" },
-              { name: "Ozar Tulip", img: "/assets/tulip.jpg", link: "#" },
-              { name: "Sam's Wine", img: "/assets/pomogranatewine.png", link: "#" },
-              { name: "SIDVIN", img: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=800", link: "#" }
-            ].map((item) => (
-              <Link to={item.link} key={item.name} className="group flex flex-col items-center gap-1 w-[100px] sm:w-[140px]">
-                {/* Hexagon border wrapper */}
-                <div
-                  className="w-24 h-24 sm:w-32 sm:h-32 flex items-center justify-center transition-all duration-300 group-hover:scale-105"
-                  style={{ clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)', background: 'rgba(255,255,255,0.15)' }}
-                >
-                  {/* Hexagon image inner */}
-                  <div
-                    className="w-[90%] h-[90%] overflow-hidden transition-all duration-300 group-hover:brightness-110"
-                    style={{ clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)' }}
-                  >
-                    <img src={item.img} className="w-full h-full object-cover" alt={item.name} />
-                  </div>
-                </div>
-                <div className="text-center w-full transition-all duration-300 mt-1">
-                  <span className="text-white font-sans font-black text-xs sm:text-sm tracking-wide uppercase group-hover:text-[#9ef295] transition-colors">{item.name}</span>
-                </div>
-              </Link>
-            ))}
-          </div>
-
-          {/* Desktop view: Offset honeycomb grid */}
-          <div className="hidden lg:grid grid-cols-8 gap-y-0 mt-6 w-full">
-            {/* Top Row: 4 Items — each takes 2 of 8 columns */}
-            {[
-              { name: "West-In-Avo", img: "/assets/avocado.jpg", link: "/west-in-avo" },
-              { name: "Sam Berry", img: "/assets/sam_berry_basket.png", link: "#" },
-              { name: "Sam's Delight", img: "/assets/almond.jpg", link: "#" },
-              { name: "Sam Alpine", img: "https://images.unsplash.com/photo-1498557850523-fd3d118b962e?q=80&w=800", link: "#" }
-            ].map((item) => (
-              <Link to={item.link} key={item.name} className="group col-span-2 flex flex-col items-center gap-1 lg:-mt-2 xl:-mt-4">
-                {/* Hexagon border wrapper */}
-                <div
-                  className="lg:w-36 lg:h-40 xl:w-44 xl:h-48 flex items-center justify-center transition-all duration-300 group-hover:scale-105"
-                  style={{ clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)', background: 'rgba(255,255,255,0.15)' }}
-                >
-                  {/* Hexagon image inner */}
-                  <div
-                    className="w-[90%] h-[90%] overflow-hidden transition-all duration-300 group-hover:brightness-110"
-                    style={{ clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)' }}
-                  >
-                    <img src={item.img} className="w-full h-full object-cover" alt={item.name} />
-                  </div>
-                </div>
-                <div className="text-center min-w-[110px] sm:min-w-[130px] md:min-w-[150px] transition-all duration-300 mt-1">
-                  <span className="text-white font-sans font-black text-sm md:text-base tracking-wide uppercase group-hover:text-[#9ef295] transition-colors">{item.name}</span>
-                </div>
-              </Link>
-            ))}
-
-            {/* Bottom Row: 3 Items — offset by 1 col to sit between top items */}
-            <div className="col-span-1 hidden lg:block lg:-mt-8 xl:-mt-10" />
-            {[
-              { name: "Ozar Tulip", img: "/assets/tulip.jpg", link: "#" },
-              { name: "Sam's Wine", img: "/assets/pomogranatewine.png", link: "#" },
-              { name: "SIDVIN", img: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=800", link: "#" }
-            ].map((item) => (
-              <Link to={item.link} key={item.name} className="group col-span-2 flex flex-col items-center gap-1 lg:-mt-8 xl:-mt-10">
-                {/* Hexagon border wrapper */}
-                <div
-                  className="lg:w-36 lg:h-40 xl:w-44 xl:h-48 flex items-center justify-center transition-all duration-300 group-hover:scale-105"
-                  style={{ clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)', background: 'rgba(255,255,255,0.15)' }}
-                >
-                  {/* Hexagon image inner */}
-                  <div
-                    className="w-[90%] h-[90%] overflow-hidden transition-all duration-300 group-hover:brightness-110"
-                    style={{ clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)' }}
-                  >
-                    <img src={item.img} className="w-full h-full object-cover" alt={item.name} />
-                  </div>
-                </div>
-                <div className="text-center min-w-[110px] sm:min-w-[130px] md:min-w-[150px] transition-all duration-300 mt-1">
-                  <span className="text-white font-sans font-black text-sm md:text-base tracking-wide uppercase group-hover:text-[#9ef295] transition-colors">{item.name}</span>
-                </div>
-              </Link>
-            ))}
-            <div className="col-span-1 hidden lg:block" />
-          </div>
-        </div>
-      </section>
-
-      {/* 6. Our Certifications */}
-      <section id="certifications" className="bg-white py-8 md:py-12 px-6 md:px-12 overflow-hidden border-t border-zinc-100">
-        <div className="max-w-screen-2xl mx-auto relative w-full">
-          <div className="mb-10 md:mb-14 flex flex-col md:flex-row items-start md:items-end justify-between gap-6 border-b border-zinc-100 pb-8">
-            <div>
-              <h2 className="text-4xl md:text-6xl font-serif font-black text-primary uppercase leading-none">
-                Our{" "}<span className="text-secondary">Certifications</span>
-              </h2>
+          <div className="dp-row dp-row-bottom">
+            <div className="dp-card">
+              <img src="/assets/tulip.jpg" alt="Ozar Tulip" />
+              <div className="dp-info">
+                <h3>Ozar Tulip</h3>
+                <p>Premium floriculture vertical specializing in exotic Dutch tulips.</p>
+                <a href="#">Know More</a>
+              </div>
             </div>
-          </div>
-
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-6 md:gap-8 items-center justify-items-center">
-            <a href="https://www.globalgap.org/" target="_blank" rel="noopener noreferrer" className="group flex items-center justify-center w-full h-24">
-              <img src="/globalgapnew.png" className="max-h-16 md:max-h-20 w-auto object-contain transition-transform duration-300 group-hover:scale-105" alt="Global GAP" />
-            </a>
-            <a href="https://www.brcgs.com/" target="_blank" rel="noopener noreferrer" className="group flex items-center justify-center w-full h-24">
-              <img src="/brc.png" className="max-h-16 md:max-h-20 w-auto object-contain transition-transform duration-300 group-hover:scale-105" alt="BRCGS" />
-            </a>
-            <a href="https://www.iso.org/publication/PUB200220.html?utm_source=google&utm_medium=ppc_paid_social&utm_campaign=ISO22000&gad_source=1&gad_campaignid=23276729455&gbraid=0AAAAABtQACEufWfeWwUoDPL3DH_xtnMu1&gclid=CjwKCAjw5s_QBhAdEiwADD_gBgpQ8CU9iLKyxxJYkj73VLR4oXxB7oGBw0nKCIv8HFViNCJStEFwrRoC5PYQAvD_BwE" target="_blank" rel="noopener noreferrer" className="group flex items-center justify-center w-full h-24">
-              <img src="/iso.png" className="max-h-16 md:max-h-20 w-auto object-contain transition-transform duration-300 group-hover:scale-105" alt="ISO 22000" />
-            </a>
-            <a href="https://www.fssai.gov.in/" target="_blank" rel="noopener noreferrer" className="group flex items-center justify-center w-full h-24">
-              <img src="/fssai.png" className="max-h-16 md:max-h-20 w-auto object-contain transition-transform duration-300 group-hover:scale-105" alt="FSSAI" />
-            </a>
-            <a href="https://www.fda.gov/" target="_blank" rel="noopener noreferrer" className="group flex items-center justify-center w-full h-24">
-              <img src="/fda.png" className="max-h-16 md:max-h-20 w-auto object-contain transition-transform duration-300 group-hover:scale-105" alt="US FDA" />
-            </a>
-            <a href="https://www.sedex.com/solutions/smeta-audit/" target="_blank" rel="noopener noreferrer" className="group flex items-center justify-center w-full h-24">
-              <img src="/ssmeta1234.png" className="max-h-18 md:max-h-22 w-auto object-contain transition-transform duration-300 group-hover:scale-105" alt="SMETA" />
-            </a>
-            <a href="https://www.fairtrade.net/en/for-business/how-to-get-involved/get-certified.html" target="_blank" rel="noopener noreferrer" className="group flex items-center justify-center w-full h-24">
-              <img src="/fairtrade.png" className="max-h-16 md:max-h-20 w-auto object-contain transition-transform duration-300 group-hover:scale-105" alt="Fairtrade" />
-            </a>
+            <div className="dp-card">
+              <img src="/assets/pomogranatewine.png" alt="Sam's Wine" />
+              <div className="dp-info">
+                <h3>Sam's Wine</h3>
+                <p>Artisanal fruit wines crafted from our finest pomegranate harvests.</p>
+                <a href="#">Know More</a>
+              </div>
+            </div>
+            <div className="dp-card">
+              <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=800" alt="Sidvin" />
+              <div className="dp-info">
+                <h3>Sidvin</h3>
+                <p>Real estate and infrastructure services supporting agricultural growth.</p>
+                <a href="#">Know More</a>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -914,4 +765,4 @@ const Home = () => {
   )
 }
 
-export default Home
+export default Home
