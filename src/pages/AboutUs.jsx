@@ -1,346 +1,418 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { Ship, Truck, Factory, Users, Award, Zap, Globe } from 'lucide-react'
 
 const AboutUs = () => {
+  const milestones = [
+    { year: '1996', desc: 'Incorporation of Sam Agri', isSecondary: false },
+    { year: '2000', desc: 'Started marketing of exotic vegetables in India', isSecondary: false },
+    { year: '2001', desc: 'Commenced export operations', isSecondary: false },
+    { year: '2005', desc: 'Establishment of captive GAP certified farms', isSecondary: false },
+    { year: '2006', tag: 'Facility I:', desc: 'Established our first high care facility for arils', isSecondary: true },
+    { year: '2007', tag: 'India First:', desc: 'Commenced export of arils to international markets', isSecondary: true },
+    { year: '2009', desc: 'Crossed 100 MT of Pomegranate Arils export in a calendar year', isSecondary: true },
+    { year: '2010', desc: 'Export of Coconut chunks to international markets', isSecondary: true },
+    { year: '2014', tag: 'Facility II:', desc: 'Expansion of capacity with new facility @ Bangalore', isSecondary: false },
+    { year: '2016', tag: 'India First:', desc: 'Fresh Figs to international markets', isSecondary: false },
+    { year: '2018', desc: 'Crossed 1000 MT of pomegranate Arils export in a calendar year', isSecondary: false },
+    { year: '2019', tag: 'Facility III:', desc: 'Expansion of capacity with new facility @ Nashik', isSecondary: false },
+  ]
+
+  const markets = [
+    { code: 'gb', name: 'UK' },
+    { code: 'us', name: 'USA' },
+    { code: 'nl', name: 'Netherlands' },
+    { code: 'ch', name: 'Switzerland' },
+    { code: 'be', name: 'Belgium' },
+    { code: 'de', name: 'Germany' },
+    { code: 'fr', name: 'France' },
+    { code: 'es', name: 'Spain' },
+    { code: 'ae', name: 'UAE' },
+    { code: 'hk', name: 'Hong Kong' },
+  ]
+
+  const team = [
+    {
+      name: 'GVK Naidu',
+      role: 'Managing Director',
+      image: '/assets/team/gvknaidu.png',
+      bio: [
+        'Spearheads strategy, growth & diversifications of the group',
+        '30+ years of agri-business experience & serial entrepreneur',
+        'Graduate from UAS, Bangalore'
+      ]
+    },
+    {
+      name: 'Priyatham V',
+      role: 'CEO',
+      image: '/assets/team/priyatham.png',
+      bio: [
+        'Spearheads international marketing & finance of the group',
+        '18+ years of experience in investment banking & agri business',
+        'Graduate from BITS Pilani & MBA from IIM Lucknow'
+      ]
+    },
+    {
+      name: 'David Levin',
+      role: 'Marketing Director',
+      image: '/assets/team/david.png',
+      bio: [
+        'Responsible for marketing in Europe & Sourcing from Israel',
+        '35+ years of international fresh produce marketing experience',
+        'Engineering Graduate from Fairleigh Dickinson University, US'
+      ]
+    },
+    {
+      name: 'KN Rao',
+      role: 'Technical Director',
+      image: '/assets/team/knrao.png',
+      bio: [
+        'Responsible for Technology, Research & NPD initiative of the group',
+        '25+ years of experience in farming, high care processing, food safety & hygiene',
+        'Graduate in Agriculture from AP Agriculture University'
+      ]
+    },
+    {
+      name: 'Ajay TG',
+      role: 'Head – Domestic Business',
+      image: '/assets/team/ajay.png',
+      bio: [
+        'Responsible for domestic business division of Sam Agri',
+        '12+ years of experience in hotel, catering & fresh produce industry',
+        'Graduate in Hotel Management & MBA from Christ University'
+      ]
+    },
+    {
+      name: 'Suresh Babu',
+      role: 'Manager - Finance',
+      image: '/assets/team/suresh.png',
+      bio: [
+        'Responsible for finance, accounts, banking & logistics of the group',
+        '20+ years of experience in finance & accounting domains',
+        'Graduate in Commerce'
+      ]
+    },
+    {
+      name: 'Marcel Bangerter',
+      role: 'Marketing Director, Switzerland',
+      image: '/assets/team/marcel.png',
+      bio: [
+        'Responsible for marketing of Sam Agri products in Switzerland market',
+        'Founder of suiXtrade GmbH and the Zoë Ray brand',
+        'Has 20+ years of experience in investment banking and fresh produce marketing.'
+      ]
+    }
+  ]
+
+  // Animation variants
+  const fadeInUp = {
+    hidden: { opacity: 0, y: 40 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } }
+  }
+
+  const staggerContainer = {
+    hidden: { opacity: 1 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
+  }
+
   return (
-    <div className="about-page text-[#f5f5f5] bg-[#0f0f0f]">
-      {/* Title Section */}
-      <section className="min-h-[50vh] flex items-center justify-center pt-32 pb-16 px-6 bg-[#1a1a1a]">
-        <div className="max-w-4xl mx-auto text-center animate-in">
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-serif font-black leading-tight mb-6">
-            Pioneering Global <span className="italic text-[#2D5A27] font-serif">Exports</span>
-          </h1>
-          <p className="text-zinc-400 text-base md:text-lg max-w-2xl mx-auto font-sans leading-relaxed">
-            A 25-year legacy of delivering India's finest horticulture to the world.
-          </p>
+    <main className="bg-[#faf9f5] text-on-surface selection:bg-secondary/20 selection:text-secondary min-h-screen">
+      {/* Hero Section */}
+      <section className="relative min-h-[60vh] bg-gradient-to-br from-[#7e1a12] to-black flex items-center overflow-hidden pt-36 pb-20">
+        <div className="absolute inset-0">
+          <img 
+            src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=2000" 
+            className="w-full h-full object-cover opacity-60 animate-pulse duration-10000" 
+            alt="Background" 
+          />
+        </div>
+        <div className="px-6 md:px-12 w-full max-w-7xl mx-auto relative z-10 text-left">
+          <motion.span 
+            initial={{ opacity: 0, letterSpacing: '0.1em' }}
+            animate={{ opacity: 1, letterSpacing: '0.4em' }}
+            transition={{ duration: 1 }}
+            className="text-[#9ef295] font-sans font-bold uppercase text-[10px] mb-4 block"
+          >
+            Our Journey
+          </motion.span>
+          <motion.h1 
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold text-white leading-none uppercase tracking-tighter"
+          >
+            Group <br />
+            <span className="text-[#9ef295]">Profile</span>
+          </motion.h1>
+          <motion.p 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 0.6 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="text-sm md:text-lg text-white max-w-lg mt-8 font-sans"
+          >
+            Nurturing heritage, delivering perfection. A legacy built on quality since 1996.
+          </motion.p>
         </div>
       </section>
 
-      {/* Who We Are */}
-      <section className="py-16 md:py-28 px-6 bg-[#0f0f0f]">
+      {/* Who We Are (Kaybee Style) */}
+      <section className="px-6 md:px-12 py-20 md:py-32 bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
-            <div>
-              <img src="/pomegranate.png" alt="Infrastructure" className="rounded-[30px] w-full shadow-2xl border border-zinc-800" />
-            </div>
-            <div className="space-y-6">
-              <h4 className="text-[#2D5A27] font-bold tracking-widest text-xs uppercase">OUR COMPANY</h4>
-              <h2 className="text-3xl md:text-5xl font-serif font-black leading-tight text-white">Quality. Innovation. <br/>Trust.</h2>
-              <p className="text-zinc-400 text-sm md:text-base leading-relaxed font-sans">
+            <motion.div 
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: '-100px' }}
+              variants={fadeInUp}
+              className="space-y-6 md:space-y-8 text-left"
+            >
+              <div className="inline-block px-4 py-1 bg-secondary/10 text-secondary font-bold text-xs uppercase tracking-widest rounded-full">
+                Our Story
+              </div>
+              <h2 className="text-4xl md:text-6xl font-serif font-bold text-primary leading-tight">
+                WHO WE <span className="text-secondary">ARE</span>
+              </h2>
+              <div className="w-20 h-1.5 bg-secondary"></div>
+              <p className="text-lg md:text-xl text-on-surface-variant leading-relaxed font-sans">
                 Sam Agri group founded in 1996 is a leading integrated exporter of fresh produce from India. Sam Agri is a pioneer in creating new product categories for export from India including fresh pomegranate arils, fresh cut coconut chunks, fresh figs, dried arils etc.
               </p>
-              <p className="text-zinc-400 text-sm md:text-base leading-relaxed font-sans">
-                Sam Agri has integrated operations including nursery, captive farms, processing facilities and marketing channels across South India. We are the only fresh cut fruit exporter from India operating from multiple high care processing facilities offering 365 days supplies and better logistics connectivity.
+              <p className="text-lg md:text-xl text-on-surface-variant leading-relaxed opacity-80 font-sans">
+                Sam Agri has integrated operations including nursery, captive farms, processing facilities and marketing channels across South India.
               </p>
-            </div>
+              <div className="grid grid-cols-2 gap-6 md:gap-12 pt-4 md:pt-8">
+                <div className="p-6 bg-surface-container-low rounded-2xl border-l-4 border-primary">
+                  <h4 className="text-3xl md:text-4xl font-serif font-bold text-primary mb-2">25+</h4>
+                  <p className="text-[10px] md:text-xs font-black uppercase tracking-widest text-zinc-500">Years of Growth</p>
+                </div>
+                <div className="p-6 bg-surface-container-low rounded-2xl border-l-4 border-secondary">
+                  <h4 className="text-3xl md:text-4xl font-serif font-bold text-secondary mb-2">1000+</h4>
+                  <p className="text-[10px] md:text-xs font-black uppercase tracking-widest text-zinc-500">MT Arils Annually</p>
+                </div>
+              </div>
+            </motion.div>
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true, margin: '-100px' }}
+              transition={{ duration: 0.8 }}
+              className="relative mt-8 lg:mt-0"
+            >
+              <div className="aspect-square rounded-3xl overflow-hidden shadow-[0_40px_80px_rgba(0,0,0,0.15)] border border-zinc-100">
+                <img 
+                  src="https://images.unsplash.com/photo-1541344999736-83eca272f6fc?q=80&w=2000" 
+                  className="w-full h-full object-cover" 
+                  alt="Quality Produce" 
+                />
+              </div>
+              <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-secondary/5 rounded-3xl -z-10"></div>
+            </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Superplum Style Infographic - The Supply Chain */}
-      <section className="py-16 md:py-28 px-6 bg-[#161616]">
+      {/* Our Milestones */}
+      <section className="py-20 md:py-32 px-6 md:px-12 bg-surface relative overflow-hidden">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12 md:mb-20">
-            <h2 className="text-3xl md:text-5xl font-bold leading-tight text-white">
-              From <span className="italic text-[#2D5A27] font-serif">Farm</span> to <span className="italic text-[#2D5A27] font-serif">Global Market</span>
+          <div className="text-center mb-16 md:mb-24">
+            <div className="inline-block px-4 py-1 bg-secondary/10 text-secondary font-bold text-xs uppercase tracking-widest rounded-full mb-6">
+              Our Journey
+            </div>
+            <h2 className="text-4xl md:text-6xl font-serif font-bold text-primary mb-4 uppercase tracking-tighter">
+              OUR <span className="text-secondary">MILESTONES</span>
             </h2>
-            <p className="text-zinc-400 mt-3 text-sm md:text-base font-sans">Supply chain integration and control</p>
+            <div className="w-24 h-1.5 bg-secondary mx-auto"></div>
           </div>
+          
+          <motion.div 
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-50px' }}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12 relative z-10"
+          >
+            {milestones.map((m, idx) => (
+              <motion.div 
+                key={idx} 
+                variants={fadeInUp}
+                className={`relative group bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border-t-4 text-left ${
+                  m.isSecondary ? 'border-secondary' : 'border-primary'
+                }`}
+              >
+                <div className={`text-4xl font-serif font-bold mb-2 ${m.isSecondary ? 'text-secondary' : 'text-primary'}`}>
+                  {m.year}
+                </div>
+                {m.tag && (
+                  <p className={`text-xs font-black uppercase tracking-[0.1em] mb-2 ${
+                    m.isSecondary ? 'text-secondary' : 'text-primary'
+                  }`}>
+                    {m.tag}
+                  </p>
+                )}
+                <p className="text-sm font-bold text-zinc-600 leading-relaxed font-sans">
+                  {m.desc}
+                </p>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
 
-          <div className="relative flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-6">
-            {/* Horizontal connector line on desktop */}
-            <div className="absolute top-[40px] left-[10%] right-[10%] bg-zinc-800 z-0 hidden lg:block" style={{ height: '2px' }}></div>
-            {/* Vertical connector line on mobile */}
-            <div className="absolute top-[40px] bottom-[40px] left-1/2 -translate-x-1/2 w-[2px] bg-zinc-800 z-0 lg:hidden"></div>
+      {/* Infrastructure & Quality */}
+      <section className="py-20 md:py-32 px-6 md:px-12 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16">
+            <motion.div 
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: '-100px' }}
+              transition={{ duration: 0.6 }}
+              className="space-y-6 md:space-y-8 bg-surface-container-low p-8 md:p-12 rounded-[2rem] md:rounded-[3rem] border border-zinc-100 hover:shadow-2xl transition-all duration-300 group text-left"
+            >
+              <div className="w-16 h-16 md:w-20 md:h-20 bg-primary/10 rounded-2xl flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300">
+                <i className="fas fa-industry text-2xl md:text-3xl"></i>
+              </div>
+              <h3 className="text-3xl md:text-4xl font-serif font-bold text-primary">
+                State-of-the-art <span className="text-[#83d57c]">Infrastructure</span>
+              </h3>
+              <p className="text-on-surface-variant leading-relaxed text-sm md:text-base font-sans">
+                Operating 4 high-care processing facilities strategically located in South India&apos;s major growing regions. Match highest standards of hygiene and automation.
+              </p>
+            </motion.div>
+            
+            <motion.div 
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: '-100px' }}
+              transition={{ duration: 0.6 }}
+              className="space-y-6 md:space-y-8 bg-secondary/5 p-8 md:p-12 rounded-[2rem] md:rounded-[3rem] border border-zinc-100 hover:shadow-2xl transition-all duration-300 group text-left"
+            >
+              <div className="w-16 h-16 md:w-20 md:h-20 bg-secondary/10 rounded-2xl flex items-center justify-center text-secondary group-hover:bg-secondary group-hover:text-white transition-all duration-300">
+                <i className="fas fa-award text-2xl md:text-3xl"></i>
+              </div>
+              <h3 className="text-3xl md:text-4xl font-serif font-bold text-secondary">
+                Quality & <span className="text-secondary/60">Food Safety</span>
+              </h3>
+              <p className="text-on-surface-variant leading-relaxed text-sm md:text-base font-sans">
+                Global accreditations including BRC, ISO:22000, HACCP, and SMETA. End-to-end traceability for every single pack.
+              </p>
+            </motion.div>
+          </div>
+        </div>
+      </section>
 
-            {[
-              { icon: <Zap className="w-6 h-6" />, title: 'Nursery', text: 'Proprietary high-yield seeds' },
-              { icon: <Factory className="w-6 h-6" />, title: 'Captive Farms', text: '100% GAP Certified' },
-              { icon: <Users className="w-6 h-6" />, title: 'Processing', text: 'ISO 22000 Cleanrooms' },
-              { icon: <Ship className="w-6 h-6" />, title: 'Logistics', text: 'Cold-chain management' },
-              { icon: <Globe className="w-6 h-6" />, title: 'Global Markets', text: 'UK, EU, USA, UAE' }
-            ].map((step, idx) => (
+      {/* Our Markets */}
+      <section className="py-20 md:py-32 px-6 md:px-12 bg-surface">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16 md:mb-24">
+            <h2 className="text-3xl md:text-5xl font-serif font-bold text-secondary mb-4 uppercase tracking-[0.2em]">
+              OUR MARKETS
+            </h2>
+            <div className="w-24 h-1.5 bg-primary mx-auto"></div>
+          </div>
+          
+          <motion.div 
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-50px' }}
+            className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-10 gap-x-4 gap-y-8 md:gap-x-8 md:gap-y-12 justify-center"
+          >
+            {markets.map((m, idx) => (
+              <motion.div 
+                key={idx} 
+                variants={fadeInUp}
+                className="flex flex-col items-center gap-3 md:gap-4 group cursor-default"
+              >
+                <div className="w-14 h-14 md:w-16 md:h-16 rounded-full overflow-hidden shadow-lg group-hover:scale-110 transition-transform duration-300">
+                  <img 
+                    src={`https://flagcdn.com/w160/${m.code}.png`} 
+                    className="w-full h-full object-cover" 
+                    alt={m.name} 
+                  />
+                </div>
+                <span className="text-[9px] md:text-[10px] font-black uppercase tracking-widest text-zinc-500 text-center">
+                  {m.name}
+                </span>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Leadership Team */}
+      <section className="bg-surface-container-low py-20 md:py-32 px-6 md:px-12">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16 md:mb-24">
+            <div className="inline-block px-4 py-1 bg-secondary/10 text-secondary font-bold text-xs uppercase tracking-widest rounded-full mb-6">
+              The Minds Behind Sam Agri
+            </div>
+            <h2 className="text-4xl md:text-6xl font-serif font-bold text-on-surface leading-tight uppercase tracking-tighter">
+              OUR <span className="text-secondary">LEADERSHIP</span>
+            </h2>
+            <div className="w-24 h-1.5 bg-secondary mx-auto mt-4"></div>
+          </div>
+          
+          <motion.div 
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-50px' }}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12"
+          >
+            {team.map((member, idx) => (
               <motion.div 
                 key={idx}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: idx * 0.15 }}
-                className="relative z-10 w-full max-w-[240px] lg:w-[18%] text-center flex flex-col items-center"
+                variants={fadeInUp}
+                className="group relative bg-white rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-2xl transition-all duration-700 hover:-translate-y-4 flex flex-col justify-between"
               >
-                <div className="w-20 h-20 bg-[#1a1a1a] border-2 border-[#2D5A27] rounded-full flex items-center justify-center mb-4 text-[#2D5A27] shadow-xl transition-transform hover:scale-105 duration-300">
-                  {step.icon}
-                </div>
-                <h3 className="text-lg font-bold text-white mb-2">{step.title}</h3>
-                <p className="text-zinc-400 text-xs md:text-sm leading-relaxed font-sans px-2">{step.text}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Our Milestones Section */}
-      <section className="py-16 md:py-28 px-6 bg-[#0a0a0a] relative overflow-hidden">
-        {/* Ambient background glows */}
-        <div className="absolute top-1/4 left-10 w-72 h-72 bg-[#2D5A27]/10 blur-[100px] rounded-full pointer-events-none"></div>
-        <div className="absolute bottom-1/4 right-10 w-96 h-96 bg-[#7e1a12]/10 blur-[120px] rounded-full pointer-events-none"></div>
-
-        <div className="max-w-7xl mx-auto relative z-10">
-          <div className="text-center mb-16 md:mb-24">
-            <h4 className="text-[#2D5A27] font-bold tracking-widest text-xs uppercase mb-3">OUR JOURNEY</h4>
-            <h2 className="text-3xl md:text-5xl font-serif font-black leading-tight text-white">
-              Key <span className="italic text-[#9ef295] font-serif">Milestones</span>
-            </h2>
-            <p className="text-zinc-400 mt-4 text-sm md:text-base font-sans max-w-xl mx-auto">
-              A timeline of dedication, scale, and horticulture innovation over three decades.
-            </p>
-          </div>
-
-          {/* Timeline Wrapper */}
-          <div className="relative">
-            {/* Center Timeline Line */}
-            <div className="absolute left-4 lg:left-1/2 transform lg:-translate-x-1/2 top-4 bottom-4 w-[2px] bg-gradient-to-b from-[#2D5A27] via-[#7e1a12] to-[#2D5A27]"></div>
-
-            {/* Timeline Nodes */}
-            <div className="space-y-12 lg:space-y-16">
-              {[
-                { year: '1996', tag: 'Incorporation', desc: 'Incorporation of Sam Agri' },
-                { year: '2000', tag: 'Exotics India', desc: 'Started marketing of exotic vegetables in India' },
-                { year: '2001', tag: 'Global Launch', desc: 'Commenced export operations' },
-                { year: '2005', tag: 'GAP Farms', desc: 'Establishment of captive GAP certified farms' },
-                { year: '2006', tag: 'Facility I', desc: 'Established our first high care facility for arils' },
-                { year: '2007', tag: 'India First (Arils)', desc: 'Commenced export of arils to international markets' },
-                { year: '2009', tag: '100 MT Mark', desc: 'Crossed 100 MT of Pomegranate Arils export in a calendar year' },
-                { year: '2010', tag: 'Coconut Export', desc: 'Export of Coconut chunks to international markets' },
-                { year: '2014', tag: 'Facility II', desc: 'Expansion of capacity with new facility @ Bangalore' },
-                { year: '2016', tag: 'India First (Figs)', desc: 'Fresh Figs to international markets' },
-                { year: '2018', tag: '1000 MT Mark', desc: 'Crossed 1000 MT of pomegranate Arils export in a calendar year' },
-                { year: '2019', tag: 'Facility III', desc: 'Expansion of capacity with new facility @ Nashik' },
-              ].map((milestone, idx) => {
-                const isEven = idx % 2 === 0
-                return (
-                  <div key={idx} className="relative flex flex-col lg:flex-row items-stretch">
-                    {/* Spacer / Left side layout */}
-                    <div className={`w-full lg:w-1/2 flex justify-start lg:justify-end ${isEven ? 'lg:pr-16 order-2 lg:order-1' : 'order-2 lg:order-2 lg:pl-16'}`}>
-                      <motion.div
-                        initial={{ opacity: 0, x: isEven ? -40 : 40 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true, margin: "-80px" }}
-                        transition={{ duration: 0.5, delay: idx * 0.05 }}
-                        className="w-full max-w-lg bg-[#161616]/75 border border-zinc-800 backdrop-blur-md rounded-3xl p-6 md:p-8 hover:border-[#2D5A27]/50 transition-all duration-300 group ml-8 lg:ml-0"
-                      >
-                        <div className="flex items-center gap-4 mb-3">
-                          <span className="text-3xl md:text-4xl font-black font-sans tracking-tight text-[#9ef295] group-hover:scale-105 transition-transform duration-300">
-                            {milestone.year}
-                          </span>
-                          <span className="bg-white/5 border border-white/10 px-3 py-1 rounded-full text-xs font-bold text-zinc-400 uppercase tracking-wider">
-                            {milestone.tag}
-                          </span>
-                        </div>
-                        <p className="text-zinc-300 text-sm md:text-base leading-relaxed font-sans">
-                          {milestone.desc}
-                        </p>
-                      </motion.div>
+                <div>
+                  <div className="aspect-[4/5] overflow-hidden relative">
+                    <img 
+                      src={member.image} 
+                      className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-1000" 
+                      alt={member.name} 
+                      onError={(e) => { e.target.src = 'https://via.placeholder.com/400x500?text=' + member.name }}
+                    />
+                    
+                    {/* Hover Overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8 md:p-10 z-10">
+                      <h3 className="text-3xl md:text-4xl font-serif font-bold text-white mb-1">
+                        {member.name}
+                      </h3>
+                      <p className="text-secondary font-black text-xs uppercase tracking-[0.3em] mb-4 md:mb-6">
+                        {member.role}
+                      </p>
+                      <ul className="space-y-2 md:space-y-3 text-xs md:text-sm text-white/70 font-medium border-t border-white/20 pt-4 md:pt-6 text-left">
+                        {member.bio.map((point, pIdx) => (
+                          <li key={pIdx} className="flex gap-3">
+                            <i className="fas fa-check text-secondary text-[10px] mt-1 flex-shrink-0"></i>
+                            <span>{point}</span>
+                          </li>
+                        ))}
+                      </ul>
                     </div>
-
-                    {/* Timeline Node Point */}
-                    <div className="absolute left-4 lg:left-1/2 transform -translate-x-1/2 top-8 w-6 h-6 rounded-full bg-[#161616] border-4 border-[#2D5A27] z-20 group-hover:scale-120 transition-transform duration-300"></div>
                   </div>
-                )
-              })}
-            </div>
-          </div>
-        </div>
-      </section>
-      {/* Leadership Team Section */}
-      <section className="py-16 md:py-28 px-6 bg-[#0f0f0f] relative overflow-hidden">
-        <div className="max-w-7xl mx-auto relative z-10">
-          <div className="text-center mb-16 md:mb-24">
-            <h4 className="text-[#2D5A27] font-bold tracking-widest text-xs uppercase mb-3">PEOPLE BEHIND SAM AGRI</h4>
-            <h2 className="text-3xl md:text-5xl font-serif font-black leading-tight text-white">
-              Leadership <span className="italic text-[#9ef295] font-serif">Team</span>
-            </h2>
-            <p className="text-zinc-400 mt-4 text-sm md:text-base font-sans max-w-xl mx-auto">
-              Meet our team of agri-business experts, innovators, and leaders driving sustainable agriculture globally.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
-            {[
-              {
-                name: 'GVK Naidu',
-                role: 'Managing Director',
-                image: '/assets/team/gvknaidu.png',
-                email: 'gvk.naidu@samagri.com',
-                linkedin: 'https://www.linkedin.com/in/gvk-naidu-49263a4/',
-                bio: [
-                  'Spearheads strategy, growth & diversifications of the group',
-                  '30+ years of agri-business experience & serial entrepreneur',
-                  'Graduate from UAS, Bangalore'
-                ]
-              },
-              {
-                name: 'Priyatham V',
-                role: 'CEO',
-                image: '/assets/team/priyatham.png',
-                email: 'priyatham.jyothish@samagri.com',
-                linkedin: 'https://www.linkedin.com/in/priyatham-vankayalapati-1284514/',
-                bio: [
-                  'Spearheads international marketing & finance of the group',
-                  '18+ years of experience in investment banking & agri business',
-                  'Graduate from BITS Pilani & MBA from IIM Lucknow'
-                ]
-              },
-              {
-                name: 'David Levin',
-                role: 'Marketing Director',
-                image: '/assets/team/david.png',
-                email: 'david.levin@samagri.com',
-                linkedin: 'https://www.linkedin.com/in/david-levin-87bb1777/',
-                bio: [
-                  'Responsible for marketing in Europe & Sourcing from Israel',
-                  '35+ years of international fresh produce marketing experience',
-                  'Engineering Graduate from Fairleigh Dickinson University, US'
-                ]
-              },
-              {
-                name: 'KN Rao',
-                role: 'Technical Director',
-                image: '/assets/team/knrao.png',
-                email: 'knrao@samagri.com',
-                linkedin: 'https://www.linkedin.com/in/kakarla-rao-41a3346/',
-                bio: [
-                  'Responsible for Technology, Research & NPD initiative of the group',
-                  '25+ years of experience in farming, high care processing, food safety & hygiene',
-                  'Graduate in Agriculture from AP Agriculture University'
-                ]
-              },
-              {
-                name: 'Ajay TG',
-                role: 'Head – Domestic Business',
-                image: '/assets/team/ajay.png',
-                email: 'ajay@samagri.com',
-                bio: [
-                  'Responsible for domestic business division of Sam Agri',
-                  '12+ years of experience in hotel, catering & fresh produce industry',
-                  'Graduate in Hotel Management & MBA from Christ University'
-                ]
-              },
-              {
-                name: 'Suresh Babu',
-                role: 'Manager - Finance',
-                image: '/assets/team/suresh.png',
-                email: 'suresh.babu@samagri.com',
-                linkedin: 'https://www.linkedin.com/in/suresh-babu-13064914b/',
-                bio: [
-                  'Responsible for finance, accounts, banking & logistics of the group',
-                  '20+ years of experience in finance & accounting domains',
-                  'Graduate in Commerce'
-                ]
-              },
-              {
-                name: 'Marcel Bangerter',
-                role: 'Marketing Director, Switzerland',
-                image: '/assets/team/marcel.png',
-                email: 'marcel.bangerter@samagri.com',
-                linkedin: 'https://www.linkedin.com/in/marcel-bangerter-96191a109/',
-                bio: [
-                  'Responsible for marketing of Sam Agri products in Switzerland market',
-                  'Founder of suiXtrade GmbH and the Zoë Ray brand',
-                  'Has 20+ years of experience in investment banking and fresh produce marketing.'
-                ]
-              }
-            ].map((member, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="bg-[#161616]/75 border border-zinc-800 backdrop-blur-md rounded-3xl overflow-hidden hover:border-[#2D5A27]/50 transition-all duration-500 group flex flex-col h-full"
-              >
-                {/* Photo container */}
-                <div className="relative aspect-[4/3] overflow-hidden bg-zinc-900">
-                  <img
-                    src={member.image}
-                    alt={member.name}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 grayscale group-hover:grayscale-0"
-                    onError={(e) => { e.target.src = 'https://via.placeholder.com/400x300?text=' + member.name }}
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#161616] via-transparent to-transparent"></div>
-                </div>
-
-                {/* Info Container */}
-                <div className="p-6 md:p-8 flex flex-col flex-1 justify-between">
-                  <div>
-                    <h3 className="text-2xl font-serif font-black text-white mb-1 group-hover:text-[#9ef295] transition-colors">{member.name}</h3>
-                    <p className="text-[#2D5A27] font-bold text-xs uppercase tracking-widest mb-6">{member.role}</p>
-
-                    <ul className="space-y-3 mb-8">
-                      {member.bio.map((point, pIdx) => (
-                        <li key={pIdx} className="flex items-start gap-3 text-zinc-400 text-sm leading-relaxed">
-                          <span className="w-1.5 h-1.5 rounded-full bg-[#9ef295] mt-2 flex-shrink-0"></span>
-                          <span>{point}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between border-t border-zinc-800 pt-6 gap-4">
-                    <a
-                      href={`mailto:${member.email}`}
-                      className="text-zinc-500 hover:text-white text-xs font-semibold tracking-wider lowercase flex items-center gap-2 transition-colors break-all"
-                    >
-                      <i className="fas fa-envelope text-sm text-[#9ef295]"></i>
-                      {member.email}
-                    </a>
-                    {member.linkedin ? (
-                      <a
-                        href={member.linkedin}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="w-8 h-8 rounded-full bg-zinc-800 flex items-center justify-center text-zinc-400 hover:bg-[#2D5A27] hover:text-white transition-all self-end sm:self-auto"
-                      >
-                        <i className="fab fa-linkedin-in text-xs"></i>
-                      </a>
-                    ) : (
-                      <div className="w-8 h-8 rounded-full bg-zinc-800/30 flex items-center justify-center text-zinc-600 cursor-not-allowed self-end sm:self-auto">
-                        <i className="fab fa-linkedin-in text-xs"></i>
-                      </div>
-                    )}
+                  
+                  {/* Default Info (Fades out on hover, preventing layout shifts by retaining space) */}
+                  <div className="p-6 md:p-8 group-hover:opacity-0 transition-opacity duration-500 text-left">
+                    <h3 className="text-2xl md:text-3xl font-serif font-bold text-primary mb-1">
+                      {member.name}
+                    </h3>
+                    <p className="text-secondary font-black text-xs uppercase tracking-[0.2em]">
+                      {member.role}
+                    </p>
                   </div>
                 </div>
               </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
-
-      {/* Stats Section */}
-      <section className="py-16 md:py-24 px-6 bg-[#0f0f0f]">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 text-center">
-            <div className="p-6 bg-[#161616] rounded-2xl border border-zinc-800 shadow-md">
-              <h2 className="text-4xl md:text-6xl font-bold text-[#2D5A27] mb-2">25+</h2>
-              <p className="text-xs md:text-sm uppercase tracking-wider text-zinc-400">Years Experience</p>
-            </div>
-            <div className="p-6 bg-[#161616] rounded-2xl border border-zinc-800 shadow-md">
-              <h2 className="text-4xl md:text-6xl font-bold text-[#2D5A27] mb-2">1000mt</h2>
-              <p className="text-xs md:text-sm uppercase tracking-wider text-zinc-400">Annual Exports</p>
-            </div>
-            <div className="p-6 bg-[#161616] rounded-2xl border border-zinc-800 shadow-md">
-              <h2 className="text-4xl md:text-6xl font-bold text-[#2D5A27] mb-2">100%</h2>
-              <p className="text-xs md:text-sm uppercase tracking-wider text-zinc-400">Traceability</p>
-            </div>
-            <div className="p-6 bg-[#161616] rounded-2xl border border-zinc-800 shadow-md">
-              <h2 className="text-4xl md:text-6xl font-bold text-[#2D5A27] mb-2">20+</h2>
-              <p className="text-xs md:text-sm uppercase tracking-wider text-zinc-400">Countries</p>
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
+    </main>
   )
 }
 
