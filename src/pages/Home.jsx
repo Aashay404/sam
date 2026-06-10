@@ -459,7 +459,7 @@ const Home = () => {
             playsInline
             className="w-full h-full object-cover object-center"
           >
-            <source src="/assets/Sam_agri_music_and_caption.mp4" type="video/mp4" />
+            <source src="https://assets.mixkit.co/videos/preview/mixkit-agriculture-and-tractor-in-a-field-41604-large.mp4" type="video/mp4" />
           </video>
           {/* Dark overlay */}
           <div className="absolute inset-0 bg-black/35 pointer-events-none"></div>
