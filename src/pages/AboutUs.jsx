@@ -304,45 +304,6 @@ const AboutUs = () => {
         </div>
       </section>
 
-      {/* Our Markets */}
-      <section className="py-20 md:py-32 px-6 md:px-12 bg-surface">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16 md:mb-24">
-            <h2 className="text-3xl md:text-5xl font-sans font-bold text-secondary mb-4 uppercase tracking-[0.2em]">
-              OUR MARKETS
-            </h2>
-            <div className="w-24 h-1.5 bg-primary mx-auto"></div>
-          </div>
-          
-          <motion.div 
-            variants={staggerContainer}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: '-50px' }}
-            className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-10 gap-x-4 gap-y-8 md:gap-x-8 md:gap-y-12 justify-center"
-          >
-            {markets.map((m, idx) => (
-              <motion.div 
-                key={idx} 
-                variants={fadeInUp}
-                className="flex flex-col items-center gap-3 md:gap-4 group cursor-default"
-              >
-                <div className="w-14 h-14 md:w-16 md:h-16 rounded-full overflow-hidden shadow-lg group-hover:scale-110 transition-transform duration-300">
-                  <img 
-                    src={`https://flagcdn.com/w160/${m.code}.png`} 
-                    className="w-full h-full object-cover" 
-                    alt={m.name} 
-                  />
-                </div>
-                <span className="text-[9px] md:text-[10px] font-black uppercase tracking-widest text-zinc-500 text-center">
-                  {m.name}
-                </span>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
-
       {/* Leadership Team */}
       <section className="bg-surface-container-low py-20 md:py-32 px-6 md:px-12">
         <div className="max-w-7xl mx-auto">
@@ -407,6 +368,45 @@ const AboutUs = () => {
                     </p>
                   </div>
                 </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Our Markets */}
+      <section className="py-20 md:py-32 px-6 md:px-12 bg-surface">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16 md:mb-24">
+            <h2 className="text-3xl md:text-5xl font-sans font-bold text-secondary mb-4 uppercase tracking-[0.2em]">
+              OUR MARKETS
+            </h2>
+            <div className="w-24 h-1.5 bg-primary mx-auto"></div>
+          </div>
+          
+          <motion.div 
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-50px' }}
+            className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-10 gap-x-4 gap-y-8 md:gap-x-8 md:gap-y-12 justify-center"
+          >
+            {markets.map((m, idx) => (
+              <motion.div 
+                key={idx} 
+                variants={fadeInUp}
+                className="flex flex-col items-center gap-3 md:gap-4 group cursor-default"
+              >
+                <div className="w-14 h-14 md:w-16 md:h-16 rounded-full overflow-hidden shadow-lg group-hover:scale-110 transition-transform duration-300">
+                  <img 
+                    src={`https://flagcdn.com/w160/${m.code}.png`} 
+                    className="w-full h-full object-cover" 
+                    alt={m.name} 
+                  />
+                </div>
+                <span className="text-[9px] md:text-[10px] font-black uppercase tracking-widest text-zinc-500 text-center">
+                  {m.name}
+                </span>
               </motion.div>
             ))}
           </motion.div>
