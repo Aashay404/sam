@@ -2,16 +2,16 @@ import React from 'react'
 
 const GroupCompanies = () => {
   return (
-    <main className="min-h-screen text-white selection:bg-[#0d631b] selection:text-white bg-[#0f0f0f]">
+    <main className="min-h-screen text-on-surface selection:bg-[#0d631b] selection:text-white bg-surface pt-20">
       {/* Dynamic Brand Portfolio */}
       <section className="py-20 md:py-24 px-6 md:px-12 relative overflow-hidden">
         {/* Background Decoration (Glow) */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-[#0d631b]/20 blur-[150px] rounded-full -mt-24 pointer-events-none"></div>
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-[#0d631b]/10 blur-[150px] rounded-full -mt-24 pointer-events-none"></div>
         
         <div className="max-w-4xl mx-auto animate-in relative z-10 text-center">
-          <span className="font-display font-bold text-[#9ef295] uppercase tracking-[0.5em] text-[10px] mb-8 inline-block bg-white/5 px-6 py-2 rounded-full border border-white/10">The Sam Agri Group</span>
-          <h1 className="text-4xl md:text-7xl lg:text-8xl font-serif font-bold text-white uppercase tracking-tighter mb-10 leading-[0.8]">GROUP <br /><span className="text-[#9ef295]">ENTITIES</span></h1>
-          <p className="text-base md:text-lg text-white/70 font-medium leading-relaxed max-w-2xl mx-auto">
+          <span className="font-display font-bold text-primary uppercase tracking-[0.5em] text-[10px] mb-8 inline-block bg-primary/5 px-6 py-2 rounded-full border border-primary/10">The Sam Agri Group</span>
+          <h1 className="text-4xl md:text-7xl lg:text-8xl font-serif font-black text-primary uppercase tracking-tighter mb-10 leading-[0.8]">GROUP <br /><span className="text-secondary">ENTITIES</span></h1>
+          <p className="text-base md:text-lg text-zinc-600 font-medium leading-relaxed max-w-2xl mx-auto">
              A diversified conglomerate of specialized legal entities, each driving innovation and excellence across the global fresh produce supply chain.
           </p>
         </div>
@@ -20,12 +20,12 @@ const GroupCompanies = () => {
       {/* Processing Entities */}
       <section className="pb-12 md:pb-16 px-6 md:px-12 relative z-10">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-xl md:text-2xl font-serif text-white/50 uppercase tracking-[0.3em] mb-12 border-b border-white/10 pb-4">Processing Entities</h2>
+          <h2 className="text-xl md:text-2xl font-serif text-zinc-400 uppercase tracking-[0.3em] mb-12 border-b border-zinc-200 pb-4">Processing Entities</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
             {/* Sam Agritech Limited */}
-            <div className="group relative aspect-square rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-2xl border border-white/10 transition-all duration-700 hover:-translate-y-2">
+            <div className="group relative aspect-square rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-lg border border-zinc-200 transition-all duration-700 hover:-translate-y-2 hover:shadow-2xl">
               <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2000" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 grayscale group-hover:grayscale-0" alt="Sam Agritech" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-transparent"></div>
               <div className="absolute inset-0 p-8 md:p-10 flex flex-col justify-end">
                 <span className="text-[#9ef295] font-bold text-[10px] uppercase tracking-widest mb-2">Medchal, Telangana</span>
                 <h3 className="text-2xl md:text-3xl font-serif font-bold text-white mb-4 leading-tight">Sam Agritech <br />Limited</h3>
@@ -34,9 +34,9 @@ const GroupCompanies = () => {
             </div>
 
             {/* Sam Agri Ventures Ltd */}
-            <div className="group relative aspect-square rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-2xl border border-white/10 transition-all duration-700 hover:-translate-y-2">
+            <div className="group relative aspect-square rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-lg border border-zinc-200 transition-all duration-700 hover:-translate-y-2 hover:shadow-2xl">
               <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=2000" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 grayscale group-hover:grayscale-0" alt="Sam Agri Ventures" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-transparent"></div>
               <div className="absolute inset-0 p-8 md:p-10 flex flex-col justify-end">
                 <span className="text-[#9ef295] font-bold text-[10px] uppercase tracking-widest mb-2">Chittoor, Andhra Pradesh</span>
                 <h3 className="text-2xl md:text-3xl font-serif font-bold text-white mb-4 leading-tight">Sam Agri <br />Ventures Ltd</h3>
@@ -50,12 +50,12 @@ const GroupCompanies = () => {
       {/* Infrastructure & Logistics */}
       <section className="pb-12 md:pb-20 px-6 md:px-12 relative z-10">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-xl md:text-2xl font-serif text-white/50 uppercase tracking-[0.3em] mb-12 border-b border-white/10 pb-4">Infrastructure & Logistics</h2>
+          <h2 className="text-xl md:text-2xl font-serif text-zinc-400 uppercase tracking-[0.3em] mb-12 border-b border-zinc-200 pb-4">Infrastructure & Logistics</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
             {/* Sam Agri Fresh Pvt Ltd */}
-            <div className="group relative aspect-square rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-2xl border border-white/10 transition-all duration-700 hover:-translate-y-2">
+            <div className="group relative aspect-square rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-lg border border-zinc-200 transition-all duration-700 hover:-translate-y-2 hover:shadow-2xl">
               <img src="https://images.unsplash.com/photo-1615485290382-441e4d019cb5?q=80&w=2000" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 grayscale group-hover:grayscale-0" alt="Sam Agri Fresh" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-transparent"></div>
               <div className="absolute inset-0 p-8 md:p-10 flex flex-col justify-end">
                 <span className="text-[#9ef295] font-bold text-[10px] uppercase tracking-widest mb-2">Nashik, Maharashtra</span>
                 <h3 className="text-2xl md:text-3xl font-serif font-bold text-white mb-4 leading-tight">Sam Agri <br />Fresh Pvt Ltd</h3>
@@ -69,45 +69,45 @@ const GroupCompanies = () => {
       {/* Global Marketing Hubs */}
       <section className="pb-20 md:pb-32 px-6 md:px-12 relative z-10">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-xl md:text-2xl font-serif text-white/50 uppercase tracking-[0.3em] mb-12 border-b border-white/10 pb-4">Global Marketing & Trade</h2>
+          <h2 className="text-xl md:text-2xl font-serif text-zinc-400 uppercase tracking-[0.3em] mb-12 border-b border-zinc-200 pb-4">Global Marketing & Trade</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {/* Switzerland */}
-            <div className="group relative aspect-[4/5] rounded-[2rem] overflow-hidden shadow-xl border border-white/5 transition-all duration-700 hover:scale-[1.02]">
-              <img src="https://images.unsplash.com/photo-1516550893923-42d28e5677af?q=80&w=2000" className="w-full h-full object-cover opacity-50 group-hover:opacity-100 transition-opacity" alt="Switzerland" />
-              <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all"></div>
+            <div className="group relative aspect-[4/5] rounded-[2rem] overflow-hidden shadow-md border border-zinc-200 transition-all duration-700 hover:scale-[1.02] hover:shadow-lg">
+              <img src="https://images.unsplash.com/photo-1516550893923-42d28e5677af?q=80&w=2000" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" alt="Switzerland" />
+              <div className="absolute inset-0 bg-black/50 group-hover:bg-black/30 transition-all duration-500"></div>
               <div className="absolute inset-0 p-8 flex flex-col justify-end text-center">
                 <h3 className="text-xl font-serif font-bold text-white mb-2">Suix Trade GMBH</h3>
-                <p className="text-[#9ef295] text-[10px] uppercase tracking-widest">Switzerland</p>
+                <p className="text-[#9ef295] text-[10px] uppercase tracking-widest font-bold">Switzerland</p>
               </div>
             </div>
 
             {/* Dubai */}
-            <div className="group relative aspect-[4/5] rounded-[2rem] overflow-hidden shadow-xl border border-white/5 transition-all duration-700 hover:scale-[1.02]">
-              <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=2000" className="w-full h-full object-cover opacity-50 group-hover:opacity-100 transition-opacity" alt="Dubai" />
-              <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all"></div>
+            <div className="group relative aspect-[4/5] rounded-[2rem] overflow-hidden shadow-md border border-zinc-200 transition-all duration-700 hover:scale-[1.02] hover:shadow-lg">
+              <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=2000" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" alt="Dubai" />
+              <div className="absolute inset-0 bg-black/50 group-hover:bg-black/30 transition-all duration-500"></div>
               <div className="absolute inset-0 p-8 flex flex-col justify-end text-center">
                 <h3 className="text-xl font-serif font-bold text-white mb-2 leading-tight">Sam Tulip Fruit <br />& Juice Trading</h3>
-                <p className="text-[#9ef295] text-[10px] uppercase tracking-widest">Dubai, UAE</p>
+                <p className="text-[#9ef295] text-[10px] uppercase tracking-widest font-bold">Dubai, UAE</p>
               </div>
             </div>
 
             {/* Israel */}
-            <div className="group relative aspect-[4/5] rounded-[2rem] overflow-hidden shadow-xl border border-white/5 transition-all duration-700 hover:scale-[1.02]">
-              <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=2000" className="w-full h-full object-cover opacity-50 group-hover:opacity-100 transition-opacity" alt="Israel" />
-              <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all"></div>
+            <div className="group relative aspect-[4/5] rounded-[2rem] overflow-hidden shadow-md border border-zinc-200 transition-all duration-700 hover:scale-[1.02] hover:shadow-lg">
+              <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=2000" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" alt="Israel" />
+              <div className="absolute inset-0 bg-black/50 group-hover:bg-black/30 transition-all duration-500"></div>
               <div className="absolute inset-0 p-8 flex flex-col justify-end text-center">
                 <h3 className="text-xl font-serif font-bold text-white mb-2">Zohara Farms LLC</h3>
-                <p className="text-[#9ef295] text-[10px] uppercase tracking-widest">Israel</p>
+                <p className="text-[#9ef295] text-[10px] uppercase tracking-widest font-bold">Israel</p>
               </div>
             </div>
 
             {/* Hong Kong */}
-            <div className="group relative aspect-[4/5] rounded-[2rem] overflow-hidden shadow-xl border border-white/5 transition-all duration-700 hover:scale-[1.02]">
-              <img src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?q=80&w=2000" className="w-full h-full object-cover opacity-50 group-hover:opacity-100 transition-opacity" alt="Hong Kong" />
-              <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all"></div>
+            <div className="group relative aspect-[4/5] rounded-[2rem] overflow-hidden shadow-md border border-zinc-200 transition-all duration-700 hover:scale-[1.02] hover:shadow-lg">
+              <img src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?q=80&w=2000" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" alt="Hong Kong" />
+              <div className="absolute inset-0 bg-black/50 group-hover:bg-black/30 transition-all duration-500"></div>
               <div className="absolute inset-0 p-8 flex flex-col justify-end text-center">
                 <h3 className="text-xl font-serif font-bold text-white mb-2">Sam Tulip HK LLC</h3>
-                <p className="text-[#9ef295] text-[10px] uppercase tracking-widest">Hong Kong</p>
+                <p className="text-[#9ef295] text-[10px] uppercase tracking-widest font-bold">Hong Kong</p>
               </div>
             </div>
           </div>
