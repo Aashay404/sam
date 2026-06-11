@@ -81,7 +81,7 @@ const GroupCompanies = () => {
               <div className="absolute inset-0 p-8 md:p-10 flex flex-col justify-end text-left">
                 <span className="text-[#9ef295] font-bold text-[10px] uppercase tracking-widest mb-2">Domestic Brand</span>
                 <h3 className="text-2xl md:text-3xl font-serif font-bold text-white mb-4 leading-tight">Sam's Delight</h3>
-                <p className="text-white/70 text-sm leading-relaxed group-hover:text-white transition-colors">Our flagship range of premium papaya and tropical delicacies.</p>
+                <p className="text-white/70 text-sm leading-relaxed group-hover:text-white transition-colors">Our flagship range of premium almonds and nutritious dry fruits.</p>
               </div>
             </div>
 

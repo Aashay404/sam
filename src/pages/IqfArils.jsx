@@ -2,7 +2,7 @@ import React from 'react'
 
 const IqfArils = () => {
   return (
-    <main className="bg-black text-white selection:bg-[#7e1a12] selection:text-white">
+    <main className="bg-[#4a0a05] text-white selection:bg-[#7e1a12] selection:text-white">
       {/* Premium Hero Section */}
       <section className="relative w-full min-h-screen md:h-screen overflow-hidden flex flex-col md:flex-row items-stretch pt-24 md:pt-0">
         {/* Content Side */}

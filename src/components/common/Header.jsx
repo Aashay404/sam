@@ -28,6 +28,14 @@ const Header = () => {
     document.body.style.overflow = nextState ? 'hidden' : 'auto'
   }
 
+  const isProductPage = [
+    'pomegranate-arils',
+    'coconut-chunks',
+    'dried-arils',
+    'pomegranate-fruit',
+    'iqf-arils',
+  ].some((slug) => location.pathname.includes(slug))
+
   const toggleMobileAssortment = (e) => {
     e.preventDefault()
     setMobileAssortmentOpen(!mobileAssortmentOpen)
@@ -52,6 +60,30 @@ const Header = () => {
             backdrop-filter: blur(0px);
             font-family: 'Outfit', sans-serif;
         }
+
+        .navbar-h.product-page {
+            padding: 12px 80px;
+            background: #7e1a12;
+            backdrop-filter: none;
+            box-shadow: none;
+            border-bottom: none;
+        }
+        
+        .navbar-h.is-home:not(.scrolled) {
+            background: transparent;
+            backdrop-filter: blur(0px);
+            box-shadow: none;
+            border-bottom: none;
+            padding: 30px 80px;
+        }
+
+        .navbar-h.product-page:not(.scrolled) {
+            background: #7e1a12;
+            backdrop-filter: none;
+            padding: 12px 80px;
+            box-shadow: none;
+            border-bottom: none;
+        }
         
         .navbar-h.scrolled {
             background: rgba(126, 26, 18, 0.98);
@@ -62,10 +94,18 @@ const Header = () => {
         }
 
         .navbar-logo-h img {
-            height: 60px;
+            height: 45px;
             width: auto;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             filter: drop-shadow(0 2px 8px rgba(0,0,0,0.3));
+        }
+        
+        .navbar-h.is-home:not(.scrolled) .navbar-logo-h img {
+            height: 60px;
+        }
+
+        .navbar-h.product-page:not(.scrolled) .navbar-logo-h img {
+            height: 45px;
         }
         
         .navbar-h.scrolled .navbar-logo-h img {
@@ -286,7 +326,9 @@ const Header = () => {
         }
 
         @media (max-width: 1024px) {
-            .navbar-h { padding: 15px 25px; background: transparent; }
+            .navbar-h:not(.product-page) { padding: 15px 25px; background: transparent; }
+            .navbar-h.product-page { padding: 15px 25px; background: #7e1a12 !important; box-shadow: none !important; border-bottom: none !important; }
+            .navbar-h.product-page:not(.scrolled) .navbar-logo-h img { height: 40px; }
             .navbar-h.scrolled { 
                 padding: 12px 25px; 
                 background: rgba(126, 26, 18, 1) !important;
@@ -325,7 +367,7 @@ const Header = () => {
             }
         }      `}</style>
 
-      <nav className={`navbar-h ${scrolled ? 'scrolled' : ''} ${location.pathname === '/' ? 'is-home' : ''}`} id="main-nav-h">
+      <nav className={`navbar-h ${scrolled ? 'scrolled' : ''} ${location.pathname === '/' ? 'is-home' : ''} ${isProductPage ? 'product-page' : ''}`} id="main-nav-h">
         <div className="navbar-logo-h">
           <Link to="/">
             <img src="/assets/logo2.png" alt="Sam Agri" onError={(e) => { e.target.src = 'https://via.placeholder.com/120x40?text=SAM+AGRI' }} />

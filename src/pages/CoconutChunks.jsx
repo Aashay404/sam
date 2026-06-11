@@ -2,7 +2,7 @@ import React from 'react'
 
 const CoconutChunks = () => {
   return (
-    <main className="bg-[#faf9f5] text-zinc-900 selection:bg-[#9ef295] selection:text-black">
+    <main className="bg-[#0d631b] text-zinc-900 selection:bg-[#9ef295] selection:text-black">
       {/* Banner Section */}
       <section className="relative w-full min-h-screen md:h-screen overflow-hidden flex flex-col md:flex-row items-stretch pt-24 md:pt-0">
         <div className="w-full md:w-[45%] bg-gradient-to-br from-[#0d631b] to-black flex flex-col justify-center px-8 md:px-16 py-12 md:py-0 relative z-10">

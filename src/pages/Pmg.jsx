@@ -19,7 +19,7 @@ const Pmg = () => {
           --white: #FFFFFF;
           --radius: 12px;
           --radius-sm: 8px;
-          background: var(--cream);
+          background: linear-gradient(135deg, #7e1a12 0%, #000 100%);
           color: var(--text);
           font-family: 'DM Sans', sans-serif;
         }

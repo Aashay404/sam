@@ -700,7 +700,7 @@ const Home = () => {
           </div>
 
           <div className="dp-row dp-row-top mt-8">
-            <div className="dp-card">
+            <div className="dp-card" data-name="West-In-Avo">
               <img src="/assets/avocado.jpg" alt="West-In-Avo" />
               <div className="dp-info">
                 <h3>West-In-Avo</h3>
@@ -708,7 +708,7 @@ const Home = () => {
                 <a href="#">Know More</a>
               </div>
             </div>
-            <div className="dp-card">
+            <div className="dp-card" data-name="Sam Berry">
               <img src="/assets/sam_berry_basket.png" alt="Sam Berry" />
               <div className="dp-info">
                 <h3>Sam Berry</h3>
@@ -716,15 +716,15 @@ const Home = () => {
                 <a href="#">Know More</a>
               </div>
             </div>
-            <div className="dp-card">
+            <div className="dp-card" data-name="Sam's Delight">
               <img src="/assets/almond.jpg" alt="Sam's Delight" />
               <div className="dp-info">
                 <h3>Sam's Delight</h3>
-                <p>Our flagship range of premium papaya and tropical delicacies.</p>
+                <p>Our flagship range of premium almonds and nutritious dry fruits.</p>
                 <a href="#">Know More</a>
               </div>
             </div>
-            <div className="dp-card">
+            <div className="dp-card" data-name="Sam Alpine">
               <img src="https://images.unsplash.com/photo-1498557850523-fd3d118b962e?q=80&w=800" alt="Sam Alpine" />
               <div className="dp-info">
                 <h3>Sam Alpine</h3>
@@ -734,7 +734,7 @@ const Home = () => {
             </div>
           </div>
           <div className="dp-row dp-row-bottom">
-            <div className="dp-card">
+            <div className="dp-card" data-name="Ozar Tulip">
               <img src="/assets/tulip.jpg" alt="Ozar Tulip" />
               <div className="dp-info">
                 <h3>Ozar Tulip</h3>
@@ -742,7 +742,7 @@ const Home = () => {
                 <a href="#">Know More</a>
               </div>
             </div>
-            <div className="dp-card">
+            <div className="dp-card" data-name="Sam's Wine">
               <img src="/assets/pomogranatewine.png" alt="Sam's Wine" />
               <div className="dp-info">
                 <h3>Sam's Wine</h3>
@@ -750,7 +750,7 @@ const Home = () => {
                 <a href="#">Know More</a>
               </div>
             </div>
-            <div className="dp-card">
+            <div className="dp-card" data-name="Sidvin">
               <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=800" alt="Sidvin" />
               <div className="dp-info">
                 <h3>Sidvin</h3>
