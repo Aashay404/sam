@@ -180,8 +180,9 @@ const Header = () => {
         .mobile-menu-h {
             position: fixed;
             top: 0;
-            right: -70%;
+            right: 0;
             width: 70%;
+            max-width: 420px;
             height: 100vh;
             background: #7e1a12;
             z-index: 4000;
@@ -189,14 +190,19 @@ const Header = () => {
             flex-direction: column;
             justify-content: flex-start;
             align-items: flex-start;
-            transition: all 0.6s cubic-bezier(0.77, 0, 0.175, 1);
+            transform: translateX(100%);
+            opacity: 0;
+            pointer-events: none;
+            transition: transform 0.6s cubic-bezier(0.77, 0, 0.175, 1), opacity 0.3s ease;
             padding: 80px 40px;
             overflow-y: auto;
             box-shadow: -10px 0 30px rgba(0,0,0,0.3);
         }
 
         .mobile-menu-h.active {
-            right: 0;
+            transform: translateX(0);
+            opacity: 1;
+            pointer-events: auto;
         }
 
         .mobile-links-h {
@@ -303,7 +309,21 @@ const Header = () => {
             .navbar-h.scrolled { padding: 12px 16px; }
             .navbar-logo-h img { height: 35px; }
         }
-      `}</style>
+        @media (max-width: 768px) {
+            .mobile-menu-h {
+                width: 100% !important;
+                padding: 70px 22px !important;
+            }
+
+            .mobile-links-h li {
+                margin: 18px 0;
+            }
+
+            .mobile-close-h {
+                top: 24px;
+                right: 20px;
+            }
+        }      `}</style>
 
       <nav className={`navbar-h ${scrolled ? 'scrolled' : ''} ${location.pathname === '/' ? 'is-home' : ''}`} id="main-nav-h">
         <div className="navbar-logo-h">
