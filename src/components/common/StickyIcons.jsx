@@ -33,23 +33,58 @@ const StickyIcons = () => {
     <>
       <style>{`
         /* Sticky Social Bar */
-        .sticky-social {
-            position: fixed;
-            right: 36px;
-            bottom: 110px;
-            z-index: 1000;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.4s ease, transform 0.4s ease;
+        .social-icons {
+          position: fixed;
+          bottom: 20px;
+          right: 20px;
+          z-index: 999;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 10px;
+          opacity: 0;
+          pointer-events: none;
+          transition: opacity 0.4s ease;
         }
-        .sticky-social.visible {
-            opacity: 1;
-            pointer-events: auto;
+
+        .social-icons.visible {
+          opacity: 1;
+          pointer-events: auto;
         }
-        .sticky-social a {
+
+        /* Hide FB, IG, LI by default */
+        .social-icons a:not(.whatsapp) {
+          opacity: 0;
+          transform: translateY(15px);
+          pointer-events: none;
+          transition: opacity 0.3s, transform 0.3s cubic-bezier(0.34,1.56,0.64,1);
+        }
+
+        /* Stagger upward on hover */
+        .social-icons:hover a:not(.whatsapp) {
+          opacity: 1;
+          transform: translateY(0);
+          pointer-events: all;
+        }
+
+        .social-icons:hover a:nth-child(3) { transition-delay: 0s; }
+        .social-icons:hover a:nth-child(2) { transition-delay: 0.08s; }
+        .social-icons:hover a:nth-child(1) { transition-delay: 0.16s; }
+
+        /* WhatsApp always visible at bottom */
+        .social-icons a.whatsapp {
+          width: 56px;
+          height: 56px;
+          background: #25D366;
+          font-size: 28px;
+          box-shadow: 0 4px 20px rgba(37, 211, 102, 0.5);
+          opacity: 1;
+          transform: none;
+          pointer-events: all;
+          order: 99;
+        }
+
+        .social-icons a {
             width: 48px;
             height: 48px;
             background: #0d631b;
@@ -64,7 +99,7 @@ const StickyIcons = () => {
             text-decoration: none;
             box-shadow: 0 10px 20px rgba(0,0,0,0.2);
         }
-        .sticky-social a:hover {
+        .social-icons a:hover:not(.whatsapp) {
             background: #7e1a12;
             transform: translateX(-8px) scale(1.1);
             border-color: #9ef295;
@@ -73,10 +108,6 @@ const StickyIcons = () => {
 
         /* WhatsApp Button */
         .whatsapp-btn {
-            position: fixed;
-            right: 30px;
-            bottom: 30px;
-            z-index: 1000;
             background: #25D366;
             color: white;
             width: 60px;
@@ -102,15 +133,12 @@ const StickyIcons = () => {
       `}</style>
 
       {/* Sticky Elements */}
-      <div className={`sticky-social ${isVisible ? 'visible' : ''}`}>
-          <a href="https://www.facebook.com/SamAgriGroup/" target="_blank" rel="noopener noreferrer"><i className="fab fa-facebook-f"></i></a>
-          <a href="https://www.instagram.com/samagrigroup/" target="_blank" rel="noopener noreferrer"><i className="fab fa-instagram"></i></a>
-          <a href="https://www.linkedin.com/company/samagrigroup/?originalSubdomain=in" target="_blank" rel="noopener noreferrer"><i className="fab fa-linkedin-in"></i></a>
+      <div className={`social-icons ${isVisible ? 'visible' : ''}`}>
+          <a href="https://www.facebook.com/SamAgriGroup/" className="facebook" target="_blank" rel="noopener noreferrer"><i className="fab fa-facebook-f"></i></a>
+          <a href="https://www.instagram.com/samagrigroup/" className="instagram" target="_blank" rel="noopener noreferrer"><i className="fab fa-instagram"></i></a>
+          <a href="https://www.linkedin.com/company/samagrigroup/?originalSubdomain=in" className="linkedin" target="_blank" rel="noopener noreferrer"><i className="fab fa-linkedin-in"></i></a>
+          <a href="https://wa.me/914027906577" className={`whatsapp whatsapp-btn ${isVisible ? 'visible' : ''}`} target="_blank" rel="noopener noreferrer"><i className="fab fa-whatsapp"></i></a>
       </div>
-
-      <a href="https://wa.me/914027906577" target="_blank" rel="noopener noreferrer" className={`whatsapp-btn ${isVisible ? 'visible' : ''}`}>
-          <i className="fab fa-whatsapp"></i>
-      </a>
     </>
   )
 }

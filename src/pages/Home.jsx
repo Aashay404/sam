@@ -449,7 +449,7 @@ const Home = () => {
   return (
     <main>
       {/* 1. Banner Section (Hero Video) */}
-      <section className="relative w-full h-screen bg-black flex flex-col lg:flex-row items-center justify-center overflow-hidden">
+      <section className="hero-section relative w-full bg-black flex flex-col lg:flex-row items-center justify-center">
         {/* The video container */}
         <div className="absolute inset-0 w-full h-full z-10">
           <video
@@ -484,7 +484,7 @@ const Home = () => {
       </section>
 
       {/* 2. About Samagri */}
-      <section id="about" className="bg-white pt-6 pb-16 md:pt-8 md:pb-24 px-6 md:px-12 overflow-hidden relative">
+      <section id="about" className="about-section bg-white pt-6 pb-16 md:pt-8 md:pb-24 px-6 md:px-12 overflow-hidden relative">
         <div className="max-w-screen-2xl mx-auto relative z-10 w-full">
           <div className="mb-8 md:mb-12 flex flex-col md:flex-row items-start md:items-end justify-between gap-6 border-b border-blue-200 pb-8">
             <div>
@@ -521,7 +521,7 @@ const Home = () => {
                 25+
               </h4>
               <p className="text-[10px] md:text-[11px] font-black text-zinc-500 uppercase tracking-[0.2em] leading-tight">
-                EXPORT COUNTRIES
+                COUNTRIES OF EXPORT
               </p>
             </div>
             <div className="p-10 md:p-12 text-center border-b border-blue-200 group hover:bg-slate-50 transition-all duration-500 flex flex-col items-center justify-center min-h-[220px]">
@@ -529,15 +529,15 @@ const Home = () => {
                 4
               </h4>
               <p className="text-[10px] md:text-[11px] font-black text-zinc-500 uppercase tracking-[0.2em] leading-tight">
-                HACCP & BRC CERTIFIED
+                HIGH CARE FACILITIES
               </p>
             </div>
             <div className="p-10 md:p-12 text-center border-b md:border-r lg:border-r lg:border-b-0 border-blue-200 group hover:bg-slate-50 transition-all duration-500 flex flex-col items-center justify-center min-h-[220px]">
               <h4 className="text-5xl md:text-6xl font-serif font-black text-primary mb-3 uppercase tracking-tighter">
-                10K+
+                10,000+
               </h4>
               <p className="text-[10px] md:text-[11px] font-black text-zinc-500 uppercase tracking-[0.2em] leading-tight">
-                MTPA PROCESSING CAPACITY
+                MTPA & GROWING
               </p>
             </div>
             <div className="p-10 md:p-12 text-center border-b lg:border-r lg:border-b-0 border-blue-200 group hover:bg-slate-50 transition-all duration-500 flex flex-col items-center justify-center min-h-[220px]">
@@ -553,97 +553,106 @@ const Home = () => {
                 100%
               </h4>
               <p className="text-[10px] md:text-[11px] font-black text-zinc-500 uppercase tracking-[0.2em] leading-tight">
-                RENEWABLE ENERGY
+                SUSTAINABLE ENERGY
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 3. Our Assortment */}
-      <section id="produce" className="bg-black pt-3 pb-8 md:pt-4 md:pb-12 lg:pt-4 lg:pb-20 px-6 md:px-12 overflow-hidden" style={{ paddingTop: '60px', marginTop: '-20px', background: '#000' }}>
-        <div className="max-w-screen-2xl mx-auto relative w-full">
-          <div className="mb-4 md:mb-6 flex flex-col md:flex-row items-start md:items-end justify-between gap-6">
-            <div>
-              <h2 className="text-4xl md:text-6xl font-serif font-black text-white uppercase leading-none">
-                {"Our "}<span className="text-secondary">Assortment</span>
-              </h2>
-            </div>
-          </div>
+{/* 3. Our Assortment */}
+<section id="produce" className="bg-black pt-3 pb-8 md:pt-4 md:pb-12 lg:pt-4 lg:pb-20 px-6 md:px-12 overflow-hidden" style={{ paddingTop: '60px', marginTop: '-20px', background: '#000' }}>
+  <div className="max-w-screen-2xl mx-auto relative w-full">
+    <div className="mb-4 md:mb-6 flex flex-col md:flex-row items-start md:items-end justify-between gap-6">
+      <div>
+        <h2 className="text-4xl md:text-6xl font-serif font-black text-white uppercase leading-none">
+          {"Our "}<span className="text-secondary">Assortment</span>
+        </h2>
+      </div>
+    </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-0 border border-white/10 lg:h-[480px]">
-            <Link to="/pomegranate-arils" className="relative group lg:row-span-2 overflow-hidden h-[380px] lg:h-auto border-b lg:border-b-0 lg:border-r border-white/10">
-              <img src="/arils_3d.png" className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" alt="Pomegranate Arils" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-8 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                <h4 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-white uppercase tracking-tighter leading-none mb-2 drop-shadow-2xl">
-                  POMEGRANATE <br /> ARILS
-                </h4>
-              </div>
-            </Link>
- 
-            <Link to="/coconut-chunks" className="relative group overflow-hidden h-[240px] border-b md:r-r lg:border-r border-white/10">
-              <img src="/coconut_3d.png" className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" alt="Coconut Chunks" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                <h4 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-white uppercase tracking-tighter leading-none mb-2 drop-shadow-2xl">
-                  COCONUT <br /> CHUNKS
-                </h4>
-              </div>
-            </Link>
- 
-            <Link to="/whole-fruit" className="relative group overflow-hidden h-[240px] border-b lg:border-r border-white/10">
-              <img src="/pomegranate_3d.png" className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" alt="Whole Fruit" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                <h4 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-white uppercase tracking-tighter leading-none mb-2 drop-shadow-2xl">
-                  WHOLE <br /> FRUIT
-                </h4>
-              </div>
-            </Link>
- 
-            <Link to="#" className="relative group overflow-hidden h-[240px] border-b border-white/10">
-              <img src="https://images.unsplash.com/photo-1621506289937-a8e4df240d0b?q=80&w=800" className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" alt="Frozen Juice" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                <h4 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-white uppercase tracking-tighter leading-none mb-2 drop-shadow-2xl">
-                  FROZEN <br /> JUICE
-                </h4>
-              </div>
-            </Link>
- 
-            <Link to="/dried-arils" className="relative group overflow-hidden h-[240px] border-b md:border-b-0 md:border-r border-white/10">
-              <img src="/assets/dried-arils.jpg" className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" alt="Dried Arils" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                <h4 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-white uppercase tracking-tighter leading-none mb-2 drop-shadow-2xl">
-                  DRIED <br /> ARILS
-                </h4>
-              </div>
-            </Link>
- 
-            <Link to="/iqf-arils" className="relative group overflow-hidden h-[240px] border-b md:border-b-0 lg:border-r border-white/10">
-              <img src="/assets/pomogranatearils.jpg" className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" alt="IQF Aril" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                <h4 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-white uppercase tracking-tighter leading-none mb-2 drop-shadow-2xl">
-                  IQF <br /> ARIL
-                </h4>
-              </div>
-            </Link>
- 
-            <Link to="#" className="relative group overflow-hidden h-[240px] border-b md:border-b-0 border-white/10">
-              <img src="/assets/pomogranatewine.png" className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" alt="Wines" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                <h4 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-white uppercase tracking-tighter leading-none mb-2 drop-shadow-2xl">
-                  WINES
-                </h4>
-              </div>
-            </Link>
-          </div>
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-0 border border-white/10 lg:h-[480px]">
+
+      {/* Pomegranate Arils - keep as is */}
+      <Link to="/pomegranate-arils" className="relative group lg:row-span-2 overflow-hidden h-[380px] lg:h-auto border-b lg:border-b-0 lg:border-r border-white/10">
+        <img src="/arils_3d.png" className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" alt="Pomegranate Arils" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+        <div className="absolute inset-0 flex flex-col items-center justify-end text-center p-8 pb-16">
+          <h4 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-white uppercase tracking-tighter leading-none mb-2" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.75)' }}>
+            POMEGRANATE <br /> ARILS
+          </h4>
         </div>
-      </section>
+      </Link>
+
+      {/* Coconut Chunks */}
+      <Link to="/coconut-chunks" className="relative group overflow-hidden h-[240px] border-b md:border-r lg:border-r border-white/10">
+        <img src="/coconut_3d.png" className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" alt="Coconut Chunks" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+        <div className="absolute bottom-0 left-0 right-0 flex flex-col items-center text-center p-6 pb-4">
+          <h4 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-white uppercase tracking-tighter leading-none mb-2" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.75)' }}>
+            COCONUT <br /> CHUNKS
+          </h4>
+        </div>
+      </Link>
+
+      {/* Whole Fruit */}
+      <Link to="/whole-fruit" className="relative group overflow-hidden h-[240px] border-b lg:border-r border-white/10">
+        <img src="/pomegranate_3d.png" className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" alt="Whole Fruit" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+        <div className="absolute bottom-0 left-0 right-0 flex flex-col items-center text-center p-6 pb-4">
+          <h4 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-white uppercase tracking-tighter leading-none mb-2" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.75)' }}>
+            WHOLE <br /> FRUIT
+          </h4>
+        </div>
+      </Link>
+
+      {/* Frozen Juice */}
+      <Link to="#" className="relative group overflow-hidden h-[240px] border-b border-white/10">
+        <img src="https://images.unsplash.com/photo-1621506289937-a8e4df240d0b?q=80&w=800" className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" alt="Frozen Juice" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+        <div className="absolute bottom-0 left-0 right-0 flex flex-col items-center text-center p-6 pb-4">
+          <h4 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-white uppercase tracking-tighter leading-none mb-2" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.75)' }}>
+            FROZEN <br /> JUICE
+          </h4>
+        </div>
+      </Link>
+
+      {/* Dried Arils */}
+      <Link to="/dried-arils" className="relative group overflow-hidden h-[240px] border-b md:border-b-0 md:border-r border-white/10">
+        <img src="/assets/dried-arils.jpg" className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" alt="Dried Arils" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+        <div className="absolute bottom-0 left-0 right-0 flex flex-col items-center text-center p-6 pb-4">
+          <h4 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-white uppercase tracking-tighter leading-none mb-2" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.75)' }}>
+            DRIED <br /> ARILS
+          </h4>
+        </div>
+      </Link>
+
+      {/* IQF Aril */}
+      <Link to="/iqf-arils" className="relative group overflow-hidden h-[240px] border-b md:border-b-0 lg:border-r border-white/10">
+        <img src="/assets/pomogranatearils.jpg" className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" alt="IQF Aril" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+        <div className="absolute bottom-0 left-0 right-0 flex flex-col items-center text-center p-6 pb-4">
+          <h4 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-white uppercase tracking-tighter leading-none mb-2" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.75)' }}>
+            IQF <br /> ARIL
+          </h4>
+        </div>
+      </Link>
+
+      {/* Wine */}
+      <Link to="#" className="relative group overflow-hidden h-[240px] border-b md:border-b-0 border-white/10">
+        <img src="/assets/pomogranatewine.png" className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" alt="Wines" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+        <div className="absolute bottom-0 left-0 right-0 flex flex-col items-center text-center p-6 pb-4">
+          <h4 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-white uppercase tracking-tighter leading-none mb-2" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.75)' }}>
+            WINE
+          </h4>
+        </div>
+      </Link>
+
+    </div>
+  </div>
+</section>
 
       {/* 4. GLOBAL PRESENCE — Interactive D3 World Map */}
       <section id="global-presence" className="bg-white pt-8 pb-4 md:pt-12 md:pb-6 px-6 md:px-12 overflow-hidden">
@@ -669,14 +678,14 @@ const Home = () => {
 
 
             {/* Flight Status (top-right) */}
-            <div id="gp-status-pill" className="absolute top-5 right-5 flex items-center gap-2 rounded-full px-4 py-2 z-20" style={{
+            {/*<div id="gp-status-pill" className="absolute top-5 right-5 flex items-center gap-2 rounded-full px-4 py-2 z-20" style={{
               background: 'rgba(255,255,255,0.8)',
               border: '1px solid rgba(0,0,0,0.08)',
               boxShadow: '0 4px 12px rgba(0,0,0,0.03)'
             }}>
               <span id="gp-status-dot" className="w-2 h-2 rounded-full" style={{ backgroundColor: isFlying ? '#f59e0b' : '#0d631b' }}></span>
               <span id="gp-status-text" style={{ color: '#4b5563', fontSize: '9px', fontWeight: 700, letterSpacing: '0.25em', textTransform: 'uppercase' }}>{statusText}</span>
-            </div>
+            </div>*/}
 
             {/* Subtle grid overlay */}
             <div className="absolute inset-0 pointer-events-none" style={{
