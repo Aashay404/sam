@@ -655,7 +655,7 @@ const Home = () => {
 </section>
 
       {/* 4. GLOBAL PRESENCE — Interactive D3 World Map */}
-      <section id="global-presence" className="bg-white pt-8 pb-4 md:pt-12 md:pb-6 px-6 md:px-12 overflow-hidden">
+      <section id="global-presence" className="bg-white pt-2 pb-4 md:pt-4 md:pb-6 px-6 md:px-12 overflow-hidden">
         <div className="max-w-screen-2xl mx-auto relative w-full">
           {/* Section Header */}
           <div className="mb-4 md:mb-6 flex flex-col md:flex-row items-start md:items-end justify-between gap-6 pb-0">
@@ -698,7 +698,7 @@ const Home = () => {
       </section>
 
       {/* 5. Domestic Presence */}
-      <section id="domestic" className="bg-[#0a0a0a] min-h-screen pt-8 pb-10 md:pt-12 md:pb-16 px-6 md:px-12 overflow-hidden" style={{ paddingBottom: '80px' }}>
+      <section id="domestic" className="bg-[#0a0a0a] min-h-screen pt-3 pb-10 md:pt-5 md:pb-16 px-6 md:px-12 overflow-hidden" style={{ paddingBottom: '80px' }}>
         <div className="max-w-screen-2xl mx-auto relative w-full">
           <div className="mb-6 md:mb-8 flex flex-col md:flex-row items-start md:items-end justify-between gap-6">
             <div>
@@ -708,7 +708,7 @@ const Home = () => {
             </div>
           </div>
 
-          <div className="dp-row dp-row-top mt-8">
+          <div className="dp-row dp-row-top mt-2">
             <div className="dp-card" data-name="West-In-Avo">
               <img src="/assets/avocado.jpg" alt="West-In-Avo" />
               <div className="dp-info">

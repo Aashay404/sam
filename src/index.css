@@ -337,14 +337,14 @@ img {
 .dp-card::before {
   content: attr(data-name);
   position: absolute;
-  top: 50%;
+  top: auto;
   left: 50%;
-  transform: translate(-50%, -50%);
-  bottom: auto;
+  transform: translateX(-50%);
+  bottom: 20px;
   right: auto;
   background: transparent;
   color: #fff;
-  font-family: 'Barlow', sans-serif;
+  font-family: 'Outfit', sans-serif;
   font-size: 18px;
   font-weight: 800;
   text-transform: uppercase;
