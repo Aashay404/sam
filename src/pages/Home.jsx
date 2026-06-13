@@ -561,7 +561,7 @@ const Home = () => {
       </section>
 
 {/* 3. Our Assortment */}
-<section id="produce" className="bg-black pt-3 pb-8 md:pt-4 md:pb-12 lg:pt-4 lg:pb-20 px-6 md:px-12 overflow-hidden" style={{ paddingTop: '60px', marginTop: '-20px', background: '#000' }}>
+<section id="produce" className="bg-black pt-3 pb-8 md:pt-4 md:pb-12 lg:pt-28 lg:pb-20 px-6 md:px-12 overflow-hidden lg:min-h-screen lg:flex lg:flex-col lg:justify-center" style={{ background: '#000' }}>
   <div className="max-w-screen-2xl mx-auto relative w-full">
     <div className="mb-4 md:mb-6 flex flex-col md:flex-row items-start md:items-end justify-between gap-6">
       <div>
@@ -655,7 +655,7 @@ const Home = () => {
 </section>
 
       {/* 4. GLOBAL PRESENCE — Interactive D3 World Map */}
-      <section id="global-presence" className="bg-white pt-2 pb-4 md:pt-4 md:pb-6 px-6 md:px-12 overflow-hidden">
+      <section id="global-presence" className="bg-white pt-2 pb-4 md:pt-4 md:pb-6 lg:pt-28 lg:pb-20 px-6 md:px-12 overflow-hidden lg:min-h-screen lg:flex lg:flex-col lg:justify-center">
         <div className="max-w-screen-2xl mx-auto relative w-full">
           {/* Section Header */}
           <div className="mb-4 md:mb-6 flex flex-col md:flex-row items-start md:items-end justify-between gap-6 pb-0">
