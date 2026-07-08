@@ -10,26 +10,26 @@ const INDIA_HQ = {
 }
 
 const DESTINATIONS = [
-  { name: 'USA', id: 840, geo: [-98, 38], code: 'us', desc: 'Premier market for our fresh pomegranate arils and whole-fruit exports.' },
-  { name: 'UK', id: 826, geo: [-1.5, 52.5], code: 'gb', desc: 'Key distribution hub supplying premium fresh produce to major UK retailers.' },
-  { name: 'NETHERLANDS', id: 528, geo: [5.3, 52.1], code: 'nl', desc: 'Strategic cold-chain gateway for our European fresh-produce logistics.' },
-  { name: 'SWITZERLAND', id: 756, geo: [8.2, 46.8], code: 'ch', desc: 'Premium market for organic certified pomegranate arils and fresh cut fruits.' },
-  { name: 'BELGIUM', id: 56, geo: [4.4, 50.5], code: 'be', desc: 'Key European distribution gateway and retail partner for premium produce.' },
-  { name: 'GERMANY', id: 276, geo: [10.4, 51.2], code: 'de', desc: 'High-demand market recognizing our BRC AA and Global GAP quality standards.' },
-  { name: 'FRANCE', id: 250, geo: [2.3, 46.2], code: 'fr', desc: 'Retail and foodservice partnerships across the French premium segment.' },
-  { name: 'SPAIN', id: 724, geo: [-3.7, 40.4], code: 'es', desc: 'Growing footprint in the Iberian Peninsula fresh-produce sector.' },
-  { name: 'UAE', id: 784, geo: [54.3, 24.0], code: 'ae', desc: 'Primary Middle East distribution hub for our fresh and processed range.' },
-  { name: 'HONG KONG', id: 344, geo: [114.1, 22.3], code: 'hk', desc: 'Gateway to South-East Asian premium fresh produce markets.' },
-  { name: 'NEW ZEALAND', id: 554, geo: [174.8, -40.9], code: 'nz', desc: 'Growing market for our shelf-stable and individually quick frozen (IQF) arils.' },
-  { name: 'SINGAPORE', id: 702, geo: [103.8, 1.35], code: 'sg', desc: 'High-density premium retail market for fresh cut coconut chunks and arils.' },
-  { name: 'THAILAND', id: 764, geo: [100.9, 15.87], code: 'th', desc: 'Expanding partnership in South-East Asia for tropical processed fruits.' },
-  { name: 'QATAR', id: 634, geo: [51.18, 25.35], code: 'qa', desc: 'Premium GCC market demanding high-care certified horticultural products.' },
-  { name: 'EGYPT', id: 818, geo: [30.8, 26.8], code: 'eg', desc: 'Strategic North African hub for logistics and seasonal fruit sourcing simulation.' },
-  { name: 'POLAND', id: 616, geo: [19.1, 51.9], code: 'pl', desc: 'Fast-growing retail distribution network for fresh-cut fruit selections.' },
-  { name: 'IRELAND', id: 372, geo: [-8.2, 53.4], code: 'ie', desc: 'Direct supply channels to major Irish retail chains for fresh arils.' },
-  { name: 'AUSTRALIA', id: 36, geo: [133.7, -25.2], code: 'au', desc: 'Premium Southern Hemisphere partner for year-round fresh fruit imports.' },
-  { name: 'GHANA', id: 288, geo: [-1.0, 7.9], code: 'gh', desc: 'Developing trade partner for integrated horticultural export networks.' },
-  { name: 'MYANMAR', id: 104, geo: [95.9, 21.9], code: 'mm', desc: 'South-East Asian partner for region-specific fresh agricultural exports.' }
+  { name: 'USA', id: 840, geo: [-98, 38], code: 'us', flag: '🇺🇸', region: 'Americas', desc: 'Premier market for our fresh pomegranate arils and whole-fruit exports.' },
+  { name: 'UK', id: 826, geo: [-1.5, 52.5], code: 'gb', flag: '🇬🇧', region: 'Europe', desc: 'Key distribution hub supplying premium fresh produce to major UK retailers.' },
+  { name: 'NETHERLANDS', id: 528, geo: [5.3, 52.1], code: 'nl', flag: '🇳🇱', region: 'Europe', desc: 'Strategic cold-chain gateway for our European fresh-produce logistics.' },
+  { name: 'SWITZERLAND', id: 756, geo: [8.2, 46.8], code: 'ch', flag: '🇨🇭', region: 'Europe', desc: 'Premium market for organic certified pomegranate arils and fresh cut fruits.' },
+  { name: 'BELGIUM', id: 56, geo: [4.4, 50.5], code: 'be', flag: '🇧🇪', region: 'Europe', desc: 'Key European distribution gateway and retail partner for premium produce.' },
+  { name: 'GERMANY', id: 276, geo: [10.4, 51.2], code: 'de', flag: '🇩🇪', region: 'Europe', desc: 'High-demand market recognizing our BRC AA and Global GAP quality standards.' },
+  { name: 'FRANCE', id: 250, geo: [2.3, 46.2], code: 'fr', flag: '🇫🇷', region: 'Europe', desc: 'Retail and foodservice partnerships across the French premium segment.' },
+  { name: 'SPAIN', id: 724, geo: [-3.7, 40.4], code: 'es', flag: '🇪🇸', region: 'Europe', desc: 'Growing footprint in the Iberian Peninsula fresh-produce sector.' },
+  { name: 'UAE', id: 784, geo: [54.3, 24.0], code: 'ae', flag: '🇦🇪', region: 'Middle East & Africa', desc: 'Primary Middle East distribution hub for our fresh and processed range.' },
+  { name: 'HONG KONG', id: 344, geo: [114.1, 22.3], code: 'hk', flag: '🇭🇰', region: 'Asia-Pacific', desc: 'Gateway to South-East Asian premium fresh produce markets.' },
+  { name: 'NEW ZEALAND', id: 554, geo: [174.8, -40.9], code: 'nz', flag: '🇳🇿', region: 'Asia-Pacific', desc: 'Growing market for our shelf-stable and individually quick frozen (IQF) arils.' },
+  { name: 'SINGAPORE', id: 702, geo: [103.8, 1.35], code: 'sg', flag: '🇸🇬', region: 'Asia-Pacific', desc: 'High-density premium retail market for fresh cut coconut chunks and arils.' },
+  { name: 'THAILAND', id: 764, geo: [100.9, 15.87], code: 'th', flag: '🇹🇭', region: 'Asia-Pacific', desc: 'Expanding partnership in South-East Asia for tropical processed fruits.' },
+  { name: 'QATAR', id: 634, geo: [51.18, 25.35], code: 'qa', flag: '🇶🇦', region: 'Middle East & Africa', desc: 'Premium GCC market demanding high-care certified horticultural products.' },
+  { name: 'EGYPT', id: 818, geo: [30.8, 26.8], code: 'eg', flag: '🇪🇬', region: 'Middle East & Africa', desc: 'Strategic North African hub for logistics and seasonal fruit sourcing simulation.' },
+  { name: 'POLAND', id: 616, geo: [19.1, 51.9], code: 'pl', flag: '🇵🇱', region: 'Europe', desc: 'Fast-growing retail distribution network for fresh-cut fruit selections.' },
+  { name: 'IRELAND', id: 372, geo: [-8.2, 53.4], code: 'ie', flag: '🇮🇪', region: 'Europe', desc: 'Direct supply channels to major Irish retail chains for fresh arils.' },
+  { name: 'AUSTRALIA', id: 36, geo: [133.7, -25.2], code: 'au', flag: '🇦🇺', region: 'Asia-Pacific', desc: 'Premium Southern Hemisphere partner for year-round fresh fruit imports.' },
+  { name: 'GHANA', id: 288, geo: [-1.0, 7.9], code: 'gh', flag: '🇬🇭', region: 'Middle East & Africa', desc: 'Developing trade partner for integrated horticultural export networks.' },
+  { name: 'MYANMAR', id: 104, geo: [95.9, 21.9], code: 'mm', flag: '🇲🇲', region: 'Asia-Pacific', desc: 'South-East Asian partner for region-specific fresh agricultural exports.' }
 ]
 
 const COLORS = {
@@ -57,6 +57,15 @@ const Home = () => {
   })
   const [statusText, setStatusText] = useState('India HQ')
   const [isFlying, setIsFlying] = useState(false)
+  const [selectedRegion, setSelectedRegion] = useState('All')
+  const [searchQuery, setSearchQuery] = useState('')
+
+  const filteredDestinations = DESTINATIONS.filter(d => {
+    const matchesRegion = selectedRegion === 'All' || d.region === selectedRegion;
+    const matchesSearch = d.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
+                          d.desc.toLowerCase().includes(searchQuery.toLowerCase());
+    return matchesRegion && matchesSearch;
+  });
 
   useEffect(() => {
     // Scroll to section if hash exists (e.g. from nav clicks)
@@ -666,8 +675,8 @@ const Home = () => {
             </div>
           </div>
 
-          {/* Map Canvas */}
-          <div id="gp-map-wrap" ref={wrapRef} className="relative w-full mb-0 overflow-hidden" style={{
+          {/* Map Canvas (Desktop/Large screens only) */}
+          <div id="gp-map-wrap" ref={wrapRef} className="hidden lg:block relative w-full mb-0 overflow-hidden" style={{
             height: '520px',
             background: 'linear-gradient(160deg, #f8fafc 0%, #f1f5f9 100%)',
             borderRadius: '2rem',
@@ -676,23 +685,129 @@ const Home = () => {
           }}>
             <svg id="gp-world-map" ref={svgRef} style={{ width: '100%', height: '100%', display: 'block' }}></svg>
 
-
-            {/* Flight Status (top-right) */}
-            {/*<div id="gp-status-pill" className="absolute top-5 right-5 flex items-center gap-2 rounded-full px-4 py-2 z-20" style={{
-              background: 'rgba(255,255,255,0.8)',
-              border: '1px solid rgba(0,0,0,0.08)',
-              boxShadow: '0 4px 12px rgba(0,0,0,0.03)'
-            }}>
-              <span id="gp-status-dot" className="w-2 h-2 rounded-full" style={{ backgroundColor: isFlying ? '#f59e0b' : '#0d631b' }}></span>
-              <span id="gp-status-text" style={{ color: '#4b5563', fontSize: '9px', fontWeight: 700, letterSpacing: '0.25em', textTransform: 'uppercase' }}>{statusText}</span>
-            </div>*/}
-
             {/* Subtle grid overlay */}
             <div className="absolute inset-0 pointer-events-none" style={{
               backgroundImage: 'linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px)',
               backgroundSize: '60px 60px',
               borderRadius: '2rem'
             }}></div>
+          </div>
+
+          {/* Premium Mobile/Tablet Destination Explorer (lg:hidden) */}
+          <div className="lg:hidden w-full mt-2 flex flex-col">
+            {/* Key Stats Summary */}
+            <div className="grid grid-cols-3 gap-3 mb-5 bg-gradient-to-br from-slate-50 to-slate-100/50 p-4 rounded-2xl border border-slate-200/60 shadow-sm">
+              <div className="flex flex-col items-center text-center p-1">
+                <span className="text-xl">🌎</span>
+                <span className="text-sm font-extrabold text-primary mt-1">20+</span>
+                <span className="text-[9px] font-bold text-slate-500 uppercase tracking-wider">Markets</span>
+              </div>
+              <div className="flex flex-col items-center text-center p-1 border-x border-slate-200">
+                <span className="text-xl">❄️</span>
+                <span className="text-sm font-extrabold text-primary mt-1">100%</span>
+                <span className="text-[9px] font-bold text-slate-500 uppercase tracking-wider">Cold Chain</span>
+              </div>
+              <div className="flex flex-col items-center text-center p-1">
+                <span className="text-xl">🇮🇳</span>
+                <span className="text-sm font-extrabold text-secondary mt-1">HQ</span>
+                <span className="text-[9px] font-bold text-slate-500 uppercase tracking-wider">Nashik</span>
+              </div>
+            </div>
+
+            {/* Region Selector Pills */}
+            <div className="flex gap-2 overflow-x-auto pb-3 mb-4 scrollbar-none" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+              {['All', 'Europe', 'Asia-Pacific', 'Americas', 'Middle East & Africa'].map(region => (
+                <button
+                  key={region}
+                  onClick={() => setSelectedRegion(region)}
+                  className={`whitespace-nowrap px-4 py-2 rounded-full text-[10px] font-bold tracking-wider uppercase transition-all duration-300 ${
+                    selectedRegion === region
+                      ? 'bg-primary text-white shadow-md shadow-primary/25'
+                      : 'bg-slate-100 text-slate-600 active:bg-slate-200'
+                  }`}
+                >
+                  {region}
+                </button>
+              ))}
+            </div>
+
+            {/* Search Input Box */}
+            <div className="relative mb-5">
+              <span className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
+                <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+              </span>
+              <input
+                type="text"
+                placeholder="Search global destinations..."
+                value={searchQuery}
+                onChange={e => setSearchQuery(e.target.value)}
+                className="w-full pl-9 pr-8 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-800 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:bg-white transition-all duration-200"
+              />
+              {searchQuery && (
+                <button
+                  onClick={() => setSearchQuery('')}
+                  className="absolute inset-y-0 right-0 pr-3 flex items-center text-slate-400 hover:text-slate-600"
+                >
+                  <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
+              )}
+            </div>
+
+            {/* Cards List / Scroll Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-h-[380px] overflow-y-auto pr-1" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+              {filteredDestinations.length > 0 ? (
+                filteredDestinations.map(d => (
+                  <div
+                    key={d.code}
+                    className="relative bg-white rounded-xl p-4 border border-slate-200 shadow-sm transition-all duration-300 active:scale-[0.98] active:border-primary/40 flex flex-col justify-between"
+                  >
+                    <div>
+                      {/* Top Row: Flag + Name + Region */}
+                      <div className="flex items-center justify-between gap-3 mb-2">
+                        <div className="flex items-center gap-2">
+                          <span className="text-xl leading-none">{d.flag}</span>
+                          <h3 className="text-xs font-black text-slate-800 tracking-wider uppercase">
+                            {d.name}
+                          </h3>
+                        </div>
+                        <span className="text-[8px] font-bold text-primary bg-primary-container/20 px-2 py-0.5 rounded-full uppercase tracking-wider">
+                          {d.region}
+                        </span>
+                      </div>
+                      {/* Desc */}
+                      <p className="text-[11px] text-slate-600 leading-relaxed font-normal">
+                        {d.desc}
+                      </p>
+                    </div>
+
+                    {/* Route Visualizer */}
+                    <div className="mt-3 pt-2.5 border-t border-slate-100 flex items-center justify-between text-[9px] text-slate-400 font-bold tracking-wider">
+                      <div className="flex items-center gap-1">
+                        <span className="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                        <span>INDIA HQ</span>
+                      </div>
+                      <div className="flex-1 mx-2.5 border-t border-dashed border-slate-200 relative flex items-center justify-center">
+                        <span className="absolute -translate-y-1/2 bg-white px-1 text-[8px] leading-none">✈</span>
+                      </div>
+                      <div className="flex items-center gap-1 text-secondary font-bold">
+                        <span>{d.name}</span>
+                        <span className="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                      </div>
+                    </div>
+                  </div>
+                ))
+              ) : (
+                <div className="text-center py-8 bg-slate-50 rounded-xl border border-dashed border-slate-200">
+                  <span className="text-xl">🔍</span>
+                  <p className="text-xs font-bold text-slate-500 mt-2">No destinations found</p>
+                  <p className="text-[10px] text-slate-400 mt-1">Try matching another country name</p>
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </section>
