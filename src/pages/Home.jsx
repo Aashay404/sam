@@ -48,17 +48,13 @@ const COLORS = {
 const Home = () => {
   const wrapRef = useRef(null)
   const svgRef = useRef(null)
+  const treeContainerRef = useRef(null)
 
-  // Map state
-  const [currentDest, setCurrentDest] = useState({
-    name: 'India HQ',
-    code: 'in',
-    desc: "Central hub for Sam Agri's global fresh produce operations and sustainable agriculture."
-  })
-  const [statusText, setStatusText] = useState('India HQ')
-  const [isFlying, setIsFlying] = useState(false)
+  // Tree states
+  const [hoveredCountry, setHoveredCountry] = useState(null)
   const [selectedRegion, setSelectedRegion] = useState('All')
   const [searchQuery, setSearchQuery] = useState('')
+  const [treeConnections, setTreeConnections] = useState([])
 
   const filteredDestinations = DESTINATIONS.filter(d => {
     const matchesRegion = selectedRegion === 'All' || d.region === selectedRegion;
@@ -81,379 +77,95 @@ const Home = () => {
   }, [])
 
   useEffect(() => {
-    const d3 = window.d3
-    const topojson = window.topojson
+    const updatePaths = () => {
+      if (!treeContainerRef.current) return
+      const containerRect = treeContainerRef.current.getBoundingClientRect()
+      const newConnections = []
 
-    if (!d3 || !topojson) {
-      console.warn('D3 or TopoJSON libraries are not available on the window object.')
-      return
-    }
-
-    let svg, projection, pathGen, worldData
-    let rafId = null
-    let destIdx = 0
-    let timer1 = null
-    let timer2 = null
-    let timer3 = null
-    let hqPulseRafId = null
-
-    const W = wrapRef.current.offsetWidth
-    const H = wrapRef.current.offsetHeight
-    svgRef.current.setAttribute('width', W)
-    svgRef.current.setAttribute('height', H)
-
-    projection = d3.geoNaturalEarth1()
-      .scale(W / 5.6)
-      .translate([W / 2, H / 2])
-
-    pathGen = d3.geoPath().projection(projection)
-
-    function drawMap(world) {
-      svg = d3.select(svgRef.current)
-      svg.selectAll('*').remove()
-
-      const currentW = +svgRef.current.getAttribute('width')
-      const currentH = +svgRef.current.getAttribute('height')
-
-      /* ocean */
-      svg.append('rect')
-        .attr('width', currentW)
-        .attr('height', currentH)
-        .attr('fill', COLORS.ocean)
-
-      /* graticule grid */
-      const grat = d3.geoGraticule()()
-      svg.append('path')
-        .datum(grat)
-        .attr('d', pathGen)
-        .attr('fill', 'none')
-        .attr('stroke', 'rgba(15,23,42,0.04)')
-        .attr('stroke-width', 0.6)
-
-      /* countries */
-      const countries = topojson.feature(world, world.objects.countries)
-      svg.append('g').attr('id', 'gp-countries')
-        .selectAll('path')
-        .data(countries.features)
-        .join('path')
-        .attr('class', 'gp-country')
-        .attr('id', d => `gp-c-${d.id}`)
-        .attr('d', pathGen)
-        .attr('fill', COLORS.land)
-        .attr('stroke', COLORS.landStroke)
-        .attr('stroke-width', 0.4)
-
-      /* country borders */
-      const borders = topojson.mesh(world, world.objects.countries, (a, b) => a !== b)
-      svg.append('path')
-        .datum(borders)
-        .attr('d', pathGen)
-        .attr('fill', 'none')
-        .attr('stroke', COLORS.landStroke)
-        .attr('stroke-width', 0.3)
-
-      /* Layer order */
-      svg.append('g').attr('id', 'gp-trails')
-      svg.append('g').attr('id', 'gp-markers')
-      svg.append('g').attr('id', 'gp-plane-g')
-
-      /* India HQ marker */
-      drawHQMarker()
-
-      /* Destination dots */
-      const mG = d3.select(svgRef.current).select('#gp-markers')
-      DESTINATIONS.forEach(d => {
-        const px = projection(d.geo)
-        if (!px) return
-        /* glow ring */
-        mG.append('circle')
-          .attr('cx', px[0]).attr('cy', px[1])
-          .attr('r', 3)
-          .attr('fill', 'none')
-          .attr('stroke', COLORS.dot)
-          .attr('stroke-width', 1)
-          .attr('opacity', 0.4)
-          .attr('id', `gp-ring-${d.code}`)
-        /* dot */
-        mG.append('circle')
-          .attr('cx', px[0]).attr('cy', px[1])
-          .attr('r', 3.5)
-          .attr('fill', COLORS.dot)
-          .attr('stroke', '#ffffff')
-          .attr('stroke-width', 0.8)
-          .attr('id', `gp-dot-${d.code}`)
-        /* country label */
-        mG.append('text')
-          .attr('x', px[0] + 6)
-          .attr('y', px[1] + 3)
-          .attr('fill', 'rgba(15,23,42,0.45)')
-          .attr('font-size', '7px')
-          .attr('font-family', 'Outfit,sans-serif')
-          .attr('font-weight', '700')
-          .attr('letter-spacing', '0.08em')
-          .text(d.name)
-      })
-
-      /* Plane icon */
-      const planeG = d3.select(svgRef.current).select('#gp-plane-g')
-        .append('g')
-        .attr('id', 'gp-plane')
-        .attr('opacity', 0)
-
-      /* Airplane shape */
-      planeG.append('path')
-        .attr('d', [
-          'M 0,-3.5',
-          'L 9,0',
-          'L 0,3.5',
-          'L 1.5,0',
-          'Z',
-          'M -4,-1.8 L 0,0 L -4,1.8 Z',
-          'M 3.5,-1.2 L 6.5,0 L 3.5,1.2 Z'
-        ].join(' '))
-        .attr('fill', COLORS.plane)
-        .attr('stroke', '#ffffff')
-        .attr('stroke-width', 0.4)
-
-      /* Plane glow */
-      planeG.append('circle')
-        .attr('r', 10)
-        .attr('fill', 'rgba(126,26,18,0.08)')
-        .attr('id', 'gp-plane-glow')
-    }
-
-    function drawHQMarker() {
-      const px = projection(INDIA_HQ.geo)
-      if (!px) return
-      const mG = d3.select(svgRef.current).select('#gp-markers')
-
-      /* pulsing ring */
-      mG.append('circle')
-        .attr('cx', px[0]).attr('cy', px[1])
-        .attr('r', 8)
-        .attr('fill', 'none')
-        .attr('stroke', COLORS.india)
-        .attr('stroke-width', 1.2)
-        .attr('id', 'gp-hq-pulse')
-
-      /* solid dot */
-      mG.append('circle')
-        .attr('cx', px[0]).attr('cy', px[1])
-        .attr('r', 5.5)
-        .attr('fill', COLORS.india)
-        .attr('stroke', '#fff')
-        .attr('stroke-width', 1.5)
-
-      /* label */
-      mG.append('text')
-        .attr('x', px[0] + 10)
-        .attr('y', px[1] + 4)
-        .attr('fill', COLORS.india)
-        .attr('font-size', '9px')
-        .attr('font-family', 'Outfit,sans-serif')
-        .attr('font-weight', '800')
-        .attr('letter-spacing', '0.12em')
-        .text('INDIA HQ')
-
-      /* animate pulse ring */
-      let pulseT = 0
-      const pulseRing = d3.select(svgRef.current).select('#gp-hq-pulse')
-      function pulseTick() {
-        pulseT = (pulseT + 0.012) % 1
-        const r = 8 + pulseT * 18
-        const opc = (1 - pulseT) * 0.6
-        if (!pulseRing.empty()) {
-          pulseRing.attr('r', r).attr('opacity', opc)
-        }
-        hqPulseRafId = requestAnimationFrame(pulseTick)
+      // HQ Node
+      const hqNode = treeContainerRef.current.querySelector('#tree-node-hq')
+      if (!hqNode) return
+      const hqRect = hqNode.getBoundingClientRect()
+      const hqPoint = {
+        x: hqRect.right - containerRect.left,
+        y: hqRect.top + hqRect.height / 2 - containerRect.top
       }
-      pulseTick()
-    }
 
-    function setCountryHighlight(id, on) {
-      const el = d3.select(svgRef.current).select(`#gp-c-${id}`)
-      if (el.empty()) return
-      el.transition().duration(600)
-        .attr('fill', on ? COLORS.highlight : COLORS.land)
-        .attr('stroke', on ? COLORS.highlightFg : COLORS.landStroke)
-        .attr('stroke-width', on ? 0.8 : 0.4)
-    }
-
-    function bezierPt(t, p0, cp, p1) {
-      const m = 1 - t
-      return [
-        m * m * p0[0] + 2 * m * t * cp[0] + t * t * p1[0],
-        m * m * p0[1] + 2 * m * t * cp[1] + t * t * p1[1]
-      ]
-    }
-
-    function bezierTangent(t, p0, cp, p1) {
-      const m = 1 - t
-      return [
-        2 * m * (cp[0] - p0[0]) + 2 * t * (p1[0] - cp[0]),
-        2 * m * (cp[1] - p0[1]) + 2 * t * (p1[1] - cp[1])
-      ]
-    }
-
-    function controlPoint(p0, p1) {
-      const mx = (p0[0] + p1[0]) / 2
-      const my = (p0[1] + p1[1]) / 2
-      const dx = p1[0] - p0[0]
-      const dy = p1[1] - p0[1]
-      const len = Math.sqrt(dx * dx + dy * dy)
-      const arc = Math.min(len * 0.38, 130)
-      return [mx + dy * (arc / len) * 0.25, my - Math.abs(dx) * (arc / len) * 0.55 - arc * 0.35]
-    }
-
-    function animateFlight(dest, onDone) {
-      const p0 = projection(INDIA_HQ.geo)
-      const p1 = projection(dest.geo)
-      if (!p0 || !p1) { onDone(); return }
-
-      const cp = controlPoint(p0, p1)
-      const dur = 2600 + Math.random() * 400
-
-      /* clear old trail */
-      d3.select(svgRef.current).select('#gp-trails').selectAll('*').remove()
-
-      /* trail path element */
-      const trail = d3.select(svgRef.current).select('#gp-trails').append('path')
-        .attr('fill', 'none')
-        .attr('stroke', COLORS.trail)
-        .attr('stroke-width', 1.6)
-        .attr('stroke-dasharray', '5,5')
-        .attr('stroke-linecap', 'round')
-        .attr('opacity', 0.55)
-
-      /* make plane visible */
-      const planeG = d3.select(svgRef.current).select('#gp-plane').attr('opacity', 1)
-
-      /* React State Status Update */
-      setStatusText(`→ ${dest.name}`)
-      setIsFlying(true)
-      setCurrentDest({
-        name: `En route to ${dest.name}`,
-        code: dest.code,
-        desc: `Dispatching fresh produce from India HQ to ${dest.name}…`
-      })
-
-      const t0 = performance.now()
-
-      function tick(now) {
-        const elapsed = now - t0
-        const rawT = Math.min(elapsed / dur, 1)
-        const eT = d3.easeCubicInOut(rawT)
-
-        /* plane position + angle */
-        const pos = bezierPt(eT, p0, cp, p1)
-        const tan = bezierTangent(eT, p0, cp, p1)
-        const ang = Math.atan2(tan[1], tan[0]) * 180 / Math.PI
-        planeG.attr('transform', `translate(${pos[0]},${pos[1]}) rotate(${ang})`)
-
-        /* build trail by sampling bezier up to current t */
-        const steps = Math.max(2, Math.round(eT * 40))
-        let d = `M${p0[0]},${p0[1]}`
-        for (let i = 1; i <= steps; i++) {
-          const s = d3.easeCubicInOut(i / 40)
-          const pt = bezierPt(s, p0, cp, p1)
-          d += ` L${pt[0]},${pt[1]}`
+      const regionList = ['Americas', 'Europe', 'Middle East & Africa', 'Asia-Pacific']
+      regionList.forEach((regionName) => {
+        const regionId = regionName.replace(/&/g, 'and').replace(/\s+/g, '-').replace(/-+/g, '-').toLowerCase()
+        const regionNode = treeContainerRef.current.querySelector(`#tree-node-region-${regionId}`)
+        if (!regionNode) return
+        const regionRect = regionNode.getBoundingClientRect()
+        
+        const regionLeft = {
+          x: regionRect.left - containerRect.left,
+          y: regionRect.top + regionRect.height / 2 - containerRect.top
         }
-        trail.attr('d', d)
-
-        if (rawT < 1) {
-          rafId = requestAnimationFrame(tick)
-        } else {
-          /* ARRIVED */
-          planeG.attr('opacity', 0)
-          setCountryHighlight(dest.id, true)
-          setCurrentDest(dest)
-          setStatusText(dest.name)
-          setIsFlying(false)
-
-          /* activate destination dot */
-          d3.select(svgRef.current).select(`#gp-dot-${dest.code}`)
-            .attr('fill', COLORS.dotActive)
-            .attr('r', 7)
-            .attr('stroke', '#fff')
-            .attr('stroke-width', 1.5)
-          d3.select(svgRef.current).select(`#gp-ring-${dest.code}`)
-            .attr('stroke', COLORS.dotActive)
-
-          /* linger 2.8 s then call done */
-          timer1 = setTimeout(onDone, 2800)
+        const regionRight = {
+          x: regionRect.right - containerRect.left,
+          y: regionRect.top + regionRect.height / 2 - containerRect.top
         }
-      }
-      rafId = requestAnimationFrame(tick)
-    }
 
-    function resetDest(dest) {
-      if (!dest) return
-      setCountryHighlight(dest.id, false)
-      d3.select(svgRef.current).select(`#gp-dot-${dest.code}`)
-        .attr('fill', COLORS.dot)
-        .attr('r', 3.5)
-        .attr('stroke', '#ffffff')
-        .attr('stroke-width', 0.8)
-      d3.select(svgRef.current).select(`#gp-ring-${dest.code}`)
-        .attr('stroke', COLORS.dot)
-    }
+        // Draw HQ -> Region curve
+        const dx = regionLeft.x - hqPoint.x
+        const cp1x = hqPoint.x + dx * 0.4
+        const cp1y = hqPoint.y
+        const cp2x = hqPoint.x + dx * 0.6
+        const cp2y = regionLeft.y
+        const hqToRegionD = `M ${hqPoint.x} ${hqPoint.y} C ${cp1x} ${cp1y}, ${cp2x} ${cp2y}, ${regionLeft.x} ${regionLeft.y}`
 
-    function cycle() {
-      const dest = DESTINATIONS[destIdx]
-      animateFlight(dest, () => {
-        const justDone = dest
-        destIdx = (destIdx + 1) % DESTINATIONS.length
-        timer2 = setTimeout(() => {
-          resetDest(justDone)
-          d3.select(svgRef.current).select('#gp-trails').selectAll('*').remove()
-          cycle()
-        }, 600)
+        const isRegionActive = hoveredCountry && DESTINATIONS.find(d => d.code === hoveredCountry.code)?.region === regionName
+
+        newConnections.push({
+          id: `path-hq-${regionId}`,
+          d: hqToRegionD,
+          active: !!isRegionActive
+        })
+
+        // Draw Region -> Countries curves
+        const countriesInRegion = DESTINATIONS.filter(d => d.region === regionName)
+        countriesInRegion.forEach((country) => {
+          const countryNode = treeContainerRef.current.querySelector(`#tree-node-country-${country.code}`)
+          if (!countryNode) return
+          const countryRect = countryNode.getBoundingClientRect()
+          const countryLeft = {
+            x: countryRect.left - containerRect.left,
+            y: countryRect.top + countryRect.height / 2 - containerRect.top
+          }
+
+          const cdx = countryLeft.x - regionRight.x
+          const ccp1x = regionRight.x + cdx * 0.4
+          const ccp1y = regionRight.y
+          const ccp2x = regionRight.x + cdx * 0.6
+          const ccp2y = countryLeft.y
+          const regionToCountryD = `M ${regionRight.x} ${regionRight.y} C ${ccp1x} ${ccp1y}, ${ccp2x} ${ccp2y}, ${countryLeft.x} ${countryLeft.y}`
+
+          const isCountryActive = hoveredCountry?.code === country.code
+
+          newConnections.push({
+            id: `path-region-${regionId}-country-${country.code}`,
+            d: regionToCountryD,
+            active: isCountryActive
+          })
+        })
       })
+
+      setTreeConnections(newConnections)
     }
 
-    // Fetch world map and initialize D3 elements
-    fetch('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json')
-      .then(r => r.json())
-      .then(world => {
-        worldData = world
-        drawMap(world)
-        timer3 = setTimeout(cycle, 1200) // start flight loop
-      })
-      .catch(err => console.warn('Sam Agri map load error:', err))
+    // Run first time
+    updatePaths()
+    
+    // Add small delay to ensure rendering and font loading completes
+    const timer = setTimeout(updatePaths, 300)
 
-    // Handle resize
-    let resizeTimer
-    const handleResize = () => {
-      clearTimeout(resizeTimer)
-      resizeTimer = setTimeout(() => {
-        if (rafId) { cancelAnimationFrame(rafId); rafId = null }
-        if (!worldData) return
-        const newW = wrapRef.current.offsetWidth
-        const newH = wrapRef.current.offsetHeight
-        svgRef.current.setAttribute('width', newW)
-        svgRef.current.setAttribute('height', newH)
-        projection = d3.geoNaturalEarth1()
-          .scale(newW / 5.6)
-          .translate([newW / 2, newH / 2])
-        pathGen = d3.geoPath().projection(projection)
-        drawMap(worldData)
-        destIdx = 0
-        cycle()
-      }, 320)
-    }
-    window.addEventListener('resize', handleResize)
-
-    // Cleanup animations and timers on unmount
+    window.addEventListener('resize', updatePaths)
     return () => {
-      window.removeEventListener('resize', handleResize)
-      if (rafId) cancelAnimationFrame(rafId)
-      if (hqPulseRafId) cancelAnimationFrame(hqPulseRafId)
-      clearTimeout(timer1)
-      clearTimeout(timer2)
-      clearTimeout(timer3)
-      clearTimeout(resizeTimer)
+      window.removeEventListener('resize', updatePaths)
+      clearTimeout(timer)
     }
-  }, [])
+  }, [hoveredCountry])
 
   return (
     <main>
@@ -663,151 +375,215 @@ const Home = () => {
   </div>
 </section>
 
-      {/* 4. GLOBAL PRESENCE — Interactive D3 World Map */}
-      <section id="global-presence" className="bg-white pt-2 pb-4 md:pt-4 md:pb-6 lg:pt-28 lg:pb-20 px-6 md:px-12 overflow-hidden lg:min-h-screen lg:flex lg:flex-col lg:justify-center">
+      {/* 4. GLOBAL PRESENCE — Static Tree Diagram of Countries */}
+      <section id="global-presence" className="bg-slate-50/50 pt-20 pb-20 px-6 md:px-12 overflow-hidden border-t border-b border-slate-100">
+        <style dangerouslySetInnerHTML={{__html: `
+          @keyframes flowPath {
+            0% {
+              stroke-dashoffset: 24;
+            }
+            100% {
+              stroke-dashoffset: 0;
+            }
+          }
+          .tree-connection-path {
+            transition: stroke 0.3s ease, stroke-width 0.3s ease, opacity 0.3s ease;
+          }
+          .tree-connection-path.active {
+            animation: flowPath 1.2s linear infinite;
+          }
+        `}} />
+
         <div className="max-w-screen-2xl mx-auto relative w-full">
           {/* Section Header */}
-          <div className="mb-4 md:mb-6 flex flex-col md:flex-row items-start md:items-end justify-between gap-6 pb-0">
+          <div className="mb-10 flex flex-col md:flex-row items-start md:items-end justify-between gap-6">
             <div>
               <h2 className="text-4xl md:text-6xl font-serif font-black text-primary uppercase leading-none">
                 Global{" "}<span className="text-secondary">Presence</span>
               </h2>
+              <p className="text-sm text-slate-500 mt-3 font-normal max-w-xl">
+                Connecting Nashik, India to major international markets through our direct export cold-chain infrastructure.
+              </p>
+            </div>
+            {/* Quick stats */}
+            <div className="flex gap-6 text-xs font-bold text-slate-500 uppercase tracking-wider">
+              <div className="flex items-center gap-2">
+                <span className="w-2.5 h-2.5 rounded-full bg-primary"></span>
+                <span>Nashik HQ</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="w-2.5 h-2.5 rounded-full bg-secondary"></span>
+                <span>20+ Global Markets</span>
+              </div>
             </div>
           </div>
 
-          {/* Map Canvas (Desktop/Large screens only) */}
-          <div id="gp-map-wrap" ref={wrapRef} className="hidden lg:block relative w-full mb-0 overflow-hidden" style={{
-            height: '520px',
-            background: 'linear-gradient(160deg, #f8fafc 0%, #f1f5f9 100%)',
-            borderRadius: '2rem',
-            border: '2px solid #cbd5e1',
-            boxShadow: 'inset 0 2px 20px rgba(0,0,0,0.02), 0 10px 30px rgba(0,0,0,0.04)'
-          }}>
-            <svg id="gp-world-map" ref={svgRef} style={{ width: '100%', height: '100%', display: 'block' }}></svg>
-
-            {/* Subtle grid overlay */}
-            <div className="absolute inset-0 pointer-events-none" style={{
-              backgroundImage: 'linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px)',
-              backgroundSize: '60px 60px',
-              borderRadius: '2rem'
-            }}></div>
-          </div>
-
-          {/* Premium Mobile/Tablet Destination Explorer (lg:hidden) */}
-          <div className="lg:hidden w-full mt-2 flex flex-col">
-            {/* Key Stats Summary */}
-            <div className="grid grid-cols-3 gap-3 mb-5 bg-gradient-to-br from-slate-50 to-slate-100/50 p-4 rounded-2xl border border-slate-200/60 shadow-sm">
-              <div className="flex flex-col items-center text-center p-1">
-                <span className="text-xl">🌎</span>
-                <span className="text-sm font-extrabold text-primary mt-1">20+</span>
-                <span className="text-[9px] font-bold text-slate-500 uppercase tracking-wider">Markets</span>
-              </div>
-              <div className="flex flex-col items-center text-center p-1 border-x border-slate-200">
-                <span className="text-xl">❄️</span>
-                <span className="text-sm font-extrabold text-primary mt-1">100%</span>
-                <span className="text-[9px] font-bold text-slate-500 uppercase tracking-wider">Cold Chain</span>
-              </div>
-              <div className="flex flex-col items-center text-center p-1">
-                <span className="text-xl">🇮🇳</span>
-                <span className="text-sm font-extrabold text-secondary mt-1">HQ</span>
-                <span className="text-[9px] font-bold text-slate-500 uppercase tracking-wider">Nashik</span>
-              </div>
-            </div>
-
-            {/* Region Selector Pills */}
-            <div className="flex gap-2 overflow-x-auto pb-3 mb-4 scrollbar-none" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
-              {['All', 'Europe', 'Asia-Pacific', 'Americas', 'Middle East & Africa'].map(region => (
-                <button
-                  key={region}
-                  onClick={() => setSelectedRegion(region)}
-                  className={`whitespace-nowrap px-4 py-2 rounded-full text-[10px] font-bold tracking-wider uppercase transition-all duration-300 ${
-                    selectedRegion === region
-                      ? 'bg-primary text-white shadow-md shadow-primary/25'
-                      : 'bg-slate-100 text-slate-600 active:bg-slate-200'
-                  }`}
-                >
-                  {region}
-                </button>
+          {/* Desktop/Tablet Horizontal Tree View */}
+          <div className="hidden lg:block relative w-full p-10 bg-white rounded-3xl border border-slate-200 shadow-xl overflow-hidden" ref={treeContainerRef}>
+            {/* SVG Connections Layer */}
+            <svg className="absolute inset-0 w-full h-full pointer-events-none z-0">
+              {treeConnections.map((conn) => (
+                <path
+                  key={conn.id}
+                  d={conn.d}
+                  fill="none"
+                  stroke={conn.active ? '#0d631b' : '#e2e8f0'}
+                  strokeWidth={conn.active ? 2.5 : 1.5}
+                  strokeDasharray={conn.active ? '6,6' : 'none'}
+                  className={`tree-connection-path ${conn.active ? 'active' : ''}`}
+                  opacity={conn.active ? 1 : 0.7}
+                />
               ))}
-            </div>
+            </svg>
 
-            {/* Search Input Box */}
-            <div className="relative mb-5">
-              <span className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
-                <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                </svg>
-              </span>
-              <input
-                type="text"
-                placeholder="Search global destinations..."
-                value={searchQuery}
-                onChange={e => setSearchQuery(e.target.value)}
-                className="w-full pl-9 pr-8 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-800 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:bg-white transition-all duration-200"
-              />
-              {searchQuery && (
-                <button
-                  onClick={() => setSearchQuery('')}
-                  className="absolute inset-y-0 right-0 pr-3 flex items-center text-slate-400 hover:text-slate-600"
+            {/* Tree Content Grid */}
+            <div className="grid grid-cols-12 gap-8 items-center relative z-10">
+              {/* Left Column: Root Node (India HQ) */}
+              <div className="col-span-3 flex justify-start">
+                <div 
+                  id="tree-node-hq" 
+                  className="relative p-6 rounded-2xl bg-gradient-to-br from-slate-900 to-slate-950 border border-slate-800 shadow-xl text-left w-full max-w-[240px]"
                 >
-                  <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
-                  </svg>
-                </button>
-              )}
+                  {/* Green pulse ring */}
+                  <span className="absolute top-4 right-4 flex h-3.5 w-3.5">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-3.5 w-3.5 bg-emerald-500"></span>
+                  </span>
+                  
+                  <div className="text-3xl mb-3">🇮🇳</div>
+                  <h3 className="text-base font-black text-white tracking-wider uppercase font-serif">INDIA HQ</h3>
+                  <p className="text-[10px] text-emerald-400 uppercase tracking-widest font-extrabold">Nashik, Maharashtra</p>
+                  <p className="text-[11px] text-slate-400 mt-2 font-normal leading-relaxed">
+                    Sourcing center, quality labs, and cold storage gateway.
+                  </p>
+                </div>
+              </div>
+
+              {/* Right Columns: Regions and Countries */}
+              <div className="col-span-9 flex flex-col gap-8">
+                {Object.entries({
+                  'Americas': DESTINATIONS.filter(d => d.region === 'Americas'),
+                  'Europe': DESTINATIONS.filter(d => d.region === 'Europe'),
+                  'Middle East & Africa': DESTINATIONS.filter(d => d.region === 'Middle East & Africa'),
+                  'Asia-Pacific': DESTINATIONS.filter(d => d.region === 'Asia-Pacific'),
+                }).map(([regionName, countries]) => {
+                  const regionId = regionName.replace(/&/g, 'and').replace(/\s+/g, '-').replace(/-+/g, '-').toLowerCase();
+                  const isRegionActive = hoveredCountry && countries.some(c => c.code === hoveredCountry.code);
+                  
+                  return (
+                    <div key={regionName} className="grid grid-cols-12 gap-4 items-center">
+                      {/* Region Branch Node */}
+                      <div className="col-span-3">
+                        <div
+                          id={`tree-node-region-${regionId}`}
+                          className={`p-3.5 rounded-xl border transition-all duration-300 ${
+                            isRegionActive 
+                              ? 'bg-primary text-white border-primary shadow-md shadow-primary/10' 
+                              : 'bg-slate-50 text-slate-700 border-slate-200'
+                          }`}
+                        >
+                          <h4 className="text-xs font-black uppercase tracking-wider">{regionName}</h4>
+                          <span className={`text-[9px] font-bold uppercase tracking-wider ${isRegionActive ? 'text-white/80' : 'text-slate-400'}`}>
+                            {countries.length} Direct Markets
+                          </span>
+                        </div>
+                      </div>
+
+                      {/* Countries Leaves */}
+                      <div className="col-span-9 flex flex-wrap gap-2.5 pl-6">
+                        {countries.map((c) => {
+                          const isHovered = hoveredCountry?.code === c.code;
+                          return (
+                            <div
+                              key={c.code}
+                              id={`tree-node-country-${c.code}`}
+                              onMouseEnter={() => setHoveredCountry(c)}
+                              onMouseLeave={() => setHoveredCountry(null)}
+                              className={`flex items-center gap-2 px-3 py-2 rounded-lg border text-xs font-bold transition-all duration-300 cursor-pointer shadow-sm ${
+                                isHovered
+                                  ? 'bg-primary/5 border-primary text-primary scale-105 shadow-md shadow-primary/5'
+                                  : 'bg-white border-slate-200 text-slate-600 hover:border-slate-400'
+                              }`}
+                            >
+                              <span className="text-base leading-none">{c.flag}</span>
+                              <span className="tracking-wide">{c.name}</span>
+                            </div>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
             </div>
 
-            {/* Cards List / Scroll Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-h-[380px] overflow-y-auto pr-1" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
-              {filteredDestinations.length > 0 ? (
-                filteredDestinations.map(d => (
-                  <div
-                    key={d.code}
-                    className="relative bg-white rounded-xl p-4 border border-slate-200 shadow-sm transition-all duration-300 active:scale-[0.98] active:border-primary/40 flex flex-col justify-between"
-                  >
-                    <div>
-                      {/* Top Row: Flag + Name + Region */}
-                      <div className="flex items-center justify-between gap-3 mb-2">
-                        <div className="flex items-center gap-2">
-                          <span className="text-xl leading-none">{d.flag}</span>
-                          <h3 className="text-xs font-black text-slate-800 tracking-wider uppercase">
-                            {d.name}
-                          </h3>
-                        </div>
-                        <span className="text-[8px] font-bold text-primary bg-primary-container/20 px-2 py-0.5 rounded-full uppercase tracking-wider">
-                          {d.region}
-                        </span>
-                      </div>
-                      {/* Desc */}
-                      <p className="text-[11px] text-slate-600 leading-relaxed font-normal">
-                        {d.desc}
-                      </p>
+            {/* Interactive Details Panel (Always visible at the bottom of the tree) */}
+            <div className="mt-8 pt-6 border-t border-slate-100 flex items-center gap-6 min-h-[90px]">
+              {hoveredCountry ? (
+                <div className="flex gap-4 items-start animate-in">
+                  <span className="text-4xl p-2 bg-slate-50 rounded-xl border border-slate-100">{hoveredCountry.flag}</span>
+                  <div>
+                    <div className="flex items-center gap-3">
+                      <h4 className="text-base font-extrabold text-slate-800 tracking-wide uppercase">{hoveredCountry.name}</h4>
+                      <span className="text-[9px] font-bold text-primary bg-primary/10 px-2.5 py-0.5 rounded-full uppercase tracking-wider">
+                        {hoveredCountry.region}
+                      </span>
                     </div>
-
-                    {/* Route Visualizer */}
-                    <div className="mt-3 pt-2.5 border-t border-slate-100 flex items-center justify-between text-[9px] text-slate-400 font-bold tracking-wider">
-                      <div className="flex items-center gap-1">
-                        <span className="w-1.5 h-1.5 rounded-full bg-primary"></span>
-                        <span>INDIA HQ</span>
-                      </div>
-                      <div className="flex-1 mx-2.5 border-t border-dashed border-slate-200 relative flex items-center justify-center">
-                        <span className="absolute -translate-y-1/2 bg-white px-1 text-[8px] leading-none">✈</span>
-                      </div>
-                      <div className="flex items-center gap-1 text-secondary font-bold">
-                        <span>{d.name}</span>
-                        <span className="w-1.5 h-1.5 rounded-full bg-secondary"></span>
-                      </div>
-                    </div>
+                    <p className="text-xs text-slate-600 mt-1 font-normal max-w-3xl leading-relaxed">
+                      {hoveredCountry.desc}
+                    </p>
                   </div>
-                ))
+                </div>
               ) : (
-                <div className="text-center py-8 bg-slate-50 rounded-xl border border-dashed border-slate-200">
-                  <span className="text-xl">🔍</span>
-                  <p className="text-xs font-bold text-slate-500 mt-2">No destinations found</p>
-                  <p className="text-[10px] text-slate-400 mt-1">Try matching another country name</p>
+                <div className="flex items-center gap-3 text-slate-400">
+                  <span className="text-lg">💡</span>
+                  <p className="text-xs font-medium">Hover over any country card above to explore our export profile for that destination.</p>
                 </div>
               )}
             </div>
+          </div>
+
+          {/* Mobile & Tablet Vertical Tree View (lg:hidden) */}
+          <div className="lg:hidden w-full flex flex-col gap-6">
+            {Object.entries({
+              'Americas': DESTINATIONS.filter(d => d.region === 'Americas'),
+              'Europe': DESTINATIONS.filter(d => d.region === 'Europe'),
+              'Middle East & Africa': DESTINATIONS.filter(d => d.region === 'Middle East & Africa'),
+              'Asia-Pacific': DESTINATIONS.filter(d => d.region === 'Asia-Pacific'),
+            }).map(([regionName, countries]) => (
+              <div 
+                key={regionName} 
+                className="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm"
+              >
+                <div className="flex items-center justify-between border-b border-slate-100 pb-3 mb-4">
+                  <h3 className="text-sm font-black text-slate-800 uppercase tracking-wider">{regionName}</h3>
+                  <span className="text-[10px] font-extrabold text-primary bg-primary/5 px-2 py-0.5 rounded-full uppercase">
+                    {countries.length} Markets
+                  </span>
+                </div>
+                
+                {/* Vertical tree representation */}
+                <div className="flex flex-col gap-3 relative pl-4 border-l border-slate-200">
+                  {countries.map((c) => (
+                    <div 
+                      key={c.code}
+                      className="relative flex flex-col p-3 rounded-xl bg-slate-50 border border-slate-100/80"
+                    >
+                      {/* Connection horizontal line indicator on left */}
+                      <span className="absolute -left-[17px] top-1/2 -translate-y-1/2 w-4 h-[1px] bg-slate-200"></span>
+                      
+                      <div className="flex items-center gap-2">
+                        <span className="text-lg leading-none">{c.flag}</span>
+                        <h4 className="text-xs font-bold text-slate-800 uppercase tracking-wider">{c.name}</h4>
+                      </div>
+                      <p className="text-[11px] text-slate-500 mt-1 font-normal leading-relaxed">
+                        {c.desc}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>

@@ -168,11 +168,11 @@ const Pmg = () => {
           font-family: 'Outfit', sans-serif;
           font-size: 30px; font-weight: 600;
           letter-spacing: -0.02em;
-          color: var(--text);
+          color: #ffffff;
         }
         .section-rule-pmg {
           flex: 1; height: 1px;
-          background: var(--border);
+          background: rgba(255, 255, 255, 0.25);
         }
 
         .badges-grid-pmg {
