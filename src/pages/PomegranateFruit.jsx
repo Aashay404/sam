@@ -2,7 +2,21 @@ import React from 'react'
 
 const PomegranateFruit = () => {
   return (
-    <main className="bg-[#4a0a05] text-on-surface selection:bg-[#7e1a12] selection:text-white">
+    <main className="fruit-body bg-[#4a0a05] text-on-surface selection:bg-[#7e1a12] selection:text-white">
+      <style>{`
+        .fruit-body {
+          font-family: 'DM Sans', sans-serif;
+        }
+        .fruit-body h1, .fruit-body h2, .fruit-body h3, .fruit-body h4 {
+          font-family: 'Outfit', sans-serif !important;
+        }
+        .fruit-body .font-sans {
+          font-family: 'DM Sans', sans-serif !important;
+        }
+        .fruit-body .font-serif {
+          font-family: 'Outfit', sans-serif !important;
+        }
+      `}</style>
       {/* Premium Hero Section */}
       <section className="relative w-full min-h-screen md:h-screen overflow-hidden flex flex-col md:flex-row items-stretch pt-24 md:pt-0">
         {/* Content Side */}

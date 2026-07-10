@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
+import IndiaMap from '../components/IndiaMap'
 
 const INDIA_HQ = {
   name: 'INDIA HQ',
@@ -438,25 +439,9 @@ const Home = () => {
 
             {/* Tree Content Grid */}
             <div className="grid grid-cols-12 gap-8 items-center relative z-10">
-              {/* Left Column: Root Node (India HQ) */}
-              <div className="col-span-3 flex justify-start">
-                <div 
-                  id="tree-node-hq" 
-                  className="relative p-6 rounded-2xl bg-gradient-to-br from-slate-900 to-slate-950 border border-slate-800 shadow-xl text-left w-full max-w-[240px]"
-                >
-                  {/* Green pulse ring */}
-                  <span className="absolute top-4 right-4 flex h-3.5 w-3.5">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-3.5 w-3.5 bg-emerald-500"></span>
-                  </span>
-                  
-                  <div className="text-3xl mb-3">🇮🇳</div>
-                  <h3 className="text-base font-black text-white tracking-wider uppercase font-serif">INDIA HQ</h3>
-                  <p className="text-[10px] text-emerald-400 uppercase tracking-widest font-extrabold">Nashik, Maharashtra</p>
-                  <p className="text-[11px] text-slate-400 mt-2 font-normal leading-relaxed">
-                    Sourcing center, quality labs, and cold storage gateway.
-                  </p>
-                </div>
+              {/* Left Column: India Map with Nashik HQ */}
+              <div className="col-span-3 flex justify-start items-center">
+                <IndiaMap />
               </div>
 
               {/* Right Columns: Regions and Countries */}
@@ -505,7 +490,11 @@ const Home = () => {
                                   : 'bg-white border-slate-200 text-slate-600 hover:border-slate-400'
                               }`}
                             >
-                              <span className="text-base leading-none">{c.flag}</span>
+                              <img 
+                                src={`https://flagcdn.com/w40/${c.code}.png`} 
+                                className="w-5 h-3.5 object-cover rounded-sm shadow-sm" 
+                                alt={c.name} 
+                              />
                               <span className="tracking-wide">{c.name}</span>
                             </div>
                           );
@@ -521,7 +510,13 @@ const Home = () => {
             <div className="mt-8 pt-6 border-t border-slate-100 flex items-center gap-6 min-h-[90px]">
               {hoveredCountry ? (
                 <div className="flex gap-4 items-start animate-in">
-                  <span className="text-4xl p-2 bg-slate-50 rounded-xl border border-slate-100">{hoveredCountry.flag}</span>
+                  <div className="p-2 bg-slate-50 rounded-xl border border-slate-100 flex items-center justify-center">
+                    <img 
+                      src={`https://flagcdn.com/w80/${hoveredCountry.code}.png`} 
+                      className="w-12 h-8.5 object-cover rounded-md shadow-sm border border-slate-200" 
+                      alt={hoveredCountry.name} 
+                    />
+                  </div>
                   <div>
                     <div className="flex items-center gap-3">
                       <h4 className="text-base font-extrabold text-slate-800 tracking-wide uppercase">{hoveredCountry.name}</h4>
@@ -573,7 +568,11 @@ const Home = () => {
                       <span className="absolute -left-[17px] top-1/2 -translate-y-1/2 w-4 h-[1px] bg-slate-200"></span>
                       
                       <div className="flex items-center gap-2">
-                        <span className="text-lg leading-none">{c.flag}</span>
+                        <img 
+                          src={`https://flagcdn.com/w40/${c.code}.png`} 
+                          className="w-5.5 h-4 object-cover rounded-sm shadow-sm" 
+                          alt={c.name} 
+                        />
                         <h4 className="text-xs font-bold text-slate-800 uppercase tracking-wider">{c.name}</h4>
                       </div>
                       <p className="text-[11px] text-slate-500 mt-1 font-normal leading-relaxed">

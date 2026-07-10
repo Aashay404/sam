@@ -2,7 +2,21 @@ import React from 'react'
 
 const IqfArils = () => {
   return (
-    <main className="bg-[#4a0a05] text-white selection:bg-[#7e1a12] selection:text-white">
+    <main className="iqf-body bg-[#4a0a05] text-white selection:bg-[#7e1a12] selection:text-white">
+      <style>{`
+        .iqf-body {
+          font-family: 'DM Sans', sans-serif;
+        }
+        .iqf-body h1, .iqf-body h2, .iqf-body h3, .iqf-body h4 {
+          font-family: 'Outfit', sans-serif !important;
+        }
+        .iqf-body .font-sans {
+          font-family: 'DM Sans', sans-serif !important;
+        }
+        .iqf-body .font-serif {
+          font-family: 'Outfit', sans-serif !important;
+        }
+      `}</style>
       {/* Premium Hero Section */}
       <section className="relative w-full min-h-screen md:h-screen overflow-hidden flex flex-col md:flex-row items-stretch pt-24 md:pt-0">
         {/* Content Side */}
