@@ -2,39 +2,39 @@ import React, { useState } from 'react';
 import indiaMapData from './indiaMapData.json';
 
 const COUNTRIES_LEFT = [
-  { name: 'Ireland', code: 'ie', x: 180, y: 40, desc: 'Premium export market for fresh whole fruit and arils.' },
-  { name: 'USA', code: 'us', x: 150, y: 95, desc: 'Premier market for our fresh pomegranate arils and whole-fruit exports.' },
-  { name: 'UK', code: 'gb', x: 120, y: 150, desc: 'Key distribution hub supplying premium fresh produce to major UK retailers.' },
-  { name: 'Netherlands', code: 'nl', x: 100, y: 205, desc: 'Strategic cold-chain gateway for our European fresh-produce logistics.' },
-  { name: 'Germany', code: 'de', x: 90, y: 260, desc: 'High-quality requirements partner for fresh agricultural supply.' },
-  { name: 'Belgium', code: 'be', x: 100, y: 315, desc: 'Core European wholesale market with direct retail channels.' },
-  { name: 'France', code: 'fr', x: 120, y: 370, desc: 'Retail and foodservice partnerships across the French premium segment.' },
-  { name: 'Switzerland', code: 'ch', x: 150, y: 425, desc: 'Premium market demanding high-compliance agricultural products.' },
-  { name: 'Spain', code: 'es', x: 180, y: 480, desc: 'Growing footprint in the Iberian Peninsula fresh-produce sector.' },
-  { name: 'Poland', code: 'pl', x: 210, y: 535, desc: 'Key distribution market for Central and Eastern European logistics.' }
+  { name: 'Ireland', code: 'ie', x: 190, y: 30, desc: 'Premium export market for fresh whole fruit and arils.' },
+  { name: 'USA', code: 'us', x: 160, y: 75, desc: 'Premier market for our fresh pomegranate arils and whole-fruit exports.' },
+  { name: 'UK', code: 'gb', x: 130, y: 120, desc: 'Key distribution hub supplying premium fresh produce to major UK retailers.' },
+  { name: 'Netherlands', code: 'nl', x: 110, y: 165, desc: 'Strategic cold-chain gateway for our European fresh-produce logistics.' },
+  { name: 'Germany', code: 'de', x: 100, y: 210, desc: 'High-quality requirements partner for fresh agricultural supply.' },
+  { name: 'Belgium', code: 'be', x: 110, y: 255, desc: 'Core European wholesale market with direct retail channels.' },
+  { name: 'France', code: 'fr', x: 130, y: 300, desc: 'Retail and foodservice partnerships across the French premium segment.' },
+  { name: 'Switzerland', code: 'ch', x: 160, y: 345, desc: 'Premium market demanding high-compliance agricultural products.' },
+  { name: 'Spain', code: 'es', x: 190, y: 390, desc: 'Growing footprint in the Iberian Peninsula fresh-produce sector.' },
+  { name: 'Poland', code: 'pl', x: 220, y: 435, desc: 'Key distribution market for Central and Eastern European logistics.' }
 ];
 
 const COUNTRIES_RIGHT = [
-  { name: 'Japan', code: 'jp', x: 770, y: 40, desc: 'Premium market recognizing our high quality standards and safety compliance.' },
-  { name: 'Hong Kong', code: 'hk', x: 800, y: 95, desc: 'Gateway to South-East Asian premium fresh produce markets.' },
-  { name: 'Singapore', code: 'sg', x: 820, y: 150, desc: 'High-density premium retail market for fresh cut coconut chunks and arils.' },
-  { name: 'Australia', code: 'au', x: 830, y: 205, desc: 'Premium Southern Hemisphere partner for year-round fresh fruit imports.' },
-  { name: 'New Zealand', code: 'nz', x: 830, y: 260, desc: 'Growing market for our shelf-stable and individually quick frozen (IQF) arils.' },
-  { name: 'Thailand', code: 'th', x: 820, y: 315, desc: 'Expanding partnership in South-East Asia for tropical processed fruits.' },
-  { name: 'Myanmar', code: 'mm', x: 800, y: 370, desc: 'South-East Asian partner for region-specific fresh agricultural exports.' },
-  { name: 'UAE', code: 'ae', x: 770, y: 425, desc: 'Primary Middle East distribution hub for our fresh and processed range.' },
-  { name: 'Qatar', code: 'qa', x: 730, y: 480, desc: 'Premium GCC market demanding high-care certified horticultural products.' },
-  { name: 'Egypt', code: 'eg', x: 680, y: 535, desc: 'Key African market for processed fresh agricultural exports.' },
-  { name: 'Ghana', code: 'gh', x: 620, y: 590, desc: 'West African distribution partner for fresh produce supply.' }
+  { name: 'Japan', code: 'jp', x: 770, y: 30, desc: 'Premium market recognizing our high quality standards and safety compliance.' },
+  { name: 'Hong Kong', code: 'hk', x: 800, y: 72, desc: 'Gateway to South-East Asian premium fresh produce markets.' },
+  { name: 'Singapore', code: 'sg', x: 820, y: 114, desc: 'High-density premium retail market for fresh cut coconut chunks and arils.' },
+  { name: 'Australia', code: 'au', x: 830, y: 156, desc: 'Premium Southern Hemisphere partner for year-round fresh fruit imports.' },
+  { name: 'New Zealand', code: 'nz', x: 830, y: 198, desc: 'Growing market for our shelf-stable and individually quick frozen (IQF) arils.' },
+  { name: 'Thailand', code: 'th', x: 820, y: 240, desc: 'Expanding partnership in South-East Asia for tropical processed fruits.' },
+  { name: 'Myanmar', code: 'mm', x: 800, y: 282, desc: 'South-East Asian partner for region-specific fresh agricultural exports.' },
+  { name: 'UAE', code: 'ae', x: 770, y: 324, desc: 'Primary Middle East distribution hub for our fresh and processed range.' },
+  { name: 'Qatar', code: 'qa', x: 730, y: 366, desc: 'Premium GCC market demanding high-care certified horticultural products.' },
+  { name: 'Egypt', code: 'eg', x: 680, y: 408, desc: 'Key African market for processed fresh agricultural exports.' },
+  { name: 'Ghana', code: 'gh', x: 620, y: 450, desc: 'West African distribution partner for fresh produce supply.' }
 ];
 
 const GlobalPresenceMap = () => {
   const [hoveredCountry, setHoveredCountry] = useState(null);
 
-  // Nashik and Hyderabad absolute coordinates on our 1000x620 SVG grid
-  const mapOffsetX = 350;
-  const mapOffsetY = 120;
-  const mapScale = 0.49;
+  // Nashik and Hyderabad absolute coordinates on our 1000x500 SVG grid
+  const mapOffsetX = 377;
+  const mapOffsetY = 100;
+  const mapScale = 0.42;
 
   const nashikX = mapOffsetX + 135 * mapScale;
   const nashikY = mapOffsetY + 415 * mapScale;
@@ -79,7 +79,7 @@ const GlobalPresenceMap = () => {
         {/* SVG Layer */}
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 1000 620"
+          viewBox="0 0 1000 500"
           className="w-full h-auto z-10"
         >
           {/* 1. Connection Curves */}
@@ -259,36 +259,6 @@ const GlobalPresenceMap = () => {
           })}
         </svg>
 
-        {/* Interactive Details Panel (Always visible at the bottom of the map) */}
-        <div className="mt-6 pt-5 border-t border-slate-100 flex items-center gap-6 min-h-[85px] w-full text-left">
-          {hoveredCountry ? (
-            <div className="flex gap-4 items-start animate-in">
-              <div className="p-2 bg-slate-50 rounded-xl border border-slate-100 flex items-center justify-center">
-                <img
-                  src={`https://flagcdn.com/w80/${hoveredCountry.code}.png`}
-                  className="w-12 h-8.5 object-cover rounded-md shadow-sm border border-slate-200"
-                  alt={hoveredCountry.name}
-                />
-              </div>
-              <div>
-                <div className="flex items-center gap-3">
-                  <h4 className="text-sm font-extrabold text-slate-800 tracking-wide uppercase">{hoveredCountry.name}</h4>
-                  <span className="text-[9px] font-bold text-primary bg-primary/10 px-2.5 py-0.5 rounded-full uppercase tracking-wider">
-                    Direct Export Market
-                  </span>
-                </div>
-                <p className="text-xs text-slate-600 mt-1 font-normal max-w-4xl leading-relaxed">
-                  {hoveredCountry.desc}
-                </p>
-              </div>
-            </div>
-          ) : (
-            <div className="flex items-center gap-3 text-slate-400">
-              <span className="text-lg">💡</span>
-              <p className="text-xs font-medium">Hover over any country card above to explore our export profile for that destination.</p>
-            </div>
-          )}
-        </div>
       </div>
 
       {/* Mobile/Tablet Fallback (Vertical List) */}
