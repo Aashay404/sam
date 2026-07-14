@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
-import IndiaMap from '../components/IndiaMap'
+import GlobalPresenceMap from '../components/GlobalPresenceMap'
 
 const INDIA_HQ = {
   name: 'INDIA HQ',
@@ -376,25 +376,8 @@ const Home = () => {
   </div>
 </section>
 
-      {/* 4. GLOBAL PRESENCE — Static Tree Diagram of Countries */}
+      {/* 4. GLOBAL PRESENCE — Centered India Map with Radial Markets */}
       <section id="global-presence" className="bg-slate-50/50 pt-20 pb-20 px-6 md:px-12 overflow-hidden border-t border-b border-slate-100">
-        <style dangerouslySetInnerHTML={{__html: `
-          @keyframes flowPath {
-            0% {
-              stroke-dashoffset: 24;
-            }
-            100% {
-              stroke-dashoffset: 0;
-            }
-          }
-          .tree-connection-path {
-            transition: stroke 0.3s ease, stroke-width 0.3s ease, opacity 0.3s ease;
-          }
-          .tree-connection-path.active {
-            animation: flowPath 1.2s linear infinite;
-          }
-        `}} />
-
         <div className="max-w-screen-2xl mx-auto relative w-full">
           {/* Section Header */}
           <div className="mb-10 flex flex-col md:flex-row items-start md:items-end justify-between gap-6">
@@ -403,14 +386,14 @@ const Home = () => {
                 Global{" "}<span className="text-secondary">Presence</span>
               </h2>
               <p className="text-sm text-slate-500 mt-3 font-normal max-w-xl">
-                Connecting Nashik, India to major international markets through our direct export cold-chain infrastructure.
+                Connecting our sourcing hubs in Nashik and Hyderabad to international fresh fruit markets across the globe.
               </p>
             </div>
             {/* Quick stats */}
             <div className="flex gap-6 text-xs font-bold text-slate-500 uppercase tracking-wider">
               <div className="flex items-center gap-2">
                 <span className="w-2.5 h-2.5 rounded-full bg-primary"></span>
-                <span>Nashik HQ</span>
+                <span>Sourcing Hubs</span>
               </div>
               <div className="flex items-center gap-2">
                 <span className="w-2.5 h-2.5 rounded-full bg-secondary"></span>
@@ -419,171 +402,8 @@ const Home = () => {
             </div>
           </div>
 
-          {/* Desktop/Tablet Horizontal Tree View */}
-          <div className="hidden lg:block relative w-full p-10 bg-white rounded-3xl border border-slate-200 shadow-xl overflow-hidden" ref={treeContainerRef}>
-            {/* SVG Connections Layer */}
-            <svg className="absolute inset-0 w-full h-full pointer-events-none z-0">
-              {treeConnections.map((conn) => (
-                <path
-                  key={conn.id}
-                  d={conn.d}
-                  fill="none"
-                  stroke={conn.active ? '#0d631b' : '#e2e8f0'}
-                  strokeWidth={conn.active ? 2.5 : 1.5}
-                  strokeDasharray={conn.active ? '6,6' : 'none'}
-                  className={`tree-connection-path ${conn.active ? 'active' : ''}`}
-                  opacity={conn.active ? 1 : 0.7}
-                />
-              ))}
-            </svg>
-
-            {/* Tree Content Grid */}
-            <div className="grid grid-cols-12 gap-8 items-center relative z-10">
-              {/* Left Column: India Map with Nashik HQ */}
-              <div className="col-span-3 flex justify-start items-center">
-                <IndiaMap />
-              </div>
-
-              {/* Right Columns: Regions and Countries */}
-              <div className="col-span-9 flex flex-col gap-8">
-                {Object.entries({
-                  'Americas': DESTINATIONS.filter(d => d.region === 'Americas'),
-                  'Europe': DESTINATIONS.filter(d => d.region === 'Europe'),
-                  'Middle East & Africa': DESTINATIONS.filter(d => d.region === 'Middle East & Africa'),
-                  'Asia-Pacific': DESTINATIONS.filter(d => d.region === 'Asia-Pacific'),
-                }).map(([regionName, countries]) => {
-                  const regionId = regionName.replace(/&/g, 'and').replace(/\s+/g, '-').replace(/-+/g, '-').toLowerCase();
-                  const isRegionActive = hoveredCountry && countries.some(c => c.code === hoveredCountry.code);
-                  
-                  return (
-                    <div key={regionName} className="grid grid-cols-12 gap-4 items-center">
-                      {/* Region Branch Node */}
-                      <div className="col-span-3">
-                        <div
-                          id={`tree-node-region-${regionId}`}
-                          className={`p-3.5 rounded-xl border transition-all duration-300 ${
-                            isRegionActive 
-                              ? 'bg-primary text-white border-primary shadow-md shadow-primary/10' 
-                              : 'bg-slate-50 text-slate-700 border-slate-200'
-                          }`}
-                        >
-                          <h4 className="text-xs font-black uppercase tracking-wider">{regionName}</h4>
-                          <span className={`text-[9px] font-bold uppercase tracking-wider ${isRegionActive ? 'text-white/80' : 'text-slate-400'}`}>
-                            {countries.length} Direct Markets
-                          </span>
-                        </div>
-                      </div>
-
-                      {/* Countries Leaves */}
-                      <div className="col-span-9 flex flex-wrap gap-2.5 pl-6">
-                        {countries.map((c) => {
-                          const isHovered = hoveredCountry?.code === c.code;
-                          return (
-                            <div
-                              key={c.code}
-                              id={`tree-node-country-${c.code}`}
-                              onMouseEnter={() => setHoveredCountry(c)}
-                              onMouseLeave={() => setHoveredCountry(null)}
-                              className={`flex items-center gap-2 px-3 py-2 rounded-lg border text-xs font-bold transition-all duration-300 cursor-pointer shadow-sm ${
-                                isHovered
-                                  ? 'bg-primary/5 border-primary text-primary scale-105 shadow-md shadow-primary/5'
-                                  : 'bg-white border-slate-200 text-slate-600 hover:border-slate-400'
-                              }`}
-                            >
-                              <img 
-                                src={`https://flagcdn.com/w40/${c.code}.png`} 
-                                className="w-5 h-3.5 object-cover rounded-sm shadow-sm" 
-                                alt={c.name} 
-                              />
-                              <span className="tracking-wide">{c.name}</span>
-                            </div>
-                          );
-                        })}
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-
-            {/* Interactive Details Panel (Always visible at the bottom of the tree) */}
-            <div className="mt-8 pt-6 border-t border-slate-100 flex items-center gap-6 min-h-[90px]">
-              {hoveredCountry ? (
-                <div className="flex gap-4 items-start animate-in">
-                  <div className="p-2 bg-slate-50 rounded-xl border border-slate-100 flex items-center justify-center">
-                    <img 
-                      src={`https://flagcdn.com/w80/${hoveredCountry.code}.png`} 
-                      className="w-12 h-8.5 object-cover rounded-md shadow-sm border border-slate-200" 
-                      alt={hoveredCountry.name} 
-                    />
-                  </div>
-                  <div>
-                    <div className="flex items-center gap-3">
-                      <h4 className="text-base font-extrabold text-slate-800 tracking-wide uppercase">{hoveredCountry.name}</h4>
-                      <span className="text-[9px] font-bold text-primary bg-primary/10 px-2.5 py-0.5 rounded-full uppercase tracking-wider">
-                        {hoveredCountry.region}
-                      </span>
-                    </div>
-                    <p className="text-xs text-slate-600 mt-1 font-normal max-w-3xl leading-relaxed">
-                      {hoveredCountry.desc}
-                    </p>
-                  </div>
-                </div>
-              ) : (
-                <div className="flex items-center gap-3 text-slate-400">
-                  <span className="text-lg">💡</span>
-                  <p className="text-xs font-medium">Hover over any country card above to explore our export profile for that destination.</p>
-                </div>
-              )}
-            </div>
-          </div>
-
-          {/* Mobile & Tablet Vertical Tree View (lg:hidden) */}
-          <div className="lg:hidden w-full flex flex-col gap-6">
-            {Object.entries({
-              'Americas': DESTINATIONS.filter(d => d.region === 'Americas'),
-              'Europe': DESTINATIONS.filter(d => d.region === 'Europe'),
-              'Middle East & Africa': DESTINATIONS.filter(d => d.region === 'Middle East & Africa'),
-              'Asia-Pacific': DESTINATIONS.filter(d => d.region === 'Asia-Pacific'),
-            }).map(([regionName, countries]) => (
-              <div 
-                key={regionName} 
-                className="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm"
-              >
-                <div className="flex items-center justify-between border-b border-slate-100 pb-3 mb-4">
-                  <h3 className="text-sm font-black text-slate-800 uppercase tracking-wider">{regionName}</h3>
-                  <span className="text-[10px] font-extrabold text-primary bg-primary/5 px-2 py-0.5 rounded-full uppercase">
-                    {countries.length} Markets
-                  </span>
-                </div>
-                
-                {/* Vertical tree representation */}
-                <div className="flex flex-col gap-3 relative pl-4 border-l border-slate-200">
-                  {countries.map((c) => (
-                    <div 
-                      key={c.code}
-                      className="relative flex flex-col p-3 rounded-xl bg-slate-50 border border-slate-100/80"
-                    >
-                      {/* Connection horizontal line indicator on left */}
-                      <span className="absolute -left-[17px] top-1/2 -translate-y-1/2 w-4 h-[1px] bg-slate-200"></span>
-                      
-                      <div className="flex items-center gap-2">
-                        <img 
-                          src={`https://flagcdn.com/w40/${c.code}.png`} 
-                          className="w-5.5 h-4 object-cover rounded-sm shadow-sm" 
-                          alt={c.name} 
-                        />
-                        <h4 className="text-xs font-bold text-slate-800 uppercase tracking-wider">{c.name}</h4>
-                      </div>
-                      <p className="text-[11px] text-slate-500 mt-1 font-normal leading-relaxed">
-                        {c.desc}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
+          {/* New Map Layout */}
+          <GlobalPresenceMap />
         </div>
       </section>
 
