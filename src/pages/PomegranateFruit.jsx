@@ -143,6 +143,7 @@ const PomegranateFruit = () => {
         /* ── ATTRIBUTES ── */
         .section-fruit {
           padding: 5rem 5rem;
+          background: #ffffff;
           animation: fadeUpFruit 0.7s ease both;
         }
         .section-header-fruit {
@@ -153,11 +154,11 @@ const PomegranateFruit = () => {
           font-family: 'Outfit', sans-serif;
           font-size: 30px; font-weight: 600;
           letter-spacing: -0.02em;
-          color: #ffffff;
+          color: var(--text);
         }
         .section-rule-fruit {
           flex: 1; height: 1px;
-          background: rgba(255, 255, 255, 0.25);
+          background: rgba(90, 50, 30, 0.15);
         }
 
         .badges-grid-fruit {
@@ -351,9 +352,14 @@ const PomegranateFruit = () => {
 
         {/* ATTRIBUTES */}
         <section className="section-fruit" id="attributes">
-          <div className="section-header-fruit">
-            <h2 className="section-title-fruit">Product Attributes</h2>
-            <div className="section-rule-fruit"></div>
+          <div className="flex flex-col md:flex-row items-start md:items-end justify-between mb-12 gap-6 border-b border-zinc-100 pb-6 w-full text-left">
+            <div className="max-w-2xl">
+              <h2 className="text-3xl md:text-5xl font-serif font-bold text-zinc-900 mb-4 uppercase tracking-tighter">
+                Product <span className="text-[#0d631b]">Overview</span>
+              </h2>
+              <div className="w-16 md:w-24 h-1 md:h-1.5 bg-[#0d631b]"></div>
+            </div>
+            <p className="text-zinc-400 font-display font-bold uppercase tracking-widest text-[10px]">Global Quality Standard</p>
           </div>
 
           <div className="badges-grid-fruit">
@@ -365,24 +371,36 @@ const PomegranateFruit = () => {
             <span className="badge-fruit">90-Day Shelf Life</span>
           </div>
 
-          <div className="specs-grid-fruit">
-            <div className="spec-cell-fruit">
-              <div className="spec-label-fruit">Availability</div>
-              <div className="spec-value-fruit">365-Day<br />Supply</div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 text-left mb-12">
+            <div className="bg-[#faf9f5] p-8 rounded-[1.5rem] border border-zinc-200/60 border-l-4 border-l-[#9ef295] hover:shadow-md transition-shadow">
+              <h4 className="font-bold text-zinc-400 uppercase text-[9px] tracking-widest mb-4">Availability</h4>
+              <p className="text-lg md:text-xl font-serif font-bold text-zinc-800 mb-2">365-Day Supply</p>
+              <p className="text-[10px] text-zinc-500 font-sans">Steady Year-Round Supply</p>
             </div>
-            <div className="spec-cell-fruit">
-              <div className="spec-label-fruit">Shelf Life</div>
-              <div className="spec-value-fruit">Up to 90 Days</div>
-              <div className="spec-note-fruit">Controlled atmosphere</div>
+            <div className="bg-[#faf9f5] p-8 rounded-[1.5rem] border border-zinc-200/60 border-l-4 border-l-[#0d631b] hover:shadow-md transition-shadow">
+              <h4 className="font-bold text-zinc-400 uppercase text-[9px] tracking-widest mb-4">Shelf Life</h4>
+              <p className="text-lg md:text-xl font-serif font-bold text-zinc-800 mb-2">Up to 90 Days</p>
+              <p className="text-[10px] text-zinc-500 font-sans">Controlled atmosphere</p>
             </div>
-            <div className="spec-cell-fruit">
-              <div className="spec-label-fruit">Variety</div>
-              <div className="spec-value-fruit">Bhagwa</div>
-              <div className="spec-note-fruit">Single variety</div>
+            <div className="bg-[#faf9f5] p-8 rounded-[1.5rem] border border-zinc-200/60 border-l-4 border-l-[#7e1a12] hover:shadow-md transition-shadow">
+              <h4 className="font-bold text-zinc-400 uppercase text-[9px] tracking-widest mb-4">Variety</h4>
+              <p className="text-lg md:text-xl font-serif font-bold text-zinc-800 mb-2">Bhagwa</p>
+              <p className="text-[10px] text-zinc-500 font-sans">Single variety</p>
             </div>
-            <div className="spec-cell-fruit">
-              <div className="spec-label-fruit">Processing</div>
-              <div className="spec-value-fruit">Graded &<br />Sorted</div>
+            <div className="bg-[#faf9f5] p-8 rounded-[1.5rem] border border-zinc-200/60 border-l-4 border-l-zinc-300 hover:shadow-md transition-shadow">
+              <h4 className="font-bold text-zinc-400 uppercase text-[9px] tracking-widest mb-4">Processing</h4>
+              <p className="text-lg md:text-xl font-serif font-bold text-zinc-800 mb-2">Graded & Sorted</p>
+              <p className="text-[10px] text-zinc-500 font-sans">Automated wash & size</p>
+            </div>
+          </div>
+
+          {/* Availability Calendar */}
+          <div className="text-left border-t border-zinc-100 pt-8 w-full">
+            <h4 className="font-bold text-zinc-400 uppercase text-[10px] tracking-widest mb-6">Availability Calendar</h4>
+            <div className="flex flex-wrap gap-3">
+              {['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'].map((month) => (
+                <span key={month} className="w-10 h-10 flex items-center justify-center rounded-full border border-zinc-200 text-[#0d631b] text-xs font-bold bg-[#0d631b]/5">{month}</span>
+              ))}
             </div>
           </div>
         </section>

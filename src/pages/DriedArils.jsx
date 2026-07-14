@@ -50,7 +50,9 @@ const DriedArils = () => {
             
             {/* Left: Feature Grid */}
             <div className="lg:col-span-12">
-              <h4 className="text-[10px] font-black uppercase tracking-[0.4em] text-secondary mb-12">Product Attributes</h4>
+              <h4 className="text-3xl md:text-4xl font-black uppercase tracking-tight text-zinc-800 mb-12 font-sans">
+                Product <span className="text-[#0d631b]">Overview</span>
+              </h4>
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
                 <div className="group bg-white p-8 rounded-[2rem] shadow-[0_20px_50px_rgba(0,0,0,0.03)] border border-zinc-100 hover:border-primary/20 transition-all hover:-translate-y-2">
                   <div className="w-12 h-12 bg-primary/10 rounded-2xl flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-all">
