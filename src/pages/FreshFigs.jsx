@@ -5,7 +5,7 @@ const FreshFigs = () => {
     <main className="bg-[#faf9f5] text-on-surface selection:bg-[#7e1a12] selection:text-white">
       {/* Banner */}
       <section className="min-h-screen bg-gradient-to-br from-[#7e1a12] to-black relative flex flex-col md:flex-row items-center px-6 md:px-12 overflow-hidden pt-24 md:pt-0">
-        <div className="w-full md:max-w-xl text-white relative z-10 animate-in py-12 md:py-0">
+        <div className="w-full md:max-w-xl text-white relative z-10 animate-in py-12 md:pt-32 md:pb-16">
           <span className="text-[#9ef295] font-display font-bold uppercase tracking-[0.3em] text-[10px] mb-4 block">Exotic Indian Variety</span>
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-serif font-bold leading-none mb-6 md:mb-8 uppercase tracking-tighter">Fresh <br /><span className="italic text-[#9ef295]">Figs</span></h1>
           <p className="text-sm md:text-base text-white/70 leading-relaxed font-sans mb-8 md:mb-10">

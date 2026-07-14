@@ -5,7 +5,7 @@ const WholeFruit = () => {
     <main className="bg-[#faf9f5] text-zinc-900 selection:bg-[#9ef295] selection:text-black">
       {/* Banner Section */}
       <section className="relative w-full min-h-screen md:h-screen overflow-hidden flex flex-col md:flex-row items-stretch pt-24 md:pt-0">
-        <div className="w-full md:w-[45%] bg-gradient-to-br from-[#7e1a12] to-black flex flex-col justify-center px-8 md:px-16 py-12 md:py-0 relative z-10">
+        <div className="w-full md:w-[45%] bg-gradient-to-br from-[#7e1a12] to-black flex flex-col justify-center px-8 md:px-16 py-12 md:pt-32 md:pb-16 relative z-10">
           <div className="max-w-md animate-in">
             <span className="inline-block bg-white/10 text-[#9ef295] border border-white/20 rounded-full px-4 py-1 text-[9px] md:text-[10px] font-display font-bold tracking-[0.4em] uppercase mb-6">
               Export-Ready Supply
