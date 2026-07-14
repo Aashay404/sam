@@ -143,6 +143,7 @@ const IqfArils = () => {
         /* ── ATTRIBUTES ── */
         .section-iqf {
           padding: 5rem 5rem;
+          background: #ffffff;
           animation: fadeUpIqf 0.7s ease both;
         }
         .section-header-iqf {
@@ -153,11 +154,11 @@ const IqfArils = () => {
           font-family: 'Outfit', sans-serif;
           font-size: 30px; font-weight: 600;
           letter-spacing: -0.02em;
-          color: #ffffff;
+          color: var(--text);
         }
         .section-rule-iqf {
           flex: 1; height: 1px;
-          background: rgba(255, 255, 255, 0.25);
+          background: rgba(90, 50, 30, 0.15);
         }
 
         .badges-grid-iqf {
@@ -351,11 +352,9 @@ const IqfArils = () => {
 
         {/* ATTRIBUTES */}
         <section className="section-iqf" id="attributes">
-          <div className="max-w-2xl mb-12 md:mb-16">
-            <h2 className="text-3xl md:text-5xl font-serif font-bold text-white mb-4 md:mb-6 uppercase tracking-tighter">
-              Product <span className="text-[#9ef295]">Attributes</span>
-            </h2>
-            <div className="w-16 md:w-24 h-1 md:h-1.5 bg-[#9ef295]"></div>
+          <div className="section-header-iqf">
+            <h2 className="section-title-iqf">Product Attributes</h2>
+            <div className="section-rule-iqf"></div>
           </div>
 
           <div className="badges-grid-iqf">
@@ -367,24 +366,36 @@ const IqfArils = () => {
             <span className="badge-iqf">Year-Round Supply</span>
           </div>
 
-          <div className="specs-grid-iqf">
-            <div className="spec-cell-iqf">
-              <div className="spec-label-iqf">Availability</div>
-              <div className="spec-value-iqf">365-Day<br />Supply</div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 text-left mb-12">
+            <div className="bg-[#faf9f5] p-8 rounded-[1.5rem] border border-zinc-200/60 border-l-4 border-l-[#9ef295] hover:shadow-md transition-shadow">
+              <h4 className="font-bold text-zinc-400 uppercase text-[9px] tracking-widest mb-4">Availability</h4>
+              <p className="text-lg md:text-xl font-serif font-bold text-zinc-800 mb-2">365-Day Supply</p>
+              <p className="text-[10px] text-zinc-500 font-sans">Steady Year-Round Supply</p>
             </div>
-            <div className="spec-cell-iqf">
-              <div className="spec-label-iqf">Shelf Life</div>
-              <div className="spec-value-iqf">24 Months</div>
-              <div className="spec-note-iqf">Frozen at -20°C</div>
+            <div className="bg-[#faf9f5] p-8 rounded-[1.5rem] border border-zinc-200/60 border-l-4 border-l-[#0d631b] hover:shadow-md transition-shadow">
+              <h4 className="font-bold text-zinc-400 uppercase text-[9px] tracking-widest mb-4">Shelf Life</h4>
+              <p className="text-lg md:text-xl font-serif font-bold text-zinc-800 mb-2">24 Months</p>
+              <p className="text-[10px] text-zinc-500 font-sans">Frozen at -20°C</p>
             </div>
-            <div className="spec-cell-iqf">
-              <div className="spec-label-iqf">Variety</div>
-              <div className="spec-value-iqf">Bhagwa</div>
-              <div className="spec-note-iqf">Single variety</div>
+            <div className="bg-[#faf9f5] p-8 rounded-[1.5rem] border border-zinc-200/60 border-l-4 border-l-[#7e1a12] hover:shadow-md transition-shadow">
+              <h4 className="font-bold text-zinc-400 uppercase text-[9px] tracking-widest mb-4">Variety</h4>
+              <p className="text-lg md:text-xl font-serif font-bold text-zinc-800 mb-2">Bhagwa</p>
+              <p className="text-[10px] text-zinc-500 font-sans">Single variety</p>
             </div>
-            <div className="spec-cell-iqf">
-              <div className="spec-label-iqf">Processing</div>
-              <div className="spec-value-iqf">Individually<br />Quick Frozen</div>
+            <div className="bg-[#faf9f5] p-8 rounded-[1.5rem] border border-zinc-200/60 border-l-4 border-l-zinc-300 hover:shadow-md transition-shadow">
+              <h4 className="font-bold text-zinc-400 uppercase text-[9px] tracking-widest mb-4">Processing</h4>
+              <p className="text-lg md:text-xl font-serif font-bold text-zinc-800 mb-2">IQF Freezing</p>
+              <p className="text-[10px] text-zinc-500 font-sans">Individually Quick Frozen</p>
+            </div>
+          </div>
+
+          {/* Availability Calendar */}
+          <div className="text-left border-t border-zinc-100 pt-8 w-full">
+            <h4 className="font-bold text-zinc-400 uppercase text-[10px] tracking-widest mb-6">Availability Calendar</h4>
+            <div className="flex flex-wrap gap-3">
+              {['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'].map((month) => (
+                <span key={month} className="w-10 h-10 flex items-center justify-center rounded-full border border-zinc-200 text-[#0d631b] text-xs font-bold bg-[#0d631b]/5">{month}</span>
+              ))}
             </div>
           </div>
         </section>

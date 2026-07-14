@@ -8,11 +8,12 @@ const DriedArils = () => {
         {/* Content Side */}
         <div className="w-full md:w-[50%] bg-gradient-to-br from-[#4a0a05] to-[#1a0505] flex flex-col justify-center px-8 md:px-20 py-16 md:py-0 relative z-10">
           <div className="max-w-xl animate-in">
-            <div className="inline-block border-[1px] border-white/30 px-10 py-4 mb-10 backdrop-blur-sm bg-white/5">
-              <span className="text-white text-2xl md:text-3xl font-serif font-bold uppercase tracking-[0.3em]">Dried Arils</span>
-            </div>
-            
-            <h2 className="text-[#9ef295] text-sm font-bold uppercase tracking-[0.4em] mb-6">Shelf-Stable Excellence</h2>
+            <span className="inline-block bg-white/10 text-[#9ef295] border border-white/20 rounded-full px-4 py-1 text-[9px] md:text-[10px] font-bold tracking-[0.4em] uppercase mb-6">
+              Shelf-Stable Excellence
+            </span>
+            <h1 className="text-4xl md:text-7xl font-serif font-bold text-white leading-[0.9] mb-6 md:mb-8 uppercase tracking-tighter">
+              Dried <br/><span className="text-[#9ef295]">Arils</span>
+            </h1>
             
             <p className="text-white/80 text-base md:text-lg leading-relaxed font-sans mb-12 font-light">
               Crafted exclusively from <span className="text-[#9ef295] font-bold">Bhagwa</span> pomegranates using a slow-dry process that locks in vibrant colour, natural sugars, and soft-chewy texture, our dried arils carry a clean-label promise — no added sugars, no artificial preservatives, no compromises. 
@@ -50,7 +51,12 @@ const DriedArils = () => {
             
             {/* Left: Feature Grid */}
             <div className="lg:col-span-12">
-              <h4 className="text-[10px] font-black uppercase tracking-[0.4em] text-secondary mb-12">Product Attributes</h4>
+              <div className="max-w-2xl mb-12 md:mb-16">
+                <h2 className="text-3xl md:text-5xl font-serif font-bold text-zinc-900 mb-4 md:mb-6 uppercase tracking-tighter">
+                  Product <span className="text-primary">Overview</span>
+                </h2>
+                <div className="w-16 md:w-24 h-1 md:h-1.5 bg-primary"></div>
+              </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
                 <div className="group bg-white p-8 rounded-[2rem] shadow-[0_20px_50px_rgba(0,0,0,0.03)] border border-zinc-100 hover:border-primary/20 transition-all hover:-translate-y-2">
                   <div className="w-12 h-12 bg-primary/10 rounded-2xl flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-all">
@@ -99,22 +105,26 @@ const DriedArils = () => {
           </div>
 
           {/* Bottom Metrics Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mt-20 pt-20 border-t border-zinc-200">
-            <div className="bg-zinc-50 p-8 rounded-2xl">
-              <h5 className="text-[10px] font-black uppercase tracking-widest text-zinc-400 mb-4">Shelf Life</h5>
-              <p className="text-xl font-bold text-zinc-800 leading-tight">9-12 Months <br /><span className="text-sm font-medium text-zinc-500">(Packaging Dependent)</span></p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 mt-20 pt-20 border-t border-zinc-200">
+            <div className="bg-[#faf9f5] p-8 md:p-10 rounded-[1.5rem] md:rounded-[2rem] border border-zinc-200/60 border-l-4 border-l-[#9ef295]">
+              <h4 className="font-bold text-zinc-400 uppercase text-[9px] tracking-widest mb-4">Shelf Life</h4>
+              <p className="text-lg md:text-xl font-serif font-bold text-zinc-800 mb-2">9-12 Months</p>
+              <p className="text-[10px] text-zinc-500 font-sans">Packaging Dependent</p>
             </div>
-            <div className="bg-zinc-50 p-8 rounded-2xl">
-              <h5 className="text-[10px] font-black uppercase tracking-widest text-zinc-400 mb-4">Variety</h5>
-              <p className="text-xl font-bold text-zinc-800">Bhagwa (Single Variety)</p>
+            <div className="bg-[#faf9f5] p-8 md:p-10 rounded-[1.5rem] md:rounded-[2rem] border border-zinc-200/60 border-l-4 border-l-[#0d631b]">
+              <h4 className="font-bold text-zinc-400 uppercase text-[9px] tracking-widest mb-4">Variety</h4>
+              <p className="text-lg md:text-xl font-serif font-bold text-zinc-800 mb-2">Bhagwa</p>
+              <p className="text-[10px] text-zinc-500 font-sans">Single Variety</p>
             </div>
-            <div className="bg-zinc-50 p-8 rounded-2xl">
-              <h5 className="text-[10px] font-black uppercase tracking-widest text-zinc-400 mb-4">Processing</h5>
-              <p className="text-xl font-bold text-zinc-800">Slow-Dried</p>
+            <div className="bg-[#faf9f5] p-8 md:p-10 rounded-[1.5rem] md:rounded-[2rem] border border-zinc-200/60 border-l-4 border-l-[#7e1a12]">
+              <h4 className="font-bold text-zinc-400 uppercase text-[9px] tracking-widest mb-4">Processing</h4>
+              <p className="text-lg md:text-xl font-serif font-bold text-zinc-800 mb-2">Slow-Dried</p>
+              <p className="text-[10px] text-zinc-500 font-sans">Natural Dehydration</p>
             </div>
-            <div className="bg-zinc-50 p-8 rounded-2xl">
-              <h5 className="text-[10px] font-black uppercase tracking-widest text-zinc-400 mb-4">Label Status</h5>
-              <p className="text-xl font-bold text-zinc-800">100% Natural, Clean Label</p>
+            <div className="bg-[#faf9f5] p-8 md:p-10 rounded-[1.5rem] md:rounded-[2rem] border border-zinc-200/60 border-l-4 border-l-zinc-300">
+              <h4 className="font-bold text-zinc-400 uppercase text-[9px] tracking-widest mb-4">Label Status</h4>
+              <p className="text-lg md:text-xl font-serif font-bold text-zinc-800 mb-2">100% Natural</p>
+              <p className="text-[10px] text-zinc-500 font-sans">Clean Label Promise</p>
             </div>
           </div>
         </div>
