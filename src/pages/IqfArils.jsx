@@ -21,7 +21,7 @@ const IqfArils = () => {
           --radius-sm: 8px;
           background: linear-gradient(135deg, #7e1a12 0%, #000 100%);
           color: var(--text);
-          font-family: 'DM Sans', sans-serif;
+          font-family: 'Outfit', sans-serif;
         }
 
         /* ── HERO ── */
@@ -120,7 +120,7 @@ const IqfArils = () => {
           border: none;
           padding: 14px 32px;
           border-radius: 99px;
-          font-family: 'DM Sans', sans-serif;
+          font-family: 'Outfit', sans-serif;
           font-size: 13px; font-weight: 700;
           letter-spacing: 0.12em; text-transform: uppercase;
           cursor: pointer; text-decoration: none;
@@ -351,9 +351,11 @@ const IqfArils = () => {
 
         {/* ATTRIBUTES */}
         <section className="section-iqf" id="attributes">
-          <div className="section-header-iqf">
-            <h2 className="section-title-iqf">Product Attributes</h2>
-            <div className="section-rule-iqf"></div>
+          <div className="max-w-2xl mb-12 md:mb-16">
+            <h2 className="text-3xl md:text-5xl font-serif font-bold text-white mb-4 md:mb-6 uppercase tracking-tighter">
+              Product <span className="text-[#9ef295]">Attributes</span>
+            </h2>
+            <div className="w-16 md:w-24 h-1 md:h-1.5 bg-[#9ef295]"></div>
           </div>
 
           <div className="badges-grid-iqf">
@@ -413,9 +415,11 @@ const IqfArils = () => {
 
         {/* FEATURES */}
         <section className="section-iqf" id="features">
-          <div className="section-header-iqf">
-            <h2 className="section-title-iqf">Why Choose Us</h2>
-            <div className="section-rule-iqf"></div>
+          <div className="max-w-2xl mb-12 md:mb-16">
+            <h2 className="text-3xl md:text-5xl font-serif font-bold text-white mb-4 md:mb-6 uppercase tracking-tighter">
+              Why <span className="text-[#9ef295]">Choose Us</span>
+            </h2>
+            <div className="w-16 md:w-24 h-1 md:h-1.5 bg-[#9ef295]"></div>
           </div>
 
           <div className="features-grid-iqf">
